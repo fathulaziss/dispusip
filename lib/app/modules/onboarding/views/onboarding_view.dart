@@ -44,7 +44,7 @@ class OnboardingView extends GetView<OnboardingController> {
             ),
             SizedBox(
               width: double.infinity,
-              height: 200.h,
+              height: 185.h,
               child: (controller.slideIndex.value == 2)
                   ? Column(
                       mainAxisAlignment: MainAxisAlignment.center,
