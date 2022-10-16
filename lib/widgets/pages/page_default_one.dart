@@ -85,7 +85,7 @@ class PageDefaultOne extends StatelessWidget {
                     ),
                     color: Colors.white,
                   ),
-                  child: child,
+                  child: SingleChildScrollView(child: child),
                 ),
               )
             ],

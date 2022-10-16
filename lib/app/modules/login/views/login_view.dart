@@ -1,4 +1,5 @@
 import 'package:dispusip/app/modules/login/controllers/login_controller.dart';
+import 'package:dispusip/app/routes/app_pages.dart';
 import 'package:dispusip/styles/colors.dart';
 import 'package:dispusip/styles/styles.dart';
 import 'package:dispusip/widgets/buttons/button_primary.dart';
@@ -40,6 +41,7 @@ class LoginView extends GetView<LoginController> {
               controller: controller.cPassword,
               value: controller.setPassword,
               validation: (value) => value.isNotEmpty,
+              validationText: '',
               margin: EdgeInsets.only(bottom: Insets.sm),
               prefixIcon: Padding(
                 padding: EdgeInsets.symmetric(horizontal: Insets.sm),
@@ -59,7 +61,7 @@ class LoginView extends GetView<LoginController> {
             ),
             verticalSpace(Insets.lg),
             ButtonPrimary(
-              onTap: () {},
+              onTap: () => Get.toNamed(Routes.REGISTER),
               label: 'DAFTAR ANGGOTA',
               isOutline: true,
               color: Colors.transparent,

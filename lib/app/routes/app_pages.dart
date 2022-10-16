@@ -7,6 +7,8 @@ import 'package:dispusip/app/modules/login/bindings/login_binding.dart';
 import 'package:dispusip/app/modules/login/views/login_view.dart';
 import 'package:dispusip/app/modules/onboarding/bindings/onboarding_binding.dart';
 import 'package:dispusip/app/modules/onboarding/views/onboarding_view.dart';
+import 'package:dispusip/app/modules/register/bindings/register_binding.dart';
+import 'package:dispusip/app/modules/register/views/register_view.dart';
 import 'package:dispusip/app/modules/splash_screen_view.dart';
 import 'package:get/get.dart';
 
@@ -45,6 +47,11 @@ class AppPages {
       name: _Paths.ONBOARDING,
       page: () => const OnboardingView(),
       binding: OnboardingBinding(),
+    ),
+    GetPage(
+      name: _Paths.REGISTER,
+      page: () => const RegisterView(),
+      binding: RegisterBinding(),
     ),
   ];
 }
