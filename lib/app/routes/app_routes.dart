@@ -17,8 +17,8 @@ abstract class Routes {
 
 abstract class _Paths {
   _Paths._();
-  static const SPLASH_SCREEN = '/home';
-  static const BLOCKED = '/api-log';
+  static const SPLASH_SCREEN = '/splash-screen';
+  static const BLOCKED = '/blocked';
   static const HOME = '/home';
   static const API_LOG = '/api-log';
   static const LOGIN = '/login';
