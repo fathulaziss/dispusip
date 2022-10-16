@@ -44,7 +44,7 @@ android {
         }
         dev {
             dimension "flavor-dimension"
-            applicationId "com.dispusip.dev"
+            applicationId "com.dispusip"
             resValue "string", "app_name", "Dispusip"
             proguardFile 'proguard-rules.pro'
         }

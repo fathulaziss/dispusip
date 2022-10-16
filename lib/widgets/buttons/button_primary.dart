@@ -52,7 +52,7 @@ class ButtonPrimary extends StatelessWidget {
         decoration: isOutline
             ? BoxDecoration(
                 borderRadius: BorderRadius.circular(
-                  isLoading ? 24.w : radius ?? Insets.sm,
+                  isLoading ? 24.w : radius ?? Insets.xl,
                 ),
                 color: enabled
                     ? color ?? AppColor.primaryColor
@@ -61,7 +61,7 @@ class ButtonPrimary extends StatelessWidget {
               )
             : BoxDecoration(
                 borderRadius: BorderRadius.circular(
-                  isLoading ? 24.w : radius ?? Insets.sm,
+                  isLoading ? 24.w : radius ?? Insets.xl,
                 ),
                 color: enabled
                     ? color ?? AppColor.primaryColor
@@ -93,6 +93,7 @@ class ButtonPrimary extends StatelessWidget {
                                 style: textStyle ??
                                     TextStyles.button.copyWith(
                                       color: textColor ?? Colors.white,
+                                      letterSpacing: 2,
                                     ),
                                 textAlign: TextAlign.center,
                               ),

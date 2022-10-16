@@ -2,7 +2,6 @@ import 'package:dispusip/app/bindings/initial_binding.dart';
 import 'package:dispusip/app/controllers/utility_controller.dart';
 import 'package:dispusip/app/modules/api_log/components/overlay_log_button.dart';
 import 'package:dispusip/app/routes/app_pages.dart';
-import 'package:dispusip/styles/colors.dart';
 import 'package:dispusip/styles/styles.dart';
 import 'package:dispusip/utils/app_utils.dart';
 import 'package:dispusip/widgets/pages/page_info.dart';
@@ -42,9 +41,6 @@ class _AppState extends State<App> {
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
     ]);
-    SystemChrome.setSystemUIOverlayStyle(
-      const SystemUiOverlayStyle(statusBarColor: AppColor.greenAccent),
-    );
 
     return ScreenUtilInit(
       designSize: const Size(375, 812),
@@ -82,9 +78,5 @@ class _AppState extends State<App> {
         },
       ),
     );
-    // return GetMaterialApp(
-    //   initialRoute: Routes.HOME,
-    //   getPages: AppPages.routes,
-    // );
   }
 }

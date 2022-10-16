@@ -10,9 +10,8 @@ class AppStyle {
       brightness: Brightness.light,
       primaryColor: MaterialColor(hexColor, AppColor.color),
       primarySwatch: MaterialColor(hexColor, AppColor.color),
-      fontFamily: 'MyriadPro',
       splashColor: splashColor,
-      scaffoldBackgroundColor: Colors.grey.shade100,
+      scaffoldBackgroundColor: Colors.white,
     );
   }
 }
@@ -34,8 +33,7 @@ class TextStyles {
   static TextStyle get title =>
       text.copyWith(fontWeight: FontWeight.w600, fontSize: 18.w);
 
-  static TextStyle get desc =>
-      text.copyWith(fontWeight: FontWeight.w600, fontSize: 12.w);
+  static TextStyle get desc => text.copyWith(fontSize: 12.w);
 
   static TextStyle get button =>
       text.copyWith(fontWeight: FontWeight.w600, fontSize: 18.w);
