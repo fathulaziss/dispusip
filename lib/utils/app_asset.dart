@@ -4,7 +4,7 @@ class AppAsset {
   }
 
   static String logo(String s) {
-    return 'assets/logo/$s';
+    return 'assets/logos/$s';
   }
 
   static String image(String s) {

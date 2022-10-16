@@ -1,4 +1,5 @@
 import 'package:dispusip/services/app_cycle_service.dart';
+import 'package:dispusip/utils/app_asset.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -36,12 +37,13 @@ class _SplashScreenViewState extends State<SplashScreenView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('SplashScreenView'),
-        centerTitle: true,
-      ),
-      body: const Center(
-        child: Text('SplashScreen is working', style: TextStyle(fontSize: 20)),
+      body: Center(
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 1000),
+          width: width,
+          height: width,
+          child: Image.asset(AppAsset.logo('logo_dispusip_black.png')),
+        ),
       ),
     );
   }

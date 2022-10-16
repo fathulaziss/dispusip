@@ -2,10 +2,12 @@ import 'package:dispusip/app/bindings/initial_binding.dart';
 import 'package:dispusip/app/controllers/utility_controller.dart';
 import 'package:dispusip/app/modules/api_log/components/overlay_log_button.dart';
 import 'package:dispusip/app/routes/app_pages.dart';
+import 'package:dispusip/styles/colors.dart';
 import 'package:dispusip/styles/styles.dart';
 import 'package:dispusip/utils/app_utils.dart';
 import 'package:dispusip/widgets/pages/page_info.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
@@ -36,12 +38,20 @@ class _AppState extends State<App> {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(statusBarColor: AppColor.greenAccent),
+    );
+
     return ScreenUtilInit(
       designSize: const Size(375, 812),
       builder: (BuildContext context, Widget? widget) => GetMaterialApp(
-        title: 'dispusip',
+        title: 'Dispusip',
         theme: AppStyle.appTheme(
-          0xFFB7282D,
+          0xFF00B34D,
           Colors.white,
         ),
         builder: (BuildContext context, Widget? child) {
