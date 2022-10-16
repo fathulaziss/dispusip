@@ -69,7 +69,7 @@ class LoginView extends GetView<LoginController> {
               textColor: AppColor.primaryColor,
             ),
             TextButton(
-              onPressed: () {},
+              onPressed: () => Get.toNamed(Routes.FORGOT_PASSWORD),
               child: Text(
                 'LUPA PASSWORD',
                 style: TextStyles.text.copyWith(

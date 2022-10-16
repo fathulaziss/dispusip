@@ -1,6 +1,8 @@
 import 'package:dispusip/app/modules/api_log/bindings/api_log_binding.dart';
 import 'package:dispusip/app/modules/api_log/views/api_log_view.dart';
 import 'package:dispusip/app/modules/blocked_view.dart';
+import 'package:dispusip/app/modules/forgot_password/bindings/forgot_password_binding.dart';
+import 'package:dispusip/app/modules/forgot_password/views/forgot_password_view.dart';
 import 'package:dispusip/app/modules/home/bindings/home_binding.dart';
 import 'package:dispusip/app/modules/home/views/home_view.dart';
 import 'package:dispusip/app/modules/login/bindings/login_binding.dart';
@@ -52,6 +54,11 @@ class AppPages {
       name: _Paths.REGISTER,
       page: () => const RegisterView(),
       binding: RegisterBinding(),
+    ),
+    GetPage(
+      name: _Paths.FORGOT_PASSWORD,
+      page: () => const ForgotPasswordView(),
+      binding: ForgotPasswordBinding(),
     ),
   ];
 }
