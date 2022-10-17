@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:developer' as d;
 
 import 'package:flutter/foundation.dart';
@@ -30,6 +31,15 @@ class AppUtils {
       return !JwtDecoder.isExpired(token);
     } catch (e) {
       logSys(e.toString());
+      return false;
+    }
+  }
+
+  static bool isJsonSting(String s) {
+    try {
+      json.decode(s) as Map<String, dynamic>;
+      return true;
+    } on FormatException {
       return false;
     }
   }

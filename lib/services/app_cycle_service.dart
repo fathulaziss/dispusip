@@ -43,7 +43,6 @@ class AppCycleService {
         onPress: () {
           onUserLogout();
         },
-        dismissible: false,
       );
     });
   }

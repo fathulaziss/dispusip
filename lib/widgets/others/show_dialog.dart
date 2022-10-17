@@ -8,15 +8,14 @@ showPopUpInfo({
   String? title,
   String? description,
   String? labelButton,
-  bool? dismissible,
   Function()? onPress,
 }) {
   Get.dialog(
     Dialog(
       backgroundColor: Colors.transparent,
-      insetPadding: EdgeInsets.symmetric(horizontal: 60.w),
+      insetPadding: EdgeInsets.symmetric(horizontal: 24.w),
       child: Container(
-        padding: EdgeInsets.fromLTRB(12.w, 20.w, 12.w, 4.w),
+        padding: EdgeInsets.fromLTRB(20.w.w, 20.w, 20.w, 4.w),
         decoration: BoxDecoration(
           borderRadius: Corners.smBorder,
           color: Colors.white,
@@ -50,6 +49,6 @@ showPopUpInfo({
         ),
       ),
     ),
-    barrierDismissible: dismissible ?? true,
+    barrierDismissible: false,
   );
 }

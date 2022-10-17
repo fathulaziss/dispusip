@@ -54,7 +54,8 @@ class LoginView extends GetView<LoginController> {
             ),
             verticalSpace(Insets.lg),
             ButtonPrimary(
-              onTap: () => Get.offNamed(Routes.HOME),
+              // onTap: () => Get.offNamed(Routes.HOME),
+              onTap: controller.login,
               label: 'LOGIN',
               enabled: controller.isValidForm.value,
               isLoading: controller.isLoading.value,

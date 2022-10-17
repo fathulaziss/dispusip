@@ -1,18 +1,21 @@
+import 'package:dispusip/app/modules/api_log/models/api_log_model.dart';
 import 'package:get/get.dart';
 
 class ApiLogController extends GetxController {
-  // final count = 0.obs;
-  // @override
-  // void onInit() {
-  //   super.onInit();
-  // }
+  var apiLogs = <ApiLogModel>[].obs;
+  RxList<bool> isOpen = RxList.generate(100, (index) => false);
+  RxBool isLoading = false.obs;
 
-  // @override
-  // void onReady() {
-  //   super.onReady();
-  // }
+  @override
+  onInit() {
+    super.onInit();
+    getLogs();
+  }
 
-  // @override
-  // void onClose() {}
-  // void increment() => count.value++;
+  Future<void> getLogs() async {
+    isLoading(true);
+    final data = await ApiLogger().apiLogs();
+    apiLogs(data.reversed.toList());
+    isLoading(false);
+  }
 }

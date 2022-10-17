@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-class LogButton extends StatelessWidget {
-  const LogButton({Key? key, required this.color}) : super(key: key);
+class ApiLogButton extends StatelessWidget {
+  const ApiLogButton({Key? key, required this.color}) : super(key: key);
   final Color color;
 
   @override

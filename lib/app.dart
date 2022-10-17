@@ -1,6 +1,6 @@
 import 'package:dispusip/app/bindings/initial_binding.dart';
 import 'package:dispusip/app/controllers/utility_controller.dart';
-import 'package:dispusip/app/modules/api_log/components/overlay_log_button.dart';
+import 'package:dispusip/app/modules/api_log/components/api_log_overlay_button.dart';
 import 'package:dispusip/app/routes/app_pages.dart';
 import 'package:dispusip/styles/styles.dart';
 import 'package:dispusip/utils/app_utils.dart';
@@ -61,7 +61,7 @@ class _AppState extends State<App> {
                 () => Stack(
                   children: [
                     child!,
-                    if (cUtil.isShowLog.value) const OverlayLogButton(),
+                    if (cUtil.isShowLog.value) const ApiLogOverlayButton(),
                     if (cUtil.isShowLog.value) PageInfo(pageName: pageName),
                   ],
                 ),

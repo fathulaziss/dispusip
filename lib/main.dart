@@ -1,5 +1,6 @@
 import 'package:dispusip/app.dart';
 import 'package:dispusip/app_config.dart';
+import 'package:dispusip/services/api_service.dart';
 import 'package:flutter/material.dart';
 import 'package:get_storage/get_storage.dart';
 
@@ -16,7 +17,7 @@ Future<void> setupApp({
           : Flavor.development;
   await GetStorage.init();
   await initFirebase();
-  // await HttpService().init();
+  await ApiService().init();
 
   start();
 }
