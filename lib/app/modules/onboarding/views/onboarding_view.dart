@@ -2,9 +2,11 @@ import 'package:dispusip/app/modules/onboarding/components/onboarding_slidetile.
 import 'package:dispusip/app/modules/onboarding/components/onboarding_slidetile_indicator.dart';
 import 'package:dispusip/app/modules/onboarding/controllers/onboarding_controller.dart';
 import 'package:dispusip/app/routes/app_pages.dart';
+import 'package:dispusip/constants/constants.dart';
 import 'package:dispusip/styles/colors.dart';
 import 'package:dispusip/styles/styles.dart';
 import 'package:dispusip/utils/app_asset.dart';
+import 'package:dispusip/utils/app_storage.dart';
 import 'package:dispusip/widgets/buttons/button_primary.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -52,12 +54,24 @@ class OnboardingView extends GetView<OnboardingController> {
                         Padding(
                           padding: EdgeInsets.symmetric(horizontal: Insets.xxl),
                           child: ButtonPrimary(
-                            onTap: () => Get.toNamed(Routes.LOGIN),
+                            onTap: () {
+                              AppStorage.write(
+                                key: FIRST_TIME_OPEN_APP,
+                                value: 'true',
+                              );
+                              Get.offNamed(Routes.LOGIN);
+                            },
                             label: 'MULAI',
                           ),
                         ),
                         TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            AppStorage.write(
+                              key: FIRST_TIME_OPEN_APP,
+                              value: 'true',
+                            );
+                            Get.offNamed(Routes.LOGIN);
+                          },
                           child: RichText(
                             text: TextSpan(
                               text: 'Sudah punya akun ? ',

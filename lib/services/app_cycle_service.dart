@@ -55,21 +55,31 @@ class AppCycleService {
         return;
       }
 
-      //* CHECK TOKEN
-      final token = await AppStorage.read(key: CACHE_ACCESS_TOKEN);
-      if (token.isEmpty) {
+      //* CHECK FIRST TIME OPEN APP
+      final value = await AppStorage.read(key: FIRST_TIME_OPEN_APP);
+      if (value.isEmpty) {
         await Get.offNamed(Routes.ONBOARDING);
         return;
       }
 
-      final isValid = await AppUtils.checkTokenValidity(token);
-      if (isValid) {
-        await Get.offNamed(Routes.HOME);
+      //* CHECK TOKEN
+      final token = await AppStorage.read(key: CACHE_ACCESS_TOKEN);
+      if (token.isEmpty) {
+        await Get.offNamed(Routes.LOGIN);
         return;
       }
 
+      // final isValid = await AppUtils.checkTokenValidity(token);
+      // if (isValid) {
+      //   await Get.offNamed(Routes.HOME);
+      //   return;
+      // }
+
       //* DEFAULT ROUTES TO LOGIN
-      await Get.offNamed(Routes.LOGIN);
+      // await Get.offNamed(Routes.LOGIN);
+
+      //* DEFAULT ROUTES TO HOME
+      await Get.offNamed(Routes.HOME);
     } on Exception {
       await Get.offNamed(Routes.LOGIN);
     }
