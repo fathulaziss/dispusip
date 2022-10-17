@@ -12,6 +12,7 @@ class AppColor {
   static const Color purpleAccent = Color(0xFFE2BDE7);
   static const Color orange = Color(0xFFFFCC80);
   static const Color greenAccent = Color(0xFFB0DCDA);
+  static const Color red = Color(0xFFFF3D3D);
 
   static const Color textColor = Color(0xFF0A0A0A);
 

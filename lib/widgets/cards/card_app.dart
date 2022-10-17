@@ -19,6 +19,8 @@ class CardApp extends StatelessWidget {
     this.isOutlined = false,
     this.decoration,
     this.constraints,
+    this.isShowShadows = false,
+    this.shadows,
   }) : super(key: key);
   final EdgeInsets? margin;
   final EdgeInsets? padding;
@@ -32,6 +34,8 @@ class CardApp extends StatelessWidget {
   final bool isOutlined;
   final BoxDecoration? decoration;
   final BoxConstraints? constraints;
+  final bool isShowShadows;
+  final List<BoxShadow>? shadows;
 
   @override
   Widget build(BuildContext context) {
@@ -54,6 +58,8 @@ class CardApp extends StatelessWidget {
               : BoxDecoration(
                   color: color ?? Colors.white,
                   borderRadius: BorderRadius.circular(radius ?? Insets.sm),
+                  boxShadow:
+                      isShowShadows ? shadows ?? Shadows.small : Shadows.none,
                 )),
       child: child,
     );

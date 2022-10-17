@@ -65,7 +65,8 @@ class AppCycleService {
       //* CHECK TOKEN
       final token = await AppStorage.read(key: CACHE_ACCESS_TOKEN);
       if (token.isEmpty) {
-        await Get.offNamed(Routes.LOGIN);
+        // await Get.offNamed(Routes.LOGIN);
+        await Get.offNamed(Routes.HOME);
         return;
       }
 
