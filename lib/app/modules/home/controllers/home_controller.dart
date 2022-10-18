@@ -1,5 +1,6 @@
 import 'package:dispusip/app/modules/home/models/book_model.dart';
 import 'package:dispusip/app/modules/home/models/home_book_category_model.dart';
+import 'package:dispusip/app/modules/home/models/home_news_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -71,6 +72,37 @@ class HomeController extends GetxController {
       image: 'img_book1.png',
       name: 'Pidi Baiq',
       title: 'DILAN : Dia adalah Dilanku tahun 1990',
+    ),
+  ];
+
+  List<BookModel> listMostCollectionBorrowed = [
+    BookModel(
+      image: 'img_book1.png',
+      name: 'Pidi Baiq',
+      title: 'DILAN : Dia adalah Dilanku tahun 1990',
+    ),
+    BookModel(
+      image: 'img_book5.png',
+      name: 'Yulian Purnama',
+      title: 'Kupas Tuntas Sutrah Shalat',
+    ),
+    BookModel(
+      image: 'img_book1.png',
+      name: 'Pidi Baiq',
+      title: 'DILAN : Dia adalah Dilanku tahun 1990',
+    ),
+  ];
+
+  List<HomeNewsModel> listNews = [
+    HomeNewsModel(
+      dateTime: '8 Februari 2022 | 15:00',
+      title: 'Safari Literasi Duta Baca Indonesia 2022',
+      image: 'img_news1.png',
+    ),
+    HomeNewsModel(
+      dateTime: '8 Februari 2022 | 15:00',
+      title: 'Safari Literasi Duta Baca Indonesia 2022',
+      image: 'img_news1.png',
     ),
   ];
 }

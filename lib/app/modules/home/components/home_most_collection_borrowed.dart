@@ -7,8 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-class HomeNewCollection extends GetView<HomeController> {
-  const HomeNewCollection({Key? key}) : super(key: key);
+class HomeMostCollectionBorrowed extends GetView<HomeController> {
+  const HomeMostCollectionBorrowed({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,21 +17,22 @@ class HomeNewCollection extends GetView<HomeController> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Koleksi Terbaru', style: TextStyles.title),
+          Text('Koleksi Sering Dipinjam', style: TextStyles.title),
           verticalSpace(10.h),
           SizedBox(
             width: Get.width,
             height: 240.h,
             child: ListView.builder(
               padding: EdgeInsets.zero,
-              itemCount: controller.listNewCollection.length,
+              itemCount: controller.listMostCollectionBorrowed.length,
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
                 return CardApp(
                   isShowShadows: true,
                   margin: EdgeInsets.only(
-                    right:
-                        index != controller.listNewCollection.length ? 14.w : 0,
+                    right: index != controller.listMostCollectionBorrowed.length
+                        ? 14.w
+                        : 0,
                     bottom: 5.h,
                     top: 5.h,
                     left: index != 0 ? 0 : 5.w,
@@ -48,7 +49,8 @@ class HomeNewCollection extends GetView<HomeController> {
                           color: AppColor.grey,
                           child: Image.asset(
                             AppAsset.image(
-                              controller.listNewCollection[index].image,
+                              controller
+                                  .listMostCollectionBorrowed[index].image,
                             ),
                           ),
                         ),
@@ -62,7 +64,8 @@ class HomeNewCollection extends GetView<HomeController> {
                               width: Get.width,
                               height: 18.h,
                               child: Text(
-                                controller.listNewCollection[index].title,
+                                controller
+                                    .listMostCollectionBorrowed[index].title,
                                 style: TextStyles.desc
                                     .copyWith(fontWeight: FontWeight.w600),
                                 maxLines: 1,
@@ -74,7 +77,8 @@ class HomeNewCollection extends GetView<HomeController> {
                               width: Get.width,
                               height: 15.h,
                               child: Text(
-                                controller.listNewCollection[index].title,
+                                controller
+                                    .listMostCollectionBorrowed[index].title,
                                 style: TextStyles.text.copyWith(
                                   fontSize: 10.w,
                                   color: AppColor.darkGrey,
@@ -96,32 +100,5 @@ class HomeNewCollection extends GetView<HomeController> {
         ],
       ),
     );
-  }
-}
-
-Color checkColor(int index) {
-  switch (index) {
-    case 0:
-      return const Color(0xFFE2BDE7);
-    case 1:
-      return const Color(0xFFFFCC80);
-    case 2:
-      return const Color(0xFFB0DCDA);
-    case 3:
-      return const Color(0xFFFABBD0);
-    case 4:
-      return const Color(0xFFC5CAE8);
-    case 5:
-      return const Color(0xFFABD9F0);
-    case 6:
-      return const Color(0xFFFFCC80);
-    case 7:
-      return const Color(0xFFE2BDE7);
-    case 8:
-      return const Color(0xFFC5CAE8);
-    case 9:
-      return const Color(0xFFFFCC80);
-    default:
-      return AppColor.primaryColor;
   }
 }

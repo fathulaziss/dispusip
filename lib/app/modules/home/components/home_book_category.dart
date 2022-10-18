@@ -13,7 +13,7 @@ class HomeBookCategory extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(left: 22.w, right: 6.w),
+      padding: EdgeInsets.symmetric(horizontal: 22.w),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -29,9 +29,8 @@ class HomeBookCategory extends GetView<HomeController> {
               itemBuilder: (context, index) {
                 return CardApp(
                   margin: EdgeInsets.only(
-                    right: index != controller.listBookCategory.length
-                        ? 14.w
-                        : 8.w,
+                    right:
+                        index != controller.listBookCategory.length ? 14.w : 0,
                   ),
                   width: 180.w,
                   color: checkColor(index),

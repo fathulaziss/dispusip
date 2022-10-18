@@ -1,7 +1,9 @@
 import 'package:dispusip/app/modules/home/components/home_background.dart';
 import 'package:dispusip/app/modules/home/components/home_book_category.dart';
 import 'package:dispusip/app/modules/home/components/home_header.dart';
+import 'package:dispusip/app/modules/home/components/home_most_collection_borrowed.dart';
 import 'package:dispusip/app/modules/home/components/home_new_collection.dart';
+import 'package:dispusip/app/modules/home/components/home_news.dart';
 import 'package:dispusip/app/modules/home/components/home_slider.dart';
 import 'package:dispusip/app/modules/home/controllers/home_controller.dart';
 import 'package:flutter/material.dart';
@@ -35,6 +37,8 @@ class TabHome extends GetView<HomeController> {
             ),
             const HomeBookCategory(),
             const HomeNewCollection(),
+            const HomeMostCollectionBorrowed(),
+            const HomeNews(),
           ],
         ),
       ),
