@@ -2,6 +2,7 @@ import 'package:dispusip/app/modules/home/components/opac_card_item.dart';
 import 'package:dispusip/app/modules/home/components/opac_header.dart';
 import 'package:dispusip/app/modules/home/components/opac_search_empty.dart';
 import 'package:dispusip/app/modules/home/controllers/opac_controller.dart';
+import 'package:dispusip/app/routes/app_pages.dart';
 import 'package:dispusip/styles/styles.dart';
 import 'package:dispusip/widgets/others/loading_indicator.dart';
 import 'package:flutter/material.dart';
@@ -30,6 +31,12 @@ class TabOpac extends GetView<OpacController> {
                           itemBuilder: (context, index) {
                             return OpacCardItem(
                               data: controller.listSearch[index],
+                              onTap: () => Get.toNamed(
+                                Routes.BOOK_DETAIL,
+                                arguments: {
+                                  'data': controller.listSearch[index]
+                                },
+                              ),
                             );
                           },
                         )
