@@ -7,6 +7,8 @@ import 'package:get/get.dart';
 class HomeController extends GetxController {
   final pageController = PageController();
   RxInt selectedPage = 0.obs;
+  Rx<Color> backgroundColor = Colors.white.obs;
+
   List slider = [
     'Slider Banyuwangikab.go.id 1',
     'Slider Banyuwangikab.go.id 2',
@@ -105,4 +107,19 @@ class HomeController extends GetxController {
       image: 'img_news1.png',
     ),
   ];
+
+  void navigation(int index) {
+    selectedPage(index);
+    pageController.jumpToPage(index);
+    switch (index) {
+      case 0:
+        backgroundColor(Colors.white);
+        break;
+      case 1:
+        backgroundColor(const Color(0xFFFCFCFC));
+        break;
+      default:
+        backgroundColor(Colors.white);
+    }
+  }
 }

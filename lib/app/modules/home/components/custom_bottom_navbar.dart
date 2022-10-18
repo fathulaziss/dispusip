@@ -16,74 +16,60 @@ class CustomBottomNavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Container(
-          width: double.infinity,
-          height: 77.h,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(Insets.xxl),
-              topRight: Radius.circular(Insets.xxl),
-            ),
-            color: Colors.white,
-            boxShadow: const [
-              BoxShadow(
-                // color: Colors.grey.withOpacity(0.3),
-                color: AppColor.grey,
-                spreadRadius: 5,
-                blurRadius: 5,
-                offset: Offset(0, 5),
-              )
-            ],
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ItemNavbar(
-                isSelected: selectedIndex == 0,
-                label: 'Home',
-                assetIcon: AppAsset.icon('ic_home.png'),
-                onTap: () => onTap(0),
-              ),
-              ItemNavbar(
-                isSelected: selectedIndex == 1,
-                label: 'Opac',
-                assetIcon: AppAsset.icon('ic_opac.png'),
-                onTap: () => onTap(1),
-              ),
-              ItemNavbar(
-                isSelected: selectedIndex == 2,
-                label: 'Dashboard',
-                assetIcon: AppAsset.icon('ic_dashboard.png'),
-                onTap: () => onTap(2),
-              ),
-              ItemNavbar(
-                isSelected: selectedIndex == 3,
-                label: 'Riwayat',
-                assetIcon: AppAsset.icon('ic_history.png'),
-                onTap: () => onTap(3),
-              ),
-              ItemNavbar(
-                isSelected: selectedIndex == 4,
-                label: 'Akun',
-                assetIcon: AppAsset.icon('ic_account.png'),
-                onTap: () => onTap(4),
-              ),
-            ],
-          ),
+    return Container(
+      width: double.infinity,
+      height: 77.h,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(Insets.xxl),
+          topRight: Radius.circular(Insets.xxl),
         ),
-        // AnimatedPositioned(
-        //   duration: const Duration(milliseconds: 200),
-        //   left: Get.width * (selectedIndex / 5) + 22.w,
-        //   bottom: 0,
-        //   child: Container(
-        //     height: 3,
-        //     color: AppColor.primaryColor,
-        //     width: 32.w,
-        //   ),
-        // ),
-      ],
+        color: Colors.white,
+        boxShadow: const [
+          BoxShadow(
+            // color: Colors.grey.withOpacity(0.3),
+            color: AppColor.grey,
+            spreadRadius: 5,
+            blurRadius: 5,
+            offset: Offset(0, 5),
+          )
+        ],
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          ItemNavbar(
+            isSelected: selectedIndex == 0,
+            label: 'Home',
+            assetIcon: AppAsset.icon('ic_home.png'),
+            onTap: () => onTap(0),
+          ),
+          ItemNavbar(
+            isSelected: selectedIndex == 1,
+            label: 'Opac',
+            assetIcon: AppAsset.icon('ic_opac.png'),
+            onTap: () => onTap(1),
+          ),
+          ItemNavbar(
+            isSelected: selectedIndex == 2,
+            label: 'Dashboard',
+            assetIcon: AppAsset.icon('ic_dashboard.png'),
+            onTap: () => onTap(2),
+          ),
+          ItemNavbar(
+            isSelected: selectedIndex == 3,
+            label: 'Riwayat',
+            assetIcon: AppAsset.icon('ic_history.png'),
+            onTap: () => onTap(3),
+          ),
+          ItemNavbar(
+            isSelected: selectedIndex == 4,
+            label: 'Akun',
+            assetIcon: AppAsset.icon('ic_account.png'),
+            onTap: () => onTap(4),
+          ),
+        ],
+      ),
     );
   }
 }

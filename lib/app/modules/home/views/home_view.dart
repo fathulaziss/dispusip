@@ -14,26 +14,26 @@ class HomeView extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: Obx(
-        () => CustomBottomNavBar(
+    return Obx(
+      () => Scaffold(
+        backgroundColor: controller.backgroundColor.value,
+        bottomNavigationBar: CustomBottomNavBar(
           selectedIndex: controller.selectedPage.value,
           onTap: (index) {
-            controller.selectedPage(index);
-            controller.pageController.jumpToPage(index);
+            controller.navigation(index);
           },
         ),
-      ),
-      body: PageView(
-        controller: controller.pageController,
-        physics: const NeverScrollableScrollPhysics(),
-        children: const [
-          TabHome(),
-          TabOpac(),
-          TabDashboard(),
-          TabHistory(),
-          TabAccount(),
-        ],
+        body: PageView(
+          controller: controller.pageController,
+          physics: const NeverScrollableScrollPhysics(),
+          children: const [
+            TabHome(),
+            TabOpac(),
+            TabDashboard(),
+            TabHistory(),
+            TabAccount(),
+          ],
+        ),
       ),
     );
   }

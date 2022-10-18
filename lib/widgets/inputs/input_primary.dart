@@ -36,6 +36,8 @@ class InputPrimary extends StatefulWidget {
     this.hintColor,
     this.readOnly = false,
     this.onTap,
+    this.textInputAction,
+    this.onSubmitted,
   }) : super(key: key);
 
   final Widget? prefixIcon;
@@ -67,6 +69,8 @@ class InputPrimary extends StatefulWidget {
   final Color? hintColor;
   final bool readOnly;
   final Function()? onTap;
+  final TextInputAction? textInputAction;
+  final ValueSetter<String>? onSubmitted;
   @override
   State<InputPrimary> createState() => _InputPrimaryState();
 }
@@ -245,6 +249,8 @@ class _InputPrimaryState extends State<InputPrimary> {
                   cursorColor: widget.cursorColor,
                   onChanged: _onChanged,
                   inputFormatters: formatter,
+                  textInputAction: widget.textInputAction,
+                  onSubmitted: widget.onSubmitted,
                 ),
               ),
             ),

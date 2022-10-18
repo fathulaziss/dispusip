@@ -20,8 +20,12 @@ class LoadingIndicator extends StatelessWidget {
   }
 }
 
-class LoadingBalance extends StatelessWidget {
-  const LoadingBalance({Key? key, this.color, this.size}) : super(key: key);
+class LoadingIndicatorBounce extends StatelessWidget {
+  const LoadingIndicatorBounce({
+    Key? key,
+    this.color,
+    this.size,
+  }) : super(key: key);
   final Color? color;
   final double? size;
 

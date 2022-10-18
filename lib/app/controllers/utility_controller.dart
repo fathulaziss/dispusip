@@ -6,6 +6,7 @@ class UtilityController extends GetxController {
   String appVersion = 'version 1.0.0';
   RxBool isShowLog = false.obs;
   RxString currentPage = ''.obs;
+
   @override
   void onInit() {
     getAppVersion();

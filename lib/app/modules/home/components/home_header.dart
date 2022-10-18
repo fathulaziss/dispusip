@@ -1,11 +1,13 @@
+import 'package:dispusip/app/modules/home/controllers/home_controller.dart';
 import 'package:dispusip/styles/colors.dart';
 import 'package:dispusip/styles/styles.dart';
 import 'package:dispusip/utils/app_asset.dart';
 import 'package:dispusip/widgets/cards/card_app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
-class HomeHeader extends StatelessWidget {
+class HomeHeader extends GetView<HomeController> {
   const HomeHeader({Key? key}) : super(key: key);
 
   @override
@@ -57,21 +59,26 @@ class HomeHeader extends StatelessWidget {
           Row(
             children: [
               Expanded(
-                child: CardApp(
-                  padding: EdgeInsets.all(Insets.med),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Cari buku pada OPAC......',
-                        style:
-                            TextStyles.text.copyWith(color: AppColor.darkGrey),
-                      ),
-                      SizedBox.square(
-                        dimension: 20.w,
-                        child: Image.asset(AppAsset.icon('ic_search.png')),
-                      )
-                    ],
+                child: InkWell(
+                  onTap: () {
+                    controller.navigation(1);
+                  },
+                  child: CardApp(
+                    padding: EdgeInsets.all(Insets.med),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Cari buku pada OPAC......',
+                          style: TextStyles.text
+                              .copyWith(color: AppColor.darkGrey),
+                        ),
+                        SizedBox.square(
+                          dimension: 20.w,
+                          child: Image.asset(AppAsset.icon('ic_search.png')),
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ),
