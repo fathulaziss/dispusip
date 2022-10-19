@@ -29,8 +29,7 @@ class PageDefaultTwo extends StatelessWidget {
           width: double.infinity,
           child: Text(
             titlePage,
-            style: TextStyles.title
-                .copyWith(fontWeight: FontWeight.w500, color: Colors.white),
+            style: TextStyles.title.copyWith(color: Colors.white),
           ),
         ),
       ),

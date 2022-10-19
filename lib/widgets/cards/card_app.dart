@@ -54,6 +54,8 @@ class CardApp extends StatelessWidget {
                     color: outlineColor ?? AppColor.grey,
                     width: borderWidth ?? 1,
                   ),
+                  boxShadow:
+                      isShowShadows ? shadows ?? Shadows.small : Shadows.none,
                 )
               : BoxDecoration(
                   color: color ?? Colors.white,

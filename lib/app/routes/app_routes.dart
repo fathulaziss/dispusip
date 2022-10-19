@@ -17,6 +17,7 @@ abstract class Routes {
   static const USULAN_BUKU = _Paths.USULAN_BUKU;
   static const PINJAM_KOLEKTIF = _Paths.PINJAM_KOLEKTIF;
   static const KUNJUNGAN_KELOMPOK = _Paths.KUNJUNGAN_KELOMPOK;
+  static const KRITIK_SARAN = _Paths.KRITIK_SARAN;
 }
 
 abstract class _Paths {
@@ -33,4 +34,5 @@ abstract class _Paths {
   static const USULAN_BUKU = '/usulan-buku';
   static const PINJAM_KOLEKTIF = '/pinjam-kolektif';
   static const KUNJUNGAN_KELOMPOK = '/kunjungan-kelompok';
+  static const KRITIK_SARAN = '/kritik-saran';
 }
