@@ -11,6 +11,8 @@ import 'package:dispusip/app/modules/login/bindings/login_binding.dart';
 import 'package:dispusip/app/modules/login/views/login_view.dart';
 import 'package:dispusip/app/modules/onboarding/bindings/onboarding_binding.dart';
 import 'package:dispusip/app/modules/onboarding/views/onboarding_view.dart';
+import 'package:dispusip/app/modules/pinjam_kolektif/bindings/pinjam_kolektif_binding.dart';
+import 'package:dispusip/app/modules/pinjam_kolektif/views/pinjam_kolektif_view.dart';
 import 'package:dispusip/app/modules/register/bindings/register_binding.dart';
 import 'package:dispusip/app/modules/register/views/register_view.dart';
 import 'package:dispusip/app/modules/splash_screen_view.dart';
@@ -73,6 +75,11 @@ class AppPages {
       name: _Paths.USULAN_BUKU,
       page: () => const UsulanBukuView(),
       binding: UsulanBukuBinding(),
+    ),
+    GetPage(
+      name: _Paths.PINJAM_KOLEKTIF,
+      page: () => const PinjamKolektifView(),
+      binding: PinjamKolektifBinding(),
     ),
   ];
 }

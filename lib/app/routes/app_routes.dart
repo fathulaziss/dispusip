@@ -15,6 +15,7 @@ abstract class Routes {
   static const FORGOT_PASSWORD = _Paths.FORGOT_PASSWORD;
   static const BOOK_DETAIL = _Paths.BOOK_DETAIL;
   static const USULAN_BUKU = _Paths.USULAN_BUKU;
+  static const PINJAM_KOLEKTIF = _Paths.PINJAM_KOLEKTIF;
 }
 
 abstract class _Paths {
@@ -29,4 +30,5 @@ abstract class _Paths {
   static const FORGOT_PASSWORD = '/forgot-password';
   static const BOOK_DETAIL = '/book-detail';
   static const USULAN_BUKU = '/usulan-buku';
+  static const PINJAM_KOLEKTIF = '/pinjam-kolektif';
 }
