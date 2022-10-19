@@ -7,6 +7,8 @@ import 'package:dispusip/app/modules/forgot_password/bindings/forgot_password_bi
 import 'package:dispusip/app/modules/forgot_password/views/forgot_password_view.dart';
 import 'package:dispusip/app/modules/home/bindings/home_binding.dart';
 import 'package:dispusip/app/modules/home/views/home_view.dart';
+import 'package:dispusip/app/modules/kunjungan_kelompok/bindings/kunjungan_kelompok_binding.dart';
+import 'package:dispusip/app/modules/kunjungan_kelompok/views/kunjungan_kelompok_view.dart';
 import 'package:dispusip/app/modules/login/bindings/login_binding.dart';
 import 'package:dispusip/app/modules/login/views/login_view.dart';
 import 'package:dispusip/app/modules/onboarding/bindings/onboarding_binding.dart';
@@ -80,6 +82,11 @@ class AppPages {
       name: _Paths.PINJAM_KOLEKTIF,
       page: () => const PinjamKolektifView(),
       binding: PinjamKolektifBinding(),
+    ),
+    GetPage(
+      name: _Paths.KUNJUNGAN_KELOMPOK,
+      page: () => const KunjunganKelompokView(),
+      binding: KunjunganKelompokBinding(),
     ),
   ];
 }

@@ -9,6 +9,7 @@ import 'package:get/get.dart';
 class InputEmail extends StatefulWidget {
   const InputEmail({
     Key? key,
+    this.label,
     this.controller,
     this.prefixIcon,
     this.suffixIcon,
@@ -34,6 +35,8 @@ class InputEmail extends StatefulWidget {
     this.borderRadius,
     this.hintColor,
   }) : super(key: key);
+
+  final String? label;
   final TextEditingController? controller;
   final Widget? prefixIcon;
   final Widget? suffixIcon;
@@ -90,6 +93,7 @@ class _InputEmailState extends State<InputEmail> {
   @override
   Widget build(BuildContext context) {
     return InputPrimary(
+      label: widget.label,
       controller: widget.controller,
       hint: widget.hint,
       inputFormatters: widget.inputFormatters,
