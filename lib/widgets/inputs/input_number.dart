@@ -7,6 +7,7 @@ import 'package:flutter/services.dart';
 class InputNumber extends StatefulWidget {
   const InputNumber({
     Key? key,
+    this.label,
     this.controller,
     this.prefixIcon,
     this.suffixIcon,
@@ -32,6 +33,7 @@ class InputNumber extends StatefulWidget {
     this.hintColor,
   }) : super(key: key);
 
+  final String? label;
   final bool? Function(String value)? validation;
   final Color? color;
   final TextEditingController? controller;
@@ -84,6 +86,7 @@ class _InputNumberState extends State<InputNumber> {
   @override
   Widget build(BuildContext context) {
     return InputPrimary(
+      label: widget.label,
       controller: widget.controller,
       hint: widget.hint,
       inputFormatters: formatter,

@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 class InputPrimary extends StatefulWidget {
   const InputPrimary({
     Key? key,
+    this.label,
     this.hint = 'Type Here...',
     this.prefixIcon,
     this.suffixIcon,
@@ -38,8 +39,11 @@ class InputPrimary extends StatefulWidget {
     this.onTap,
     this.textInputAction,
     this.onSubmitted,
+    this.maxLines,
+    this.minLines,
   }) : super(key: key);
 
+  final String? label;
   final Widget? prefixIcon;
   final Widget? suffixIcon;
   final Color? color;
@@ -71,6 +75,8 @@ class InputPrimary extends StatefulWidget {
   final Function()? onTap;
   final TextInputAction? textInputAction;
   final ValueSetter<String>? onSubmitted;
+  final int? maxLines;
+  final int? minLines;
   @override
   State<InputPrimary> createState() => _InputPrimaryState();
 }
@@ -214,6 +220,11 @@ class _InputPrimaryState extends State<InputPrimary> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        if (widget.label != null)
+          Text(
+            widget.label!,
+            style: TextStyles.desc.copyWith(color: AppColor.primaryColor),
+          ),
         Container(
           margin: widget.margin ??
               EdgeInsets.symmetric(
@@ -227,6 +238,8 @@ class _InputPrimaryState extends State<InputPrimary> {
               child: Focus(
                 onFocusChange: _onFocusChange,
                 child: TextField(
+                  minLines: widget.minLines,
+                  maxLines: widget.maxLines,
                   onTap: widget.onTap,
                   readOnly: widget.readOnly,
                   enabled: widget.enable,

@@ -14,6 +14,8 @@ import 'package:dispusip/app/modules/onboarding/views/onboarding_view.dart';
 import 'package:dispusip/app/modules/register/bindings/register_binding.dart';
 import 'package:dispusip/app/modules/register/views/register_view.dart';
 import 'package:dispusip/app/modules/splash_screen_view.dart';
+import 'package:dispusip/app/modules/usulan_buku/bindings/usulan_buku_binding.dart';
+import 'package:dispusip/app/modules/usulan_buku/views/usulan_buku_view.dart';
 import 'package:get/get.dart';
 
 part 'app_routes.dart';
@@ -66,6 +68,11 @@ class AppPages {
       name: _Paths.BOOK_DETAIL,
       page: () => const BookDetailView(),
       binding: BookDetailBinding(),
+    ),
+    GetPage(
+      name: _Paths.USULAN_BUKU,
+      page: () => const UsulanBukuView(),
+      binding: UsulanBukuBinding(),
     ),
   ];
 }
