@@ -18,6 +18,7 @@ abstract class Routes {
   static const PINJAM_KOLEKTIF = _Paths.PINJAM_KOLEKTIF;
   static const KUNJUNGAN_KELOMPOK = _Paths.KUNJUNGAN_KELOMPOK;
   static const KRITIK_SARAN = _Paths.KRITIK_SARAN;
+  static const EDIT_PROFILE = _Paths.EDIT_PROFILE;
 }
 
 abstract class _Paths {
@@ -35,4 +36,5 @@ abstract class _Paths {
   static const PINJAM_KOLEKTIF = '/pinjam-kolektif';
   static const KUNJUNGAN_KELOMPOK = '/kunjungan-kelompok';
   static const KRITIK_SARAN = '/kritik-saran';
+  static const EDIT_PROFILE = '/edit-profile';
 }

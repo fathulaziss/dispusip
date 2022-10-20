@@ -3,6 +3,8 @@ import 'package:dispusip/app/modules/api_log/views/api_log_view.dart';
 import 'package:dispusip/app/modules/blocked_view.dart';
 import 'package:dispusip/app/modules/book_detail/bindings/book_detail_binding.dart';
 import 'package:dispusip/app/modules/book_detail/views/book_detail_view.dart';
+import 'package:dispusip/app/modules/edit_profile/bindings/edit_profile_binding.dart';
+import 'package:dispusip/app/modules/edit_profile/views/edit_profile_view.dart';
 import 'package:dispusip/app/modules/forgot_password/bindings/forgot_password_binding.dart';
 import 'package:dispusip/app/modules/forgot_password/views/forgot_password_view.dart';
 import 'package:dispusip/app/modules/home/bindings/home_binding.dart';
@@ -94,6 +96,11 @@ class AppPages {
       name: _Paths.KRITIK_SARAN,
       page: () => const KritikSaranView(),
       binding: KritikSaranBinding(),
+    ),
+    GetPage(
+      name: _Paths.EDIT_PROFILE,
+      page: () => const EditProfileView(),
+      binding: EditProfileBinding(),
     ),
   ];
 }

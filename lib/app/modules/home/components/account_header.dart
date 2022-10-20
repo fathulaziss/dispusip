@@ -1,8 +1,10 @@
+import 'package:dispusip/app/routes/app_pages.dart';
 import 'package:dispusip/styles/colors.dart';
 import 'package:dispusip/styles/styles.dart';
 import 'package:dispusip/utils/app_asset.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class AccountHeader extends StatelessWidget {
   const AccountHeader({Key? key}) : super(key: key);
@@ -24,7 +26,7 @@ class AccountHeader extends StatelessWidget {
                 height: 40.h,
               ),
               TextButton.icon(
-                onPressed: () {},
+                onPressed: () => Get.toNamed(Routes.EDIT_PROFILE),
                 icon: SizedBox.square(
                   dimension: 24.w,
                   child: Image.asset(AppAsset.icon('ic_edit.png')),

@@ -2,6 +2,7 @@ import 'package:dispusip/styles/colors.dart';
 import 'package:dispusip/styles/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class PageDefaultTwo extends StatelessWidget {
   const PageDefaultTwo({
@@ -25,6 +26,10 @@ class PageDefaultTwo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: InkWell(
+          onTap: () => Get.back(),
+          child: Icon(Icons.arrow_back_ios, color: Colors.white, size: 20.w),
+        ),
         title: SizedBox(
           width: double.infinity,
           child: Text(
