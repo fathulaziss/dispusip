@@ -26,6 +26,8 @@ import 'package:dispusip/app/modules/pinjam_kolektif/bindings/pinjam_kolektif_bi
 import 'package:dispusip/app/modules/pinjam_kolektif/views/pinjam_kolektif_view.dart';
 import 'package:dispusip/app/modules/register/bindings/register_binding.dart';
 import 'package:dispusip/app/modules/register/views/register_view.dart';
+import 'package:dispusip/app/modules/service_policy/bindings/service_policy_binding.dart';
+import 'package:dispusip/app/modules/service_policy/views/service_policy_view.dart';
 import 'package:dispusip/app/modules/setting/bindings/setting_binding.dart';
 import 'package:dispusip/app/modules/setting/views/setting_view.dart';
 import 'package:dispusip/app/modules/splash_screen_view.dart';
@@ -133,6 +135,11 @@ class AppPages {
       name: _Paths.CHANGE_PASSWORD,
       page: () => const ChangePasswordView(),
       binding: ChangePasswordBinding(),
+    ),
+    GetPage(
+      name: _Paths.SERVICE_POLICY,
+      page: () => const ServicePolicyView(),
+      binding: ServicePolicyBinding(),
     ),
   ];
 }

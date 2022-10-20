@@ -24,6 +24,7 @@ abstract class Routes {
   static const DELIVERY_ADDRESS = _Paths.DELIVERY_ADDRESS;
   static const DELIVERY_ADDRESS_EDIT = _Paths.DELIVERY_ADDRESS_EDIT;
   static const CHANGE_PASSWORD = _Paths.CHANGE_PASSWORD;
+  static const SERVICE_POLICY = _Paths.SERVICE_POLICY;
 }
 
 abstract class _Paths {
@@ -47,4 +48,5 @@ abstract class _Paths {
   static const DELIVERY_ADDRESS = '/delivery-address';
   static const DELIVERY_ADDRESS_EDIT = '/delivery-address-edit';
   static const CHANGE_PASSWORD = '/change-password';
+  static const SERVICE_POLICY = '/service-policy';
 }

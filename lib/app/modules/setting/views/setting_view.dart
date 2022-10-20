@@ -54,7 +54,7 @@ class SettingView extends GetView<SettingController> {
               isUsePrefixIcon: false,
             ),
             SettingMenuItem(
-              onTap: () {},
+              onTap: () => Get.toNamed(Routes.SERVICE_POLICY),
               label: 'Kebijakan Layanan',
               isUsePrefixIcon: false,
             ),
