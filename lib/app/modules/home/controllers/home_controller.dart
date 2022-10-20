@@ -121,6 +121,9 @@ class HomeController extends GetxController {
       case 2:
         backgroundColor(const Color(0xFFFCFCFC));
         break;
+      case 3:
+        backgroundColor(const Color(0xFFFCFCFC));
+        break;
       default:
         backgroundColor(Colors.white);
     }

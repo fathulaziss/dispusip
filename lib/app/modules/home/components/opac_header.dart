@@ -69,7 +69,7 @@ class OpacHeader extends GetView<OpacController> {
                 ),
                 horizontalSpace(Insets.med),
                 SizedBox.square(
-                  dimension: 20.w,
+                  dimension: 24.w,
                   child: Image.asset(
                     AppAsset.icon('ic_filter.png'),
                     color: AppColor.primaryColor,

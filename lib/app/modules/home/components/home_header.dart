@@ -84,7 +84,7 @@ class HomeHeader extends GetView<HomeController> {
               ),
               horizontalSpace(Insets.med),
               SizedBox.square(
-                dimension: 20.w,
+                dimension: 24.w,
                 child: Image.asset(AppAsset.icon('ic_filter.png')),
               )
             ],
