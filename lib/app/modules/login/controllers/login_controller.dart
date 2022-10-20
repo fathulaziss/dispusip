@@ -59,7 +59,7 @@ class LoginController extends GetxController {
   Future<void> login() async {
     try {
       isLoading(true);
-      await ApiService().request(
+      final r = await ApiService().request(
         url: 'auth/login',
         method: Method.POST,
         params: {
@@ -68,6 +68,7 @@ class LoginController extends GetxController {
         },
       );
       isLoading(false);
+      await AppStorage.write(key: CACHE_ACCESS_TOKEN, value: r['auth_key']);
       await Get.toNamed(Routes.HOME);
     } catch (e) {
       isLoading(false);

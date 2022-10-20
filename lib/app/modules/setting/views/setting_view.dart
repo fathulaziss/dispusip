@@ -49,7 +49,7 @@ class SettingView extends GetView<SettingController> {
               prefixIcon: 'ic_lock.png',
             ),
             SettingMenuItem(
-              onTap: () {},
+              onTap: () => Get.toNamed(Routes.UNDER_DEVELOPMENT),
               label: 'Panduan',
               isUsePrefixIcon: false,
             ),

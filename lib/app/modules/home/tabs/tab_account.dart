@@ -1,6 +1,8 @@
 import 'package:dispusip/app/modules/home/components/account_header.dart';
 import 'package:dispusip/app/modules/home/components/account_menu_item.dart';
 import 'package:dispusip/app/routes/app_pages.dart';
+import 'package:dispusip/services/app_cycle_service.dart';
+import 'package:dispusip/widgets/others/show_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -45,7 +47,18 @@ class TabAccount extends StatelessWidget {
                     ),
                     AccountMenuItem(
                       label: 'Log Out',
-                      onTap: () {},
+                      onTap: () {
+                        showPopUpChoice(
+                          dismissible: false,
+                          title: 'Tutup Dispusip Mobile',
+                          description: 'Apakah Anda Yakin Ingin Keluar ?',
+                          labelNegatif: 'Tidak',
+                          labelPositif: 'Ya',
+                          onConfirm: () {
+                            AppCycleService().onUserLogout();
+                          },
+                        );
+                      },
                     ),
                   ],
                 ),

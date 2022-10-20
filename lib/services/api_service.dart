@@ -134,7 +134,7 @@ class ApiService {
       return response['response_data'];
     }
 
-    showPopUpInfo(title: 'Error', description: 'Gagal Request');
+    showToast(message: 'Gagal Request');
     throw Exception('Gagal Request');
   }
 }
