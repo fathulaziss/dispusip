@@ -19,6 +19,7 @@ abstract class Routes {
   static const KUNJUNGAN_KELOMPOK = _Paths.KUNJUNGAN_KELOMPOK;
   static const KRITIK_SARAN = _Paths.KRITIK_SARAN;
   static const EDIT_PROFILE = _Paths.EDIT_PROFILE;
+  static const SETTING = _Paths.SETTING;
 }
 
 abstract class _Paths {
@@ -37,4 +38,5 @@ abstract class _Paths {
   static const KUNJUNGAN_KELOMPOK = '/kunjungan-kelompok';
   static const KRITIK_SARAN = '/kritik-saran';
   static const EDIT_PROFILE = '/edit-profile';
+  static const SETTING = '/setting';
 }

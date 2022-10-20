@@ -21,6 +21,8 @@ import 'package:dispusip/app/modules/pinjam_kolektif/bindings/pinjam_kolektif_bi
 import 'package:dispusip/app/modules/pinjam_kolektif/views/pinjam_kolektif_view.dart';
 import 'package:dispusip/app/modules/register/bindings/register_binding.dart';
 import 'package:dispusip/app/modules/register/views/register_view.dart';
+import 'package:dispusip/app/modules/setting/bindings/setting_binding.dart';
+import 'package:dispusip/app/modules/setting/views/setting_view.dart';
 import 'package:dispusip/app/modules/splash_screen_view.dart';
 import 'package:dispusip/app/modules/usulan_buku/bindings/usulan_buku_binding.dart';
 import 'package:dispusip/app/modules/usulan_buku/views/usulan_buku_view.dart';
@@ -101,6 +103,11 @@ class AppPages {
       name: _Paths.EDIT_PROFILE,
       page: () => const EditProfileView(),
       binding: EditProfileBinding(),
+    ),
+    GetPage(
+      name: _Paths.SETTING,
+      page: () => const SettingView(),
+      binding: SettingBinding(),
     ),
   ];
 }
