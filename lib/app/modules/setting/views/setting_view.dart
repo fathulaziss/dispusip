@@ -1,5 +1,6 @@
 import 'package:dispusip/app/modules/setting/components/setting_menu_item.dart';
 import 'package:dispusip/app/modules/setting/controllers/setting_controller.dart';
+import 'package:dispusip/app/routes/app_pages.dart';
 import 'package:dispusip/styles/colors.dart';
 import 'package:dispusip/styles/styles.dart';
 import 'package:dispusip/widgets/pages/page_default_two.dart';
@@ -21,7 +22,7 @@ class SettingView extends GetView<SettingController> {
           children: [
             verticalSpace(Insets.lg),
             SettingMenuItem(
-              onTap: () {},
+              onTap: () => Get.toNamed(Routes.DELIVERY_ADDRESS),
               label: 'Alamat Pengantaran',
               prefixIcon: 'ic_location.png',
             ),

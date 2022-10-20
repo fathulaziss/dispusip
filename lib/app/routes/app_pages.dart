@@ -3,6 +3,9 @@ import 'package:dispusip/app/modules/api_log/views/api_log_view.dart';
 import 'package:dispusip/app/modules/blocked_view.dart';
 import 'package:dispusip/app/modules/book_detail/bindings/book_detail_binding.dart';
 import 'package:dispusip/app/modules/book_detail/views/book_detail_view.dart';
+import 'package:dispusip/app/modules/delivery_address/bindings/delivery_address_binding.dart';
+import 'package:dispusip/app/modules/delivery_address/views/delivery_address_edit_view.dart';
+import 'package:dispusip/app/modules/delivery_address/views/delivery_address_view.dart';
 import 'package:dispusip/app/modules/edit_profile/bindings/edit_profile_binding.dart';
 import 'package:dispusip/app/modules/edit_profile/views/edit_profile_view.dart';
 import 'package:dispusip/app/modules/forgot_password/bindings/forgot_password_binding.dart';
@@ -108,6 +111,16 @@ class AppPages {
       name: _Paths.SETTING,
       page: () => const SettingView(),
       binding: SettingBinding(),
+    ),
+    GetPage(
+      name: _Paths.DELIVERY_ADDRESS,
+      page: () => const DeliveryAddressView(),
+      binding: DeliveryAddressBinding(),
+    ),
+    GetPage(
+      name: _Paths.DELIVERY_ADDRESS_EDIT,
+      page: () => const DeliveryAddressEditView(),
+      binding: DeliveryAddressBinding(),
     ),
   ];
 }
