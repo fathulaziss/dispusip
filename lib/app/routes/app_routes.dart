@@ -7,6 +7,7 @@ abstract class Routes {
   Routes._();
   static const SPLASH_SCREEN = _Paths.SPLASH_SCREEN;
   static const BLOCKED = _Paths.BLOCKED;
+  static const UNDER_DEVELOPMENT = _Paths.UNDER_DEVELOPMENT;
   static const HOME = _Paths.HOME;
   static const API_LOG = _Paths.API_LOG;
   static const LOGIN = _Paths.LOGIN;
@@ -29,6 +30,7 @@ abstract class _Paths {
   _Paths._();
   static const SPLASH_SCREEN = '/splash-screen';
   static const BLOCKED = '/blocked';
+  static const UNDER_DEVELOPMENT = '/under-development';
   static const HOME = '/home';
   static const API_LOG = '/api-log';
   static const LOGIN = '/login';

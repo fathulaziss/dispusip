@@ -1,3 +1,4 @@
+import 'package:dispusip/app/routes/app_pages.dart';
 import 'package:dispusip/styles/colors.dart';
 import 'package:dispusip/styles/styles.dart';
 import 'package:dispusip/utils/app_asset.dart';
@@ -5,6 +6,7 @@ import 'package:dispusip/widgets/buttons/button_primary.dart';
 import 'package:dispusip/widgets/cards/card_app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class CardMember extends StatelessWidget {
   const CardMember({Key? key}) : super(key: key);
@@ -106,6 +108,7 @@ class CardMember extends StatelessWidget {
             right: 20,
             top: 45,
             child: ButtonPrimary(
+              onTap: () => Get.toNamed(Routes.UNDER_DEVELOPMENT),
               height: 25.h,
               width: 60.w,
               label: 'Detail',

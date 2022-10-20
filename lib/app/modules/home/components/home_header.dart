@@ -1,4 +1,5 @@
 import 'package:dispusip/app/modules/home/controllers/home_controller.dart';
+import 'package:dispusip/app/routes/app_pages.dart';
 import 'package:dispusip/styles/colors.dart';
 import 'package:dispusip/styles/styles.dart';
 import 'package:dispusip/utils/app_asset.dart';
@@ -24,33 +25,37 @@ class HomeHeader extends GetView<HomeController> {
                 AppAsset.logo('logo_dispusip_white2.png'),
                 height: 40.h,
               ),
-              SizedBox.square(
-                dimension: 40.w,
-                child: Stack(
-                  alignment: Alignment.center,
-                  children: [
-                    SizedBox.square(
-                      dimension: 22.w,
-                      child: Image.asset(AppAsset.icon('ic_notification.png')),
-                    ),
-                    Positioned(
-                      right: 4,
-                      bottom: 24,
-                      child: Container(
-                        decoration: const BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: AppColor.red,
-                        ),
-                        padding: EdgeInsets.all(2.w),
-                        child: Text(
-                          '99+',
-                          style: TextStyles.text
-                              .copyWith(color: Colors.white, fontSize: 8.w),
-                          textAlign: TextAlign.center,
-                        ),
+              InkWell(
+                onTap: () => Get.toNamed(Routes.UNDER_DEVELOPMENT),
+                child: SizedBox.square(
+                  dimension: 40.w,
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      SizedBox.square(
+                        dimension: 22.w,
+                        child:
+                            Image.asset(AppAsset.icon('ic_notification.png')),
                       ),
-                    )
-                  ],
+                      Positioned(
+                        right: 4,
+                        bottom: 24,
+                        child: Container(
+                          decoration: const BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: AppColor.red,
+                          ),
+                          padding: EdgeInsets.all(2.w),
+                          child: Text(
+                            '99+',
+                            style: TextStyles.text
+                                .copyWith(color: Colors.white, fontSize: 8.w),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               )
             ],

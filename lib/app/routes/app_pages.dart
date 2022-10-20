@@ -29,6 +29,7 @@ import 'package:dispusip/app/modules/register/views/register_view.dart';
 import 'package:dispusip/app/modules/setting/bindings/setting_binding.dart';
 import 'package:dispusip/app/modules/setting/views/setting_view.dart';
 import 'package:dispusip/app/modules/splash_screen_view.dart';
+import 'package:dispusip/app/modules/under_development_view.dart';
 import 'package:dispusip/app/modules/usulan_buku/bindings/usulan_buku_binding.dart';
 import 'package:dispusip/app/modules/usulan_buku/views/usulan_buku_view.dart';
 import 'package:get/get.dart';
@@ -48,6 +49,10 @@ class AppPages {
     GetPage(
       name: _Paths.BLOCKED,
       page: () => const BlockedView(),
+    ),
+    GetPage(
+      name: _Paths.UNDER_DEVELOPMENT,
+      page: () => const UnderDevelopmentView(),
     ),
     GetPage(
       name: _Paths.HOME,
