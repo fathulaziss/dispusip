@@ -10,6 +10,7 @@ import 'package:flutter/services.dart';
 class InputPassword extends StatefulWidget {
   const InputPassword({
     Key? key,
+    this.label,
     this.controller,
     this.prefixIcon,
     this.suffixIcon,
@@ -37,6 +38,8 @@ class InputPassword extends StatefulWidget {
     this.borderRadius,
     this.hintColor,
   }) : super(key: key);
+
+  final String? label;
   final TextEditingController? controller;
   final Widget? prefixIcon;
   final Widget? suffixIcon;
@@ -107,6 +110,7 @@ class _InputPasswordState extends State<InputPassword> {
   @override
   Widget build(BuildContext context) {
     return InputPrimary(
+      label: widget.label,
       controller: widget.controller,
       hint: widget.hint,
       inputFormatters: widget.inputFormatters,
@@ -142,6 +146,7 @@ class _InputPasswordState extends State<InputPassword> {
       outlineColor: widget.outlineColor,
       borderRadius: widget.borderRadius,
       hintColor: widget.hintColor,
+      maxLines: 1,
     );
   }
 }

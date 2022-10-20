@@ -70,13 +70,6 @@ class DeliveryAddressEditView extends GetView<DeliveryAddressController> {
             hint: 'Masukkan Kota / Kabupaten',
             contentPadding: EdgeInsets.all(Insets.sm),
             inputStyle: InputStyle.line,
-            prefixIcon: Padding(
-              padding: EdgeInsets.symmetric(horizontal: Insets.sm),
-              child: SizedBox.square(
-                dimension: 18.w,
-                child: Image.asset(AppAsset.icon('ic_location.png')),
-              ),
-            ),
           ),
           verticalSpace(35.h),
           ButtonPrimary(label: 'SIMPAN', onTap: () {})

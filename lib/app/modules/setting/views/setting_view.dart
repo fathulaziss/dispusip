@@ -44,7 +44,7 @@ class SettingView extends GetView<SettingController> {
               ),
             ),
             SettingMenuItem(
-              onTap: () {},
+              onTap: () => Get.toNamed(Routes.CHANGE_PASSWORD),
               label: 'Ubah Kata Sandi',
               prefixIcon: 'ic_lock.png',
             ),
