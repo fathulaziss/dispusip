@@ -13,6 +13,7 @@ class PageDefaultTwo extends StatelessWidget {
     this.isShowFooter = false,
     this.isShowButtonBottom = false,
     this.buttonBottom = const SizedBox(),
+    this.isScrollable = true,
   }) : super(key: key);
 
   final String titlePage;
@@ -21,6 +22,7 @@ class PageDefaultTwo extends StatelessWidget {
   final bool isShowFooter;
   final bool isShowButtonBottom;
   final Widget buttonBottom;
+  final bool isScrollable;
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +68,7 @@ class PageDefaultTwo extends StatelessWidget {
         padding: EdgeInsets.all(24.w),
         child: SizedBox(
           width: double.infinity,
-          child: SingleChildScrollView(child: child),
+          child: isScrollable ? SingleChildScrollView(child: child) : child,
         ),
       ),
     );

@@ -1,3 +1,5 @@
+import 'package:dispusip/app/modules/about_app/bindings/about_app_binding.dart';
+import 'package:dispusip/app/modules/about_app/views/about_app_view.dart';
 import 'package:dispusip/app/modules/api_log/bindings/api_log_binding.dart';
 import 'package:dispusip/app/modules/api_log/views/api_log_view.dart';
 import 'package:dispusip/app/modules/blocked_view.dart';
@@ -140,6 +142,11 @@ class AppPages {
       name: _Paths.SERVICE_POLICY,
       page: () => const ServicePolicyView(),
       binding: ServicePolicyBinding(),
+    ),
+    GetPage(
+      name: _Paths.ABOUT_APP,
+      page: () => const AboutAppView(),
+      binding: AboutAppBinding(),
     ),
   ];
 }
