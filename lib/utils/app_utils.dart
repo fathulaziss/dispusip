@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_jailbreak_detection/flutter_jailbreak_detection.dart';
 import 'package:jwt_decoder/jwt_decoder.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class AppUtils {
   static dismissKeyboard() {
@@ -40,6 +41,13 @@ class AppUtils {
       return true;
     } on FormatException {
       return false;
+    }
+  }
+
+  static Future<void> launchInBrowser(String url) async {
+    final uri = Uri.parse(url);
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri);
     }
   }
 }

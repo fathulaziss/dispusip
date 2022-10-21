@@ -1,12 +1,13 @@
-class HomeNewsModel {
-  HomeNewsModel({
+class HomeSliderModel {
+  HomeSliderModel({
     this.image = '',
     this.link = '',
     this.title = '',
     this.date = '',
   });
 
-  factory HomeNewsModel.fromJson(Map<String, dynamic> json) => HomeNewsModel(
+  factory HomeSliderModel.fromJson(Map<String, dynamic> json) =>
+      HomeSliderModel(
         image: json['image'],
         link: json['link'],
         title: json['title'],

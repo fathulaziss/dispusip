@@ -62,7 +62,8 @@ class LoginController extends GetxController {
       final r = await ApiService().request(
         url: 'auth/login',
         method: Method.POST,
-        params: {
+        isToken: false,
+        parameters: {
           'username': username.value,
           'password': password.value,
         },

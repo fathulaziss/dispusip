@@ -7,6 +7,8 @@ enum TextFieldState { focus, error, disabled, none }
 
 enum InputStyle { box, line, outline }
 
+enum ShimmerStyle { rectangular, rectangle, circle }
+
 class AppStyle {
   static ThemeData appTheme(hexColor, splashColor) {
     return ThemeData(

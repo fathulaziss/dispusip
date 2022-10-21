@@ -6,6 +6,8 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:dispusip/app/modules/api_log/models/api_log_model.dart';
 import 'package:dispusip/app_config.dart';
+import 'package:dispusip/constants/constants.dart';
+import 'package:dispusip/utils/app_storage.dart';
 import 'package:dispusip/utils/app_utils.dart';
 import 'package:dispusip/widgets/others/show_dialog.dart';
 
@@ -14,11 +16,16 @@ enum Method { POST, GET, PUT, DELETE, PATCH }
 class ApiService {
   Dio? _dio;
 
-  static header() => {'Content-Type': 'application/json'};
+  // static header() => {'Content-Type': 'application/json'};
 
   Future<ApiService> init() async {
     logSys('Api Service Initialized');
-    _dio = Dio(BaseOptions(baseUrl: AppConfig.baseUrl, headers: header()));
+    _dio = Dio(
+      BaseOptions(
+        baseUrl: AppConfig.baseUrl,
+        headers: {'Content-Type': 'application/json'},
+      ),
+    );
     initInterceptors();
     return this;
   }
@@ -35,7 +42,7 @@ class ApiService {
         },
         onResponse: (response, handler) {
           logSys(
-            '[RESPONSE_STATUS_CODE] : ${response.statusCode}\n[RESPONSE_DATA] : ${response.data}',
+            '[RESPONSE_STATUS_CODE] : ${response.statusCode}\n[RESPONSE_DATA] : ${response.data}\n',
           );
           return handler.next(response);
         },
@@ -47,22 +54,39 @@ class ApiService {
     );
   }
 
+  static Future<Map<String, String>> getHeader({
+    Map<String, String>? headers,
+    required bool isToken,
+  }) async {
+    final header = <String, String>{'Content-Type': 'application/json'};
+    final token = await AppStorage.read(key: CACHE_ACCESS_TOKEN);
+    if (isToken) {
+      header['Authorization'] = 'Bearer $token';
+    }
+    return header;
+  }
+
   Future<dynamic> request({
     required String url,
     required Method method,
-    Map<String, dynamic>? params,
+    Map<String, String>? headers,
+    Map<String, dynamic>? parameters,
+    bool isToken = true,
   }) async {
-    logSys('params : $params');
     Response response;
 
+    final params = parameters ?? <String, dynamic>{};
+
+    final header = await getHeader(headers: headers, isToken: isToken);
+
     if (_dio == null) {
-      _dio = Dio(BaseOptions(baseUrl: AppConfig.baseUrl, headers: header()));
+      _dio = Dio(BaseOptions(baseUrl: AppConfig.baseUrl, headers: header));
       initInterceptors();
     }
 
     try {
       if (method == Method.POST) {
-        response = await _dio!.post(url, data: params);
+        response = await _dio!.post(url, data: parameters);
       } else if (method == Method.DELETE) {
         response = await _dio!.delete(url);
       } else if (method == Method.PATCH) {
@@ -74,7 +98,7 @@ class ApiService {
       if (response.statusCode == 200) {
         return checkResponse(
           url: url,
-          params: params ?? {},
+          params: params,
           response: response.data,
           method: method,
         );
