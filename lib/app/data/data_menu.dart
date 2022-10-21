@@ -1,4 +1,5 @@
 import 'package:dispusip/app/routes/app_pages.dart';
+import 'package:dispusip/utils/app_utils.dart';
 import 'package:dispusip/widgets/buttons/button_icon_vertical.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -10,72 +11,84 @@ class DataMenu {
       'icon': 'ic_katalog_opac.png',
       'route': 'katalog',
       'active': false,
+      'link': '',
     },
     {
       'name': 'Budiwangi',
       'icon': 'ic_budiwangi.png',
       'route': 'budiwangi',
-      'active': false,
+      'active': true,
+      'link': 'https://dispusip.banyuwangikab.go.id/budiwangi/',
     },
     {
       'name': 'e-Book',
       'icon': 'ic_ebook.png',
       'route': 'ebook',
-      'active': false,
+      'active': true,
+      'link': 'https://ebook.banyuwangikab.go.id/',
     },
     {
       'name': 'e-Arsip',
       'icon': 'ic_earsip.png',
       'route': 'earsip',
       'active': false,
+      'link': '',
     },
     {
       'name': 'Usulan Buku',
       'icon': 'ic_usulan_buku.png',
       'route': 'usulan-buku',
       'active': true,
+      'link': '',
     },
     {
       'name': 'Pinjam Kolektif',
       'icon': 'ic_pinjam_kolektif.png',
       'route': 'pinjam-kolektif',
       'active': true,
+      'link': '',
     },
     {
       'name': 'Lare Osing',
       'icon': 'ic_lare_osing.png',
       'route': 'lare-osing',
-      'active': false,
+      'active': true,
+      'link': 'https://dispusip.banyuwangikab.go.id/lareosing/',
     },
     {
       'name': 'KliK',
       'icon': 'ic_klik.png',
       'route': 'klik',
-      'active': false,
+      'active': true,
+      'link': 'https://dispusip.banyuwangikab.go.id/klinik-kepustakawanan/',
     },
     {
       'name': 'Kritik & saran',
       'icon': 'ic_kritik_saran.png',
       'route': 'kritik-saran',
       'active': true,
+      'link': '',
     },
     {
       'name': 'e-Resource',
       'icon': 'ic_budiwangi.png',
       'route': 'eresource',
-      'active': false,
+      'active': true,
+      'link': 'https://e-resources.perpusnas.go.id/',
     },
     {
       'name': 'Data NPP',
       'icon': 'ic_katalog_opac.png',
       'route': 'data-npp',
-      'active': false,
+      'active': true,
+      'link': 'https://data.perpusnas.go.id/',
     },
     {
       'name': 'Kunjungan Kelompok',
       'icon': 'ic_budiwangi.png',
       'route': 'kunjungan-kelompok',
       'active': true,
+      'link': '',
     },
   ];
 
@@ -88,11 +101,17 @@ class DataMenu {
           icon: menu['icon'],
           text: menu['name'],
           onTap: () {
-            if (menu['active'] == false) {
-              Get.toNamed(Routes.UNDER_DEVELOPMENT);
-              return;
+            if (menu['active'] == true) {
+              if (menu['link'] != '') {
+                AppUtils.launchInBrowser(menu['link']);
+                return;
+              } else {
+                Get.toNamed('/${menu['route']}');
+                return;
+              }
             }
-            Get.toNamed('/${menu['route']}');
+
+            Get.toNamed(Routes.UNDER_DEVELOPMENT);
           },
         ),
       );

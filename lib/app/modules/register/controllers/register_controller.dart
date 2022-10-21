@@ -7,7 +7,7 @@ import 'package:intl/intl.dart';
 
 class RegisterController extends GetxController {
   List listGender = ['Laki - Laki', 'Perempuan'];
-  List listTypeId = ['KTP', 'Paspor'];
+  List listTypeId = ['KTP/NIK', 'Paspor'];
   List listKecamatan = ['Sananwetan', 'Sanankulon'];
   List listKelurahan = ['Bendogerit', 'Sentul', 'Pakunden'];
 

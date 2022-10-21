@@ -1,4 +1,5 @@
 import 'package:dispusip/app/data/data_home_dummy.dart';
+import 'package:dispusip/app/models/catalog_book_model.dart';
 import 'package:dispusip/app/modules/home/models/book_model.dart';
 import 'package:dispusip/app/modules/home/models/home_book_category_model.dart';
 import 'package:dispusip/app/modules/home/models/home_news_model.dart';
@@ -22,7 +23,10 @@ class HomeController extends GetxController {
   RxList<HomeBookCategoryModel> listBookCategory =
       <HomeBookCategoryModel>[].obs;
 
+  RxList<CatalogBookModel> listCatalogBook = <CatalogBookModel>[].obs;
+
   RxBool isLoading = false.obs;
+  RxBool isLoadingCatalogBook = false.obs;
 
   List<BookModel> listNewCollection = [
     BookModel(
@@ -64,8 +68,9 @@ class HomeController extends GetxController {
   void onInit() {
     getSlider();
     getNews();
+    getCatalogBook();
     getBookCategory();
-    getMostCollectionBorrowed();
+    // getMostCollectionBorrowed();
     super.onInit();
   }
 
@@ -114,10 +119,37 @@ class HomeController extends GetxController {
     }
   }
 
+  Future<void> getCatalogBook() async {
+    try {
+      isLoadingCatalogBook(true);
+
+      final r =
+          await ApiService().request(url: 'book/index', method: Method.GET);
+
+      isLoadingCatalogBook(false);
+
+      final List data = r[0];
+
+      listCatalogBook(
+        RxList.from(data.map((e) => CatalogBookModel.fromJson(e))),
+      );
+    } catch (e) {
+      isLoadingCatalogBook(false);
+      logSys(e.toString());
+    }
+  }
+
+  Future<void> getBookDetail(String id) async {
+    try {
+      await ApiService().request(url: 'book/detail/$id', method: Method.GET);
+    } catch (e) {
+      logSys(e.toString());
+    }
+  }
+
   Future<void> getMostCollectionBorrowed() async {
     try {
-      final r = await ApiService()
-          .request(url: 'book/oftenborrowed', method: Method.GET);
+      await ApiService().request(url: 'book/oftenborrowed', method: Method.GET);
     } catch (e) {
       logSys(e.toString());
     }
