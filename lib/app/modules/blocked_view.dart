@@ -1,3 +1,4 @@
+import 'package:dispusip/styles/styles.dart';
 import 'package:flutter/material.dart';
 
 class BlockedView extends StatelessWidget {
@@ -6,14 +7,11 @@ class BlockedView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('BlockedView'),
-        centerTitle: true,
-      ),
-      body: const Center(
+      body: Center(
         child: Text(
-          'Blocked is working',
-          style: TextStyle(fontSize: 20),
+          'This App Blocked For You Because Your Device has been Rooted',
+          style: TextStyles.title,
+          textAlign: TextAlign.center,
         ),
       ),
     );

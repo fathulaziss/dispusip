@@ -30,7 +30,7 @@ class AboutAppView extends GetView<AboutAppController> {
           ),
           verticalSpace(Insets.lg),
           Text(
-            'Versi 1.2.5',
+            controller.cUtility.appVersion,
             style: TextStyles.text.copyWith(fontSize: 16.w),
             textAlign: TextAlign.center,
           ),
