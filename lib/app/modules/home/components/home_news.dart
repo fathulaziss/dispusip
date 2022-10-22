@@ -1,5 +1,6 @@
 import 'package:dispusip/app/modules/home/components/home_news_card.dart';
 import 'package:dispusip/app/modules/home/controllers/home_controller.dart';
+import 'package:dispusip/styles/colors.dart';
 import 'package:dispusip/styles/styles.dart';
 import 'package:dispusip/widgets/others/shimmer_indicator.dart';
 import 'package:flutter/material.dart';
@@ -17,9 +18,26 @@ class HomeNews extends GetView<HomeController> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Berita Dispusip Banyuwangi', style: TextStyles.title),
-            verticalSpace(10.h),
-            if (controller.isLoading.value)
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Berita Dispusip Banyuwangi',
+                  style: TextStyles.title.copyWith(fontSize: 14.w),
+                ),
+                TextButton(
+                  onPressed: () {},
+                  child: Text(
+                    'Lihat Semua',
+                    style: TextStyles.title.copyWith(
+                      fontSize: 12.w,
+                      color: AppColor.primaryColor,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            if (controller.isLoadingNews.value)
               SizedBox(
                 width: Get.width,
                 height: 230.h,
@@ -28,12 +46,16 @@ class HomeNews extends GetView<HomeController> {
                   itemCount: 3,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
-                    return Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 5.w),
-                      child: ShimmerIndicator(
-                        width: 304.w,
-                        height: 230.h,
-                        radius: 10.w,
+                    return ShimmerIndicator(
+                      width: 304.w,
+                      height: 230.h,
+                      radius: 10.w,
+                      padding: EdgeInsets.zero,
+                      margin: EdgeInsets.only(
+                        right: index != 3 ? 14.w : 0,
+                        bottom: 5.h,
+                        top: 5.h,
+                        left: index != 0 ? 0 : 5.w,
                       ),
                     );
                   },

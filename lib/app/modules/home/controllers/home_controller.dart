@@ -1,6 +1,5 @@
-import 'package:dispusip/app/data/data_home_dummy.dart';
-import 'package:dispusip/app/models/catalog_book_model.dart';
-import 'package:dispusip/app/modules/home/models/book_model.dart';
+import 'package:dispusip/app/data/data_home.dart';
+import 'package:dispusip/app/models/book_model2.dart';
 import 'package:dispusip/app/modules/home/models/home_book_category_model.dart';
 import 'package:dispusip/app/modules/home/models/home_news_model.dart';
 import 'package:dispusip/app/modules/home/models/home_slider_model.dart';
@@ -18,59 +17,27 @@ class HomeController extends GetxController {
   RxList<HomeSliderModel> listSlider = <HomeSliderModel>[].obs;
   RxInt activeSliderIndex = 0.obs;
 
-  RxList<HomeNewsModel> listNews = <HomeNewsModel>[].obs;
-
   RxList<HomeBookCategoryModel> listBookCategory =
       <HomeBookCategoryModel>[].obs;
 
-  RxList<CatalogBookModel> listCatalogBook = <CatalogBookModel>[].obs;
+  RxList<BookModel2> listNewCollection = <BookModel2>[].obs;
+
+  RxList<BookModel2> listMostCollectionBorrowed2 = <BookModel2>[].obs;
+
+  RxList<HomeNewsModel> listNews = <HomeNewsModel>[].obs;
 
   RxBool isLoading = false.obs;
-  RxBool isLoadingCatalogBook = false.obs;
-
-  List<BookModel> listNewCollection = [
-    BookModel(
-      image: 'img_book1.png',
-      name: 'Pidi Baiq',
-      title: 'DILAN : Dia adalah Dilanku tahun 1990',
-    ),
-    BookModel(
-      image: 'img_book2.png',
-      name: 'Bintang',
-      title: 'Ikan Hiu, Lagi Ngaca I Lope U, Buat Yang Baca',
-    ),
-    BookModel(
-      image: 'img_book1.png',
-      name: 'Pidi Baiq',
-      title: 'DILAN : Dia adalah Dilanku tahun 1990',
-    ),
-  ];
-
-  List<BookModel> listMostCollectionBorrowed = [
-    BookModel(
-      image: 'img_book1.png',
-      name: 'Pidi Baiq',
-      title: 'DILAN : Dia adalah Dilanku tahun 1990',
-    ),
-    BookModel(
-      image: 'img_book5.png',
-      name: 'Yulian Purnama',
-      title: 'Kupas Tuntas Sutrah Shalat',
-    ),
-    BookModel(
-      image: 'img_book1.png',
-      name: 'Pidi Baiq',
-      title: 'DILAN : Dia adalah Dilanku tahun 1990',
-    ),
-  ];
+  RxBool isLoadingNewCollection = false.obs;
+  RxBool isLoadingMostCollectionBorrowed = false.obs;
+  RxBool isLoadingNews = false.obs;
 
   @override
   void onInit() {
+    getBookCategory();
+    getNewCollection();
+    getMostCollectionBorrowed();
     getSlider();
     getNews();
-    getCatalogBook();
-    getBookCategory();
-    // getMostCollectionBorrowed();
     super.onInit();
   }
 
@@ -95,6 +62,67 @@ class HomeController extends GetxController {
     }
   }
 
+  Future<void> getBookCategory() async {
+    try {
+      const r = bookCategoryHome;
+      listBookCategory(
+        RxList.from(r.map((e) => HomeBookCategoryModel.fromJson(e))),
+      );
+    } catch (e) {
+      logSys(e.toString());
+    }
+  }
+
+  Future<void> getNewCollection() async {
+    try {
+      isLoadingNewCollection(true);
+
+      final r =
+          await ApiService().request(url: 'book/index', method: Method.GET);
+      await Future.delayed(const Duration(seconds: 5));
+
+      isLoadingNewCollection(false);
+
+      final List data = r[0];
+
+      listNewCollection(
+        RxList.from(data.map((e) => BookModel2.fromJson(e))),
+      );
+    } catch (e) {
+      isLoadingNewCollection(false);
+      logSys(e.toString());
+    }
+  }
+
+  Future<void> getMostCollectionBorrowed() async {
+    try {
+      isLoadingMostCollectionBorrowed(true);
+
+      final r = await ApiService()
+          .request(url: 'book/oftenborrowed', method: Method.GET);
+      await Future.delayed(const Duration(seconds: 5));
+
+      isLoadingMostCollectionBorrowed(false);
+
+      final List data = r[0];
+
+      listMostCollectionBorrowed2(
+        RxList.from(data.map((e) => BookModel2.fromJson(e))),
+      );
+    } catch (e) {
+      isLoadingMostCollectionBorrowed(false);
+      logSys(e.toString());
+    }
+  }
+
+  Future<void> getBookDetail(String id) async {
+    try {
+      await ApiService().request(url: 'book/detail/$id', method: Method.GET);
+    } catch (e) {
+      logSys(e.toString());
+    }
+  }
+
   Future<void> getSlider() async {
     try {
       isLoading(true);
@@ -108,62 +136,18 @@ class HomeController extends GetxController {
     }
   }
 
-  Future<void> getBookCategory() async {
-    try {
-      const r = bookCategoryHome;
-      listBookCategory(
-        RxList.from(r.map((e) => HomeBookCategoryModel.fromJson(e))),
-      );
-    } catch (e) {
-      logSys(e.toString());
-    }
-  }
-
-  Future<void> getCatalogBook() async {
-    try {
-      isLoadingCatalogBook(true);
-
-      final r =
-          await ApiService().request(url: 'book/index', method: Method.GET);
-
-      isLoadingCatalogBook(false);
-
-      final List data = r[0];
-
-      listCatalogBook(
-        RxList.from(data.map((e) => CatalogBookModel.fromJson(e))),
-      );
-    } catch (e) {
-      isLoadingCatalogBook(false);
-      logSys(e.toString());
-    }
-  }
-
-  Future<void> getBookDetail(String id) async {
-    try {
-      await ApiService().request(url: 'book/detail/$id', method: Method.GET);
-    } catch (e) {
-      logSys(e.toString());
-    }
-  }
-
-  Future<void> getMostCollectionBorrowed() async {
-    try {
-      await ApiService().request(url: 'book/oftenborrowed', method: Method.GET);
-    } catch (e) {
-      logSys(e.toString());
-    }
-  }
-
   Future<void> getNews() async {
     try {
-      isLoading(true);
-      await Future.delayed(const Duration(seconds: 3));
-      isLoading(false);
-      const r = newsHome;
-      listNews(RxList.from(r.map((e) => HomeNewsModel.fromJson(e))));
+      isLoadingNews(true);
+
+      const data = newsHome2;
+      listNews(RxList.from(data.map((e) => HomeNewsModel.fromJson(e))));
+
+      await Future.delayed(const Duration(seconds: 5));
+
+      isLoadingNews(false);
     } catch (e) {
-      isLoading(false);
+      isLoadingNews(false);
       logSys(e.toString());
     }
   }

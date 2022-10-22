@@ -1,6 +1,6 @@
-class CatalogBookModel {
-  CatalogBookModel({
-    this.id = '',
+class BookModel2 {
+  BookModel2({
+    this.id = 0,
     this.title = '',
     this.author = '',
     this.edition = '',
@@ -9,22 +9,27 @@ class CatalogBookModel {
     this.publishLocation = '',
     this.note = '',
     this.cover = '',
+    this.jumlahBooking = '',
+    this.nomorBarcode = '',
+    this.image = '',
   });
 
-  factory CatalogBookModel.fromJson(Map<String, dynamic> json) =>
-      CatalogBookModel(
+  factory BookModel2.fromJson(Map<String, dynamic> json) => BookModel2(
         author: json['Author'] ?? '',
         cover: json['cover'] ?? '',
         edition: json['Edition'] ?? '',
-        id: json['ID'] ?? '',
+        id: json['ID'] ?? 0,
         note: json['Note'] ?? '',
         publishLocation: json['PublishLocation'] ?? '',
         publishYear: json['PublishYear'] ?? '',
         publisher: json['Publisher'] ?? '',
         title: json['Title'] ?? '',
+        jumlahBooking: json['jumlah_booking'] ?? '',
+        nomorBarcode: json['NomorBarcode'] ?? '',
+        image: json['Image'] ?? '',
       );
 
-  String id;
+  int id;
   String title;
   String author;
   String edition;
@@ -33,6 +38,9 @@ class CatalogBookModel {
   String publishLocation;
   String note;
   String cover;
+  String jumlahBooking;
+  String nomorBarcode;
+  String image;
 
   Map<String, dynamic> toJson() => {
         'ID': author,
@@ -44,5 +52,8 @@ class CatalogBookModel {
         'PublishLocation': publishLocation,
         'Note': note,
         'cover': publisher,
+        'jumlah_booking': jumlahBooking,
+        'NomorBarcode': nomorBarcode,
+        'Image': image,
       };
 }

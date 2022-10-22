@@ -17,7 +17,10 @@ class HomeBookCategory extends GetView<HomeController> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Cari buku dari Kategori', style: TextStyles.title),
+          Text(
+            'Cari buku dari Kategori',
+            style: TextStyles.title.copyWith(fontSize: 14.w),
+          ),
           verticalSpace(10.h),
           SizedBox(
             width: Get.width,
