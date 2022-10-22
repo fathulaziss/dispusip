@@ -1,5 +1,5 @@
-class HomeNewsModel {
-  HomeNewsModel({
+class NewsModel {
+  NewsModel({
     this.id = 0,
     this.date = '',
     this.dateGmt = '',
@@ -26,31 +26,31 @@ class HomeNewsModel {
     this.links = const {},
   });
 
-  factory HomeNewsModel.fromJson(Map<String, dynamic> json) => HomeNewsModel(
-        id: json['id'],
-        date: json['date'],
-        dateGmt: json['date_gmt'],
-        guid: json['guid'],
-        modified: json['modified'],
-        modifiedGmt: json['modified_gmt'],
-        slug: json['slug'],
-        status: json['status'],
-        type: json['type'],
-        link: json['link'],
-        title: json['title'],
-        content: json['content'],
-        excerpt: json['excerpt'],
-        author: json['author'],
-        featuredMedia: json['featured_media'],
-        commentStatus: json['comment_status'],
-        pingStatus: json['ping_status'],
-        sticky: json['sticky'],
-        template: json['template'],
-        format: json['format'],
-        meta: json['meta'],
-        categories: json['categories'],
-        tags: json['tags'],
-        links: json['_links'],
+  factory NewsModel.fromJson(Map<String, dynamic> json) => NewsModel(
+        id: json['id'] ?? 0,
+        date: json['date'] ?? '',
+        dateGmt: json['date_gmt'] ?? '',
+        guid: json['guid'] ?? {},
+        modified: json['modified'] ?? '',
+        modifiedGmt: json['modified_gmt'] ?? '',
+        slug: json['slug'] ?? '',
+        status: json['status'] ?? '',
+        type: json['type'] ?? '',
+        link: json['link'] ?? '',
+        title: json['title'] ?? {},
+        content: json['content'] ?? '',
+        excerpt: json['excerpt'] ?? {},
+        author: json['author'] ?? 0,
+        featuredMedia: json['featured_media'] ?? 0,
+        commentStatus: json['comment_status'] ?? '',
+        pingStatus: json['ping_status'] ?? '',
+        sticky: json['sticky'] ?? false,
+        template: json['template'] ?? '',
+        format: json['format'] ?? '',
+        meta: json['meta'] ?? [],
+        categories: json['categories'] ?? [],
+        tags: json['tags'] ?? [],
+        links: json['_links'] ?? {},
       );
 
   int id;

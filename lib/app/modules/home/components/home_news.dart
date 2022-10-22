@@ -1,5 +1,6 @@
 import 'package:dispusip/app/modules/home/components/home_news_card.dart';
 import 'package:dispusip/app/modules/home/controllers/home_controller.dart';
+import 'package:dispusip/app/routes/app_pages.dart';
 import 'package:dispusip/styles/colors.dart';
 import 'package:dispusip/styles/styles.dart';
 import 'package:dispusip/widgets/others/shimmer_indicator.dart';
@@ -26,7 +27,7 @@ class HomeNews extends GetView<HomeController> {
                   style: TextStyles.title.copyWith(fontSize: 14.w),
                 ),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () => Get.toNamed(Routes.NEWS),
                   child: Text(
                     'Lihat Semua',
                     style: TextStyles.title.copyWith(
@@ -72,6 +73,8 @@ class HomeNews extends GetView<HomeController> {
                   itemBuilder: (context, index) {
                     return HomeNewsCard(
                       data: controller.listNews[index],
+                      dataMedia: controller.listNewsMedia[index],
+                      dataAuthor: controller.listNewsAuthor[index],
                       margin: EdgeInsets.only(
                         right: index != controller.listNews.length ? 14.w : 0,
                         bottom: 5.h,

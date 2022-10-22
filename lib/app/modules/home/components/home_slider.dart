@@ -17,7 +17,7 @@ class HomeSlider extends GetView<HomeController> {
     return Obx(
       () => Padding(
         padding: EdgeInsets.only(bottom: Insets.xl),
-        child: controller.isLoading.value
+        child: controller.isLoadingSlider.value
             ? SizedBox(
                 width: Get.width,
                 height: 160.h,

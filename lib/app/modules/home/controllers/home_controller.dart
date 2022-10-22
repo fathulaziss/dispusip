@@ -1,10 +1,13 @@
 import 'package:dispusip/app/data/data_home.dart';
 import 'package:dispusip/app/models/book_model2.dart';
+import 'package:dispusip/app/models/news_author_model.dart';
+import 'package:dispusip/app/models/news_media_model.dart';
+import 'package:dispusip/app/models/news_model.dart';
 import 'package:dispusip/app/modules/home/models/home_book_category_model.dart';
-import 'package:dispusip/app/modules/home/models/home_news_model.dart';
 import 'package:dispusip/app/modules/home/models/home_slider_model.dart';
 import 'package:dispusip/services/api_service.dart';
-import 'package:dispusip/utils/app_utils.dart';
+import 'package:dispusip/services/http_service.dart';
+import 'package:dispusip/styles/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -24,9 +27,11 @@ class HomeController extends GetxController {
 
   RxList<BookModel2> listMostCollectionBorrowed2 = <BookModel2>[].obs;
 
-  RxList<HomeNewsModel> listNews = <HomeNewsModel>[].obs;
+  RxList<NewsModel> listNews = <NewsModel>[].obs;
+  RxList<NewsMediaModel> listNewsMedia = <NewsMediaModel>[].obs;
+  RxList<NewsAuthorModel> listNewsAuthor = <NewsAuthorModel>[].obs;
 
-  RxBool isLoading = false.obs;
+  RxBool isLoadingSlider = false.obs;
   RxBool isLoadingNewCollection = false.obs;
   RxBool isLoadingMostCollectionBorrowed = false.obs;
   RxBool isLoadingNews = false.obs;
@@ -69,7 +74,7 @@ class HomeController extends GetxController {
         RxList.from(r.map((e) => HomeBookCategoryModel.fromJson(e))),
       );
     } catch (e) {
-      logSys(e.toString());
+      rethrow;
     }
   }
 
@@ -90,7 +95,7 @@ class HomeController extends GetxController {
       );
     } catch (e) {
       isLoadingNewCollection(false);
-      logSys(e.toString());
+      rethrow;
     }
   }
 
@@ -111,7 +116,7 @@ class HomeController extends GetxController {
       );
     } catch (e) {
       isLoadingMostCollectionBorrowed(false);
-      logSys(e.toString());
+      rethrow;
     }
   }
 
@@ -119,20 +124,20 @@ class HomeController extends GetxController {
     try {
       await ApiService().request(url: 'book/detail/$id', method: Method.GET);
     } catch (e) {
-      logSys(e.toString());
+      rethrow;
     }
   }
 
   Future<void> getSlider() async {
     try {
-      isLoading(true);
+      isLoadingSlider(true);
       await Future.delayed(const Duration(seconds: 3));
-      isLoading(false);
+      isLoadingSlider(false);
       const r = sliderHome;
       listSlider(RxList.from(r.map((e) => HomeSliderModel.fromJson(e))));
     } catch (e) {
-      isLoading(false);
-      logSys(e.toString());
+      isLoadingSlider(false);
+      rethrow;
     }
   }
 
@@ -140,15 +145,52 @@ class HomeController extends GetxController {
     try {
       isLoadingNews(true);
 
-      const data = newsHome2;
-      listNews(RxList.from(data.map((e) => HomeNewsModel.fromJson(e))));
+      final r = await HttpService().request(
+        url: 'https://dispusip.banyuwangikab.go.id/wp-json/wp/v2/posts',
+        method: Method.GET,
+        isToken: false,
+      );
 
-      await Future.delayed(const Duration(seconds: 5));
+      final List data = r;
+      listNews(RxList.from(data.map((e) => NewsModel.fromJson(e))));
+
+      await getNewsMedia();
+      await getNewsAuthor();
 
       isLoadingNews(false);
     } catch (e) {
       isLoadingNews(false);
-      logSys(e.toString());
+      rethrow;
+    }
+  }
+
+  Future<void> getNewsMedia() async {
+    try {
+      for (final data in listNews) {
+        final r = await HttpService().request(
+          url: data.links['wp:featuredmedia'][0]['href'],
+          method: Method.GET,
+          isToken: false,
+        );
+        listNewsMedia.add(NewsMediaModel.fromJson(r));
+      }
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  Future<void> getNewsAuthor() async {
+    try {
+      for (final data in listNews) {
+        final r = await HttpService().request(
+          url: data.links['author'][0]['href'],
+          method: Method.GET,
+          isToken: false,
+        );
+        listNewsAuthor.add(NewsAuthorModel.fromJson(r));
+      }
+    } catch (e) {
+      rethrow;
     }
   }
 }

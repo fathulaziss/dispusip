@@ -5,25 +5,20 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:dispusip/app/modules/api_log/models/api_log_model.dart';
-import 'package:dispusip/app_config.dart';
 import 'package:dispusip/constants/constants.dart';
 import 'package:dispusip/styles/styles.dart';
 import 'package:dispusip/utils/app_storage.dart';
 import 'package:dispusip/utils/app_utils.dart';
-import 'package:dispusip/widgets/others/show_dialog.dart';
 
-class ApiService {
+class HttpService {
   Dio? _dio;
 
   // static header() => {'Content-Type': 'application/json'};
 
-  Future<ApiService> init() async {
-    logSys('Api Service Initialized');
+  Future<HttpService> init() async {
+    logSys('Http Service Initialized');
     _dio = Dio(
-      BaseOptions(
-        baseUrl: AppConfig.baseUrl,
-        headers: {'Content-Type': 'application/json'},
-      ),
+      BaseOptions(headers: {'Content-Type': 'application/json'}),
     );
     initInterceptors();
     return this;
@@ -79,7 +74,7 @@ class ApiService {
     final header = await getHeader(headers: headers, isToken: isToken);
 
     if (_dio == null) {
-      _dio = Dio(BaseOptions(baseUrl: AppConfig.baseUrl, headers: header));
+      _dio = Dio(BaseOptions(headers: header));
       initInterceptors();
     }
 
@@ -95,12 +90,21 @@ class ApiService {
       }
 
       if (response.statusCode == 200) {
-        return checkResponse(
-          url: url,
-          params: params,
-          response: response.data,
-          method: method,
+        await ApiLogger().log(
+          data: ApiLogModel(
+            url: url,
+            payload: params.toString(),
+            response: response.toString(),
+            method: method.toString(),
+          ),
         );
+        return response.data;
+        // return checkResponse(
+        //   url: url,
+        //   params: params,
+        //   response: response.data,
+        //   method: method,
+        // );
       } else if (response.statusCode == 401) {
         throw Exception('Unauthorized');
       } else if (response.statusCode == 500) {
@@ -138,26 +142,26 @@ class ApiService {
     }
   }
 
-  Future<dynamic> checkResponse({
-    required String url,
-    required Map<String, dynamic> params,
-    required dynamic response,
-    required Method method,
-  }) async {
-    await ApiLogger().log(
-      data: ApiLogModel(
-        url: '${AppConfig.baseUrl}$url',
-        payload: params.toString(),
-        response: response.toString(),
-        method: method.toString(),
-      ),
-    );
+  // Future<dynamic> checkResponse({
+  //   required String url,
+  //   required Map<String, dynamic> params,
+  //   required dynamic response,
+  //   required Method method,
+  // }) async {
+  //   await ApiLogger().log(
+  //     data: ApiLogModel(
+  //       url: '${AppConfig.baseUrl}$url',
+  //       payload: params.toString(),
+  //       response: response.toString(),
+  //       method: method.toString(),
+  //     ),
+  //   );
 
-    if (response['response_code'] == 200) {
-      return response['response_data'];
-    }
+  //   if (response['response_code'] == 200) {
+  //     return response['response_data'];
+  //   }
 
-    showToast(message: 'Gagal Request');
-    throw Exception('Gagal Request');
-  }
+  //   showToast(message: 'Gagal Request');
+  //   throw Exception('Gagal Request');
+  // }
 }

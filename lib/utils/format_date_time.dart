@@ -12,4 +12,10 @@ class FormatDateTime {
       return 'Invalid date';
     }
   }
+
+  static String news(String value) {
+    final dateTime = DateFormat("yyyy-MM-dd'T'HH:mm:ss").parse(value);
+    final dateTimeConvert = DateFormat('dd-MM-yyyy').format(dateTime);
+    return dateTimeConvert.replaceAll('-', '.');
+  }
 }

@@ -22,6 +22,9 @@ import 'package:dispusip/app/modules/kunjungan_kelompok/bindings/kunjungan_kelom
 import 'package:dispusip/app/modules/kunjungan_kelompok/views/kunjungan_kelompok_view.dart';
 import 'package:dispusip/app/modules/login/bindings/login_binding.dart';
 import 'package:dispusip/app/modules/login/views/login_view.dart';
+import 'package:dispusip/app/modules/news/bindings/news_binding.dart';
+import 'package:dispusip/app/modules/news/views/news_detail_view.dart';
+import 'package:dispusip/app/modules/news/views/news_view.dart';
 import 'package:dispusip/app/modules/onboarding/bindings/onboarding_binding.dart';
 import 'package:dispusip/app/modules/onboarding/views/onboarding_view.dart';
 import 'package:dispusip/app/modules/pinjam_kolektif/bindings/pinjam_kolektif_binding.dart';
@@ -147,6 +150,16 @@ class AppPages {
       name: _Paths.ABOUT_APP,
       page: () => const AboutAppView(),
       binding: AboutAppBinding(),
+    ),
+    GetPage(
+      name: _Paths.NEWS,
+      page: () => const NewsView(),
+      binding: NewsBinding(),
+    ),
+    GetPage(
+      name: _Paths.NEWS_DETAIL,
+      page: () => const NewsDetailView(),
+      binding: NewsBinding(),
     ),
   ];
 }

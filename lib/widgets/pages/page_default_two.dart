@@ -28,9 +28,9 @@ class PageDefaultTwo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: InkWell(
-          onTap: () => Get.back(),
-          child: Icon(Icons.arrow_back_ios, color: Colors.white, size: 20.w),
+        leading: IconButton(
+          onPressed: Get.back,
+          icon: Icon(Icons.arrow_back_ios, color: Colors.white, size: 20.w),
         ),
         title: SizedBox(
           width: double.infinity,
