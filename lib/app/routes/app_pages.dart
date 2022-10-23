@@ -22,6 +22,8 @@ import 'package:dispusip/app/modules/kunjungan_kelompok/bindings/kunjungan_kelom
 import 'package:dispusip/app/modules/kunjungan_kelompok/views/kunjungan_kelompok_view.dart';
 import 'package:dispusip/app/modules/login/bindings/login_binding.dart';
 import 'package:dispusip/app/modules/login/views/login_view.dart';
+import 'package:dispusip/app/modules/member_detail/bindings/member_detail_binding.dart';
+import 'package:dispusip/app/modules/member_detail/views/member_detail_view.dart';
 import 'package:dispusip/app/modules/news/bindings/news_binding.dart';
 import 'package:dispusip/app/modules/news/views/news_detail_view.dart';
 import 'package:dispusip/app/modules/news/views/news_view.dart';
@@ -160,6 +162,11 @@ class AppPages {
       name: _Paths.NEWS_DETAIL,
       page: () => const NewsDetailView(),
       binding: NewsBinding(),
+    ),
+    GetPage(
+      name: _Paths.MEMBER_DETAIL,
+      page: () => const MemberDetailView(),
+      binding: MemberDetailBinding(),
     ),
   ];
 }

@@ -1,3 +1,4 @@
+import 'package:dispusip/app/modules/home/controllers/home_controller.dart';
 import 'package:dispusip/app/routes/app_pages.dart';
 import 'package:dispusip/utils/app_utils.dart';
 import 'package:dispusip/widgets/buttons/button_icon_vertical.dart';
@@ -10,7 +11,7 @@ class DataMenu {
       'name': 'Katalog (OPAC)',
       'icon': 'ic_katalog_opac.png',
       'route': 'katalog',
-      'active': false,
+      'active': true,
       'link': '',
     },
     {
@@ -101,6 +102,11 @@ class DataMenu {
           icon: menu['icon'],
           text: menu['name'],
           onTap: () {
+            if (menu['name'] == 'Katalog (OPAC)') {
+              Get.find<HomeController>().navigation(1);
+              return;
+            }
+
             if (menu['active'] == true) {
               if (menu['link'] != '') {
                 AppUtils.launchInBrowser(menu['link']);

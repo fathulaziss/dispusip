@@ -35,7 +35,8 @@ class TabDashboard extends GetView<DashboardController> {
                     padding: EdgeInsets.symmetric(horizontal: 22.w),
                     child: Text(
                       'Kartu Anggota Virtual',
-                      style: TextStyles.title.copyWith(color: Colors.white),
+                      style: TextStyles.title
+                          .copyWith(color: Colors.white, fontSize: 16.w),
                     ),
                   ),
                   verticalSpace(Insets.med),

@@ -14,6 +14,7 @@ class PageDefaultTwo extends StatelessWidget {
     this.isShowButtonBottom = false,
     this.buttonBottom = const SizedBox(),
     this.isScrollable = true,
+    this.padding,
   }) : super(key: key);
 
   final String titlePage;
@@ -23,6 +24,7 @@ class PageDefaultTwo extends StatelessWidget {
   final bool isShowButtonBottom;
   final Widget buttonBottom;
   final bool isScrollable;
+  final EdgeInsets? padding;
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +38,8 @@ class PageDefaultTwo extends StatelessWidget {
           width: double.infinity,
           child: Text(
             titlePage,
-            style: TextStyles.title.copyWith(color: Colors.white),
+            style:
+                TextStyles.title.copyWith(color: Colors.white, fontSize: 16.w),
           ),
         ),
       ),
@@ -65,7 +68,7 @@ class PageDefaultTwo extends StatelessWidget {
       ),
       resizeToAvoidBottomInset: resizeToAvoidBottomInset,
       body: Padding(
-        padding: EdgeInsets.all(24.w),
+        padding: padding ?? EdgeInsets.all(24.w),
         child: SizedBox(
           width: double.infinity,
           child: isScrollable ? SingleChildScrollView(child: child) : child,
