@@ -157,7 +157,7 @@ class ApiService {
       return response['response_data'];
     }
 
-    showToast(message: 'Gagal Request');
-    throw Exception('Gagal Request');
+    showToast(message: response['message']);
+    throw Exception(response['message']);
   }
 }
