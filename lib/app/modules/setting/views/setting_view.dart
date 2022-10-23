@@ -3,6 +3,7 @@ import 'package:dispusip/app/modules/setting/controllers/setting_controller.dart
 import 'package:dispusip/app/routes/app_pages.dart';
 import 'package:dispusip/styles/colors.dart';
 import 'package:dispusip/styles/styles.dart';
+import 'package:dispusip/utils/app_utils.dart';
 import 'package:dispusip/widgets/pages/page_default_two.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -49,12 +50,16 @@ class SettingView extends GetView<SettingController> {
               prefixIcon: 'ic_lock.png',
             ),
             SettingMenuItem(
-              onTap: () => Get.toNamed(Routes.UNDER_DEVELOPMENT),
+              onTap: () {
+                AppUtils.launchInBrowser(controller.listSettingWebview[0].link);
+              },
               label: 'Panduan',
               isUsePrefixIcon: false,
             ),
             SettingMenuItem(
-              onTap: () => Get.toNamed(Routes.SERVICE_POLICY),
+              onTap: () {
+                AppUtils.launchInBrowser(controller.listSettingWebview[1].link);
+              },
               label: 'Kebijakan Layanan',
               isUsePrefixIcon: false,
             ),
