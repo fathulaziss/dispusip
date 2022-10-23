@@ -1,4 +1,5 @@
 import 'package:dispusip/app/modules/register/controllers/register_controller.dart';
+import 'package:dispusip/app/modules/register/models/register_type_id_model.dart';
 import 'package:dispusip/styles/colors.dart';
 import 'package:dispusip/styles/styles.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
@@ -27,11 +28,11 @@ class RegisterTypeIdDropdown extends GetView<RegisterController> {
             children: [
               Expanded(
                 child: Text(
-                  controller.selectedTypeId.value.isNotEmpty
-                      ? controller.selectedTypeId.value
+                  controller.selectedTypeId.value.nama.isNotEmpty
+                      ? controller.selectedTypeId.value.nama
                       : 'Jenis Identitas',
                   style: TextStyles.text.copyWith(
-                    color: controller.selectedTypeId.value.isNotEmpty
+                    color: controller.selectedTypeId.value.nama.isNotEmpty
                         ? AppColor.textColor
                         : AppColor.darkGrey,
                   ),
@@ -45,7 +46,7 @@ class RegisterTypeIdDropdown extends GetView<RegisterController> {
           dropdownMaxHeight: 55.w * controller.listTypeId.length,
           items: controller.listTypeId
               .map(
-                (item) => DropdownMenuItem<String>(
+                (item) => DropdownMenuItem<RegisterTypeIdModel>(
                   value: item,
                   child: Flex(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -54,7 +55,7 @@ class RegisterTypeIdDropdown extends GetView<RegisterController> {
                       Expanded(
                         child: Align(
                           alignment: Alignment.centerLeft,
-                          child: Text(item, style: TextStyles.text),
+                          child: Text(item.nama, style: TextStyles.text),
                         ),
                       ),
                       const Divider(),
@@ -65,7 +66,7 @@ class RegisterTypeIdDropdown extends GetView<RegisterController> {
               .toList(),
           onChanged: (value) {
             if (value != null) {
-              final data = value as String;
+              final data = value as RegisterTypeIdModel;
               controller.setTypeId(data);
             }
           },

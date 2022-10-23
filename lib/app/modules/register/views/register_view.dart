@@ -1,8 +1,6 @@
 import 'package:dispusip/app/modules/register/components/register_birthday_dropdown.dart';
 import 'package:dispusip/app/modules/register/components/register_gender_dropdown.dart';
 import 'package:dispusip/app/modules/register/components/register_header_form.dart';
-import 'package:dispusip/app/modules/register/components/register_kecamatan_dropdown.dart';
-import 'package:dispusip/app/modules/register/components/register_kelurahan_dropdown.dart';
 import 'package:dispusip/app/modules/register/components/register_type_id_dropdown.dart';
 import 'package:dispusip/app/modules/register/controllers/register_controller.dart';
 import 'package:dispusip/styles/colors.dart';
@@ -13,7 +11,9 @@ import 'package:dispusip/widgets/inputs/input_number.dart';
 import 'package:dispusip/widgets/inputs/input_password.dart';
 import 'package:dispusip/widgets/inputs/input_primary.dart';
 import 'package:dispusip/widgets/pages/page_default_one.dart';
+import 'package:easy_mask/easy_mask.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
@@ -29,7 +29,7 @@ class RegisterView extends GetView<RegisterController> {
         isShowFooter: true,
         isShowButtonBottom: true,
         buttonBottom: ButtonPrimary(
-          onTap: () {},
+          onTap: controller.register,
           label: 'DAFTAR ANGGOTA',
           enabled: controller.isValidForm.value,
           isLoading: controller.isLoading.value,
@@ -41,7 +41,7 @@ class RegisterView extends GetView<RegisterController> {
               hint: 'Nama Lengkap',
               controller: controller.cFullName,
               onChanged: controller.setFullName,
-              validation: (value) => value.isNotEmpty,
+              validation: (value) => true,
               margin: EdgeInsets.only(bottom: 15.h),
               prefixIcon: Padding(
                 padding: EdgeInsets.symmetric(horizontal: Insets.sm),
@@ -57,7 +57,7 @@ class RegisterView extends GetView<RegisterController> {
               hint: 'Tempat Lahir',
               controller: controller.cBirthPlace,
               onChanged: controller.setBirthPlace,
-              validation: (value) => value.isNotEmpty,
+              validation: (value) => true,
               margin: EdgeInsets.only(bottom: 15.h),
             ),
             const RegisterBirthdayDropdown(),
@@ -66,7 +66,7 @@ class RegisterView extends GetView<RegisterController> {
               hint: 'NIK / No. Identitas',
               controller: controller.cNumberId,
               onChanged: controller.setNumberId,
-              validation: (value) => value.isNotEmpty,
+              validation: (value) => true,
               margin: EdgeInsets.only(bottom: 15.h),
             ),
             const RegisterHeaderForm(label: 'Alamat'),
@@ -74,7 +74,7 @@ class RegisterView extends GetView<RegisterController> {
               hint: 'Alamat',
               controller: controller.cAddress,
               onChanged: controller.setAddress,
-              validation: (value) => value.isNotEmpty,
+              validation: (value) => true,
               margin: EdgeInsets.only(bottom: 15.h),
               prefixIcon: Padding(
                 padding: EdgeInsets.symmetric(horizontal: Insets.sm),
@@ -92,7 +92,7 @@ class RegisterView extends GetView<RegisterController> {
                     hint: 'RT',
                     controller: controller.cRt,
                     onChanged: controller.setRt,
-                    validation: (value) => value.isNotEmpty,
+                    validation: (value) => true,
                     margin: EdgeInsets.only(bottom: 15.h),
                   ),
                 ),
@@ -102,14 +102,33 @@ class RegisterView extends GetView<RegisterController> {
                     hint: 'RW',
                     controller: controller.cRw,
                     onChanged: controller.setRw,
-                    validation: (value) => value.isNotEmpty,
+                    validation: (value) => true,
                     margin: EdgeInsets.only(bottom: 15.h),
                   ),
                 )
               ],
             ),
-            const RegisterKecamatanDropdown(),
-            const RegisterKelurahanDropdown(),
+            InputPrimary(
+              hint: 'Kota / Kabupaten',
+              controller: controller.cCity,
+              onChanged: controller.setCity,
+              validation: (value) => true,
+              margin: EdgeInsets.only(bottom: 15.h),
+            ),
+            InputPrimary(
+              hint: 'Kecamatan',
+              controller: controller.cKecamatan,
+              onChanged: controller.setKecamatan,
+              validation: (value) => true,
+              margin: EdgeInsets.only(bottom: 15.h),
+            ),
+            InputPrimary(
+              hint: 'Kelurahan',
+              controller: controller.cKelurahan,
+              onChanged: controller.setKelurahan,
+              validation: (value) => true,
+              margin: EdgeInsets.only(bottom: 15.h),
+            ),
             const RegisterHeaderForm(label: 'Akun'),
             InputNumber(
               hint: 'No. HP',
@@ -117,6 +136,10 @@ class RegisterView extends GetView<RegisterController> {
               value: controller.setPhoneNumber,
               validation: (value) => value.isNotEmpty,
               margin: EdgeInsets.only(bottom: 15.h),
+              inputFormatters: [
+                FilteringTextInputFormatter.digitsOnly,
+                TextInputMask(mask: '9999 9999 9999 9999 9999')
+              ],
               prefixIcon: Padding(
                 padding: EdgeInsets.symmetric(horizontal: Insets.sm),
                 child: Icon(
@@ -130,13 +153,13 @@ class RegisterView extends GetView<RegisterController> {
               hint: 'Email',
               controller: controller.cEmail,
               value: controller.setEmail,
-              validation: (value) => value.isNotEmpty,
+              validation: (value) => true,
               margin: EdgeInsets.only(bottom: 15.h),
             ),
             InputPassword(
               controller: controller.cPassword,
               value: controller.setPassword,
-              validation: (value) => value.isNotEmpty,
+              validation: (value) => true,
               validationText: '',
               margin: EdgeInsets.only(bottom: 15.h),
             ),
@@ -144,7 +167,7 @@ class RegisterView extends GetView<RegisterController> {
               hint: 'Ulangi Password',
               controller: controller.cConfirmPassword,
               value: controller.setConfirmPassword,
-              validation: (value) => value.isNotEmpty,
+              validation: (value) => true,
               validationText: '',
               margin: EdgeInsets.only(bottom: 15.h),
             )

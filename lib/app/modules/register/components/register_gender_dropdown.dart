@@ -1,4 +1,5 @@
 import 'package:dispusip/app/modules/register/controllers/register_controller.dart';
+import 'package:dispusip/app/modules/register/models/register_gender_model.dart';
 import 'package:dispusip/styles/colors.dart';
 import 'package:dispusip/styles/styles.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
@@ -27,11 +28,11 @@ class RegisterGenderDropdown extends GetView<RegisterController> {
             children: [
               Expanded(
                 child: Text(
-                  controller.selectedGender.value.isNotEmpty
-                      ? controller.selectedGender.value
+                  controller.selectedGender.value.value.isNotEmpty
+                      ? controller.selectedGender.value.value
                       : 'Jenis Kelamin',
                   style: TextStyles.text.copyWith(
-                    color: controller.selectedGender.value.isNotEmpty
+                    color: controller.selectedGender.value.value.isNotEmpty
                         ? AppColor.textColor
                         : AppColor.darkGrey,
                   ),
@@ -45,7 +46,7 @@ class RegisterGenderDropdown extends GetView<RegisterController> {
           dropdownMaxHeight: 55.w * controller.listGender.length,
           items: controller.listGender
               .map(
-                (item) => DropdownMenuItem<String>(
+                (item) => DropdownMenuItem<RegisterGenderModel>(
                   value: item,
                   child: Flex(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -54,7 +55,7 @@ class RegisterGenderDropdown extends GetView<RegisterController> {
                       Expanded(
                         child: Align(
                           alignment: Alignment.centerLeft,
-                          child: Text(item, style: TextStyles.text),
+                          child: Text(item.value, style: TextStyles.text),
                         ),
                       ),
                       const Divider(),
@@ -65,7 +66,7 @@ class RegisterGenderDropdown extends GetView<RegisterController> {
               .toList(),
           onChanged: (value) {
             if (value != null) {
-              final data = value as String;
+              final data = value as RegisterGenderModel;
               controller.setGender(data);
             }
           },

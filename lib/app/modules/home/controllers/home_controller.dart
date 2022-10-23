@@ -8,6 +8,7 @@ import 'package:dispusip/app/modules/home/models/home_slider_model.dart';
 import 'package:dispusip/services/api_service.dart';
 import 'package:dispusip/services/http_service.dart';
 import 'package:dispusip/styles/styles.dart';
+import 'package:dispusip/utils/app_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -25,7 +26,7 @@ class HomeController extends GetxController {
 
   RxList<BookModel2> listNewCollection = <BookModel2>[].obs;
 
-  RxList<BookModel2> listMostCollectionBorrowed2 = <BookModel2>[].obs;
+  RxList<BookModel2> listMostCollectionBorrowed = <BookModel2>[].obs;
 
   RxList<NewsModel> listNews = <NewsModel>[].obs;
   RxList<NewsMediaModel> listNewsMedia = <NewsMediaModel>[].obs;
@@ -74,7 +75,7 @@ class HomeController extends GetxController {
         RxList.from(r.map((e) => HomeBookCategoryModel.fromJson(e))),
       );
     } catch (e) {
-      rethrow;
+      logSys(e.toString());
     }
   }
 
@@ -95,7 +96,7 @@ class HomeController extends GetxController {
       );
     } catch (e) {
       isLoadingNewCollection(false);
-      rethrow;
+      logSys(e.toString());
     }
   }
 
@@ -111,12 +112,12 @@ class HomeController extends GetxController {
 
       final List data = r[0];
 
-      listMostCollectionBorrowed2(
+      listMostCollectionBorrowed(
         RxList.from(data.map((e) => BookModel2.fromJson(e))),
       );
     } catch (e) {
       isLoadingMostCollectionBorrowed(false);
-      rethrow;
+      logSys(e.toString());
     }
   }
 
@@ -137,7 +138,7 @@ class HomeController extends GetxController {
       listSlider(RxList.from(r.map((e) => HomeSliderModel.fromJson(e))));
     } catch (e) {
       isLoadingSlider(false);
-      rethrow;
+      logSys(e.toString());
     }
   }
 
@@ -160,7 +161,7 @@ class HomeController extends GetxController {
       isLoadingNews(false);
     } catch (e) {
       isLoadingNews(false);
-      rethrow;
+      logSys(e.toString());
     }
   }
 
@@ -175,7 +176,7 @@ class HomeController extends GetxController {
         listNewsMedia.add(NewsMediaModel.fromJson(r));
       }
     } catch (e) {
-      rethrow;
+      logSys(e.toString());
     }
   }
 
@@ -190,7 +191,7 @@ class HomeController extends GetxController {
         listNewsAuthor.add(NewsAuthorModel.fromJson(r));
       }
     } catch (e) {
-      rethrow;
+      logSys(e.toString());
     }
   }
 }

@@ -11,6 +11,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   dio: ^4.0.6
   dropdown_button2: ^1.8.5
+  easy_mask: ^2.0.1
   firebase_core: ^1.24.0
   flutter:
     sdk: flutter

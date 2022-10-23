@@ -1,73 +1,105 @@
+import 'package:dispusip/app/modules/register/models/register_gender_model.dart';
+import 'package:dispusip/app/modules/register/models/register_type_id_model.dart';
+import 'package:dispusip/app/routes/app_pages.dart';
+import 'package:dispusip/services/api_service.dart';
 import 'package:dispusip/styles/colors.dart';
 import 'package:dispusip/styles/styles.dart';
+import 'package:dispusip/utils/app_utils.dart';
+import 'package:dispusip/widgets/others/show_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_holo_date_picker/flutter_holo_date_picker.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
 class RegisterController extends GetxController {
-  List listGender = ['Laki - Laki', 'Perempuan'];
-  List listTypeId = ['KTP/NIK', 'Paspor'];
-  List listKecamatan = ['Sananwetan', 'Sanankulon'];
-  List listKelurahan = ['Bendogerit', 'Sentul', 'Pakunden'];
+  List<RegisterGenderModel> listGender = [
+    RegisterGenderModel(id: '1', value: 'Laki-laki'),
+    RegisterGenderModel(id: '2', value: 'Perempuan'),
+  ];
+  RxList<RegisterTypeIdModel> listTypeId = <RegisterTypeIdModel>[].obs;
 
-  TextEditingController cFullName = TextEditingController();
+  final cFullName = TextEditingController();
   RxString fullName = ''.obs;
   RxBool isValidFullName = false.obs;
 
-  RxString selectedGender = ''.obs;
+  Rx<RegisterGenderModel> selectedGender = RegisterGenderModel().obs;
   RxBool isValidGender = false.obs;
 
-  TextEditingController cBirthPlace = TextEditingController();
+  final cBirthPlace = TextEditingController();
   RxString birthPlace = ''.obs;
   RxBool isValidBirthPlace = false.obs;
 
   RxString selectedBirthday = ''.obs;
   RxBool isValidBirthday = false.obs;
 
-  RxString selectedTypeId = ''.obs;
+  Rx<RegisterTypeIdModel> selectedTypeId = RegisterTypeIdModel().obs;
   RxBool isValidTypeId = false.obs;
 
-  TextEditingController cNumberId = TextEditingController();
+  final cNumberId = TextEditingController();
   RxString numberId = ''.obs;
   RxBool isValidNumberId = false.obs;
 
-  TextEditingController cAddress = TextEditingController();
+  final cAddress = TextEditingController();
   RxString address = ''.obs;
   RxBool isValidAddress = false.obs;
 
-  TextEditingController cRt = TextEditingController();
+  final cRt = TextEditingController();
   RxString rt = ''.obs;
   RxBool isValidRt = false.obs;
 
-  TextEditingController cRw = TextEditingController();
+  final cRw = TextEditingController();
   RxString rw = ''.obs;
   RxBool isValidRw = false.obs;
 
-  RxString selectedKecamatan = ''.obs;
+  final cCity = TextEditingController();
+  RxString city = ''.obs;
+  RxBool isValidCity = false.obs;
+
+  final cKecamatan = TextEditingController();
+  RxString kecamatan = ''.obs;
   RxBool isValidKecamatan = false.obs;
 
-  RxString selectedKelurahan = ''.obs;
+  final cKelurahan = TextEditingController();
+  RxString kelurahan = ''.obs;
   RxBool isValidKelurahan = false.obs;
 
-  TextEditingController cPhoneNumber = TextEditingController();
+  final cPhoneNumber = TextEditingController();
   RxString phoneNumber = ''.obs;
   RxBool isValidPhoneNumber = false.obs;
 
-  TextEditingController cEmail = TextEditingController();
+  final cEmail = TextEditingController();
   RxString email = ''.obs;
   RxBool isValidEmail = false.obs;
 
-  TextEditingController cPassword = TextEditingController();
+  final cPassword = TextEditingController();
   RxString password = ''.obs;
 
-  TextEditingController cConfirmPassword = TextEditingController();
+  final cConfirmPassword = TextEditingController();
   RxString confirmPassword = ''.obs;
 
   RxBool isValidPassword = false.obs;
 
   RxBool isValidForm = false.obs;
   RxBool isLoading = false.obs;
+
+  @override
+  void onInit() {
+    getTypeId();
+    super.onInit();
+  }
+
+  Future<void> getTypeId() async {
+    try {
+      final r = await ApiService()
+          .request(url: 'listidentity', method: Method.GET, isToken: false);
+      final List data = r[0];
+      listTypeId(
+        RxList.from(data.map((e) => RegisterTypeIdModel.fromJson(e))),
+      );
+    } catch (e) {
+      logSys(e.toString());
+    }
+  }
 
   void setFullName(String value) {
     fullName(value);
@@ -79,9 +111,9 @@ class RegisterController extends GetxController {
     validateForm();
   }
 
-  void setGender(String value) {
+  void setGender(RegisterGenderModel value) {
     selectedGender(value);
-    if (selectedGender.value.isNotEmpty) {
+    if (selectedGender.value.id.isNotEmpty) {
       isValidGender(true);
     } else {
       isValidGender(false);
@@ -109,9 +141,9 @@ class RegisterController extends GetxController {
     validateForm();
   }
 
-  void setTypeId(String value) {
+  void setTypeId(RegisterTypeIdModel value) {
     selectedTypeId(value);
-    if (selectedTypeId.value.isNotEmpty) {
+    if (selectedTypeId.value.id.isNotEmpty) {
       isValidTypeId(true);
     } else {
       isValidTypeId(false);
@@ -159,9 +191,19 @@ class RegisterController extends GetxController {
     validateForm();
   }
 
+  void setCity(String value) {
+    city(value);
+    if (city.value.isNotEmpty) {
+      isValidCity(true);
+    } else {
+      isValidCity(false);
+    }
+    validateForm();
+  }
+
   void setKecamatan(String value) {
-    selectedKecamatan(value);
-    if (selectedKecamatan.value.isNotEmpty) {
+    kecamatan(value);
+    if (kecamatan.value.isNotEmpty) {
       isValidKecamatan(true);
     } else {
       isValidKecamatan(false);
@@ -170,8 +212,8 @@ class RegisterController extends GetxController {
   }
 
   void setKelurahan(String value) {
-    selectedKelurahan(value);
-    if (selectedKelurahan.value.isNotEmpty) {
+    kelurahan(value);
+    if (kelurahan.value.isNotEmpty) {
       isValidKelurahan(true);
     } else {
       isValidKelurahan(false);
@@ -230,6 +272,7 @@ class RegisterController extends GetxController {
         isValidAddress.value &&
         isValidRt.value &&
         isValidRw.value &&
+        isValidCity.value &&
         isValidKecamatan.value &&
         isValidKelurahan.value &&
         isValidPhoneNumber.value &&
@@ -238,6 +281,44 @@ class RegisterController extends GetxController {
       isValidForm(true);
     } else {
       isValidForm(false);
+    }
+  }
+
+  Future<void> register() async {
+    try {
+      isLoading(true);
+      final parameters = {
+        'username': fullName.value,
+        'email': email.value,
+        'nomortelepon': phoneNumber.value,
+        'password': password.value,
+        'jeniskelamin': selectedGender.value.id,
+        'tempatlahir': birthPlace.value,
+        'tanggallahir': selectedBirthday.value,
+        'jenisidentitas': selectedTypeId.value.id,
+        'noidentitas': numberId.value,
+        'alamat': address.value,
+        'rt': rt.value,
+        'rw': rw.value,
+        'kecamatan': kecamatan.value,
+        'kelurahan': kelurahan.value,
+        'kabupaten': city.value,
+      };
+      final r = await ApiService().request(
+        url: 'auth/signup',
+        method: Method.POST,
+        parameters: parameters,
+      );
+      isLoading(false);
+      showPopUpInfo(
+        title: 'Success',
+        description: r['message'],
+        labelButton: 'Login',
+        onPress: () => Get.offNamed(Routes.LOGIN),
+      );
+    } catch (e) {
+      isLoading(false);
+      logSys(e.toString());
     }
   }
 
@@ -264,11 +345,11 @@ class RegisterController extends GetxController {
 
     if (datePicked != null) {
       if (dateFormat == null) {
-        final date = DateFormat('yyyy-MM-dd').format(datePicked);
-        setBirthday(date);
+        final date = DateFormat('dd-MM-yyyy').format(datePicked);
+        setBirthday(date.replaceAll('-', '/'));
       } else {
         final date = DateFormat(dateFormat).format(datePicked);
-        setBirthPlace(date);
+        setBirthPlace(date.replaceAll('-', '/'));
       }
     }
   }

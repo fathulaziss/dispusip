@@ -10,11 +10,11 @@ import 'package:get/get.dart';
 class LoginController extends GetxController {
   final cUtil = Get.find<UtilityController>();
 
-  TextEditingController cUsername = TextEditingController();
+  final cUsername = TextEditingController();
   RxString username = ''.obs;
   RxBool isValidUsername = false.obs;
 
-  TextEditingController cPassword = TextEditingController();
+  final cPassword = TextEditingController();
   RxString password = ''.obs;
   RxBool isValidPassword = false.obs;
 
@@ -71,7 +71,7 @@ class LoginController extends GetxController {
       );
       isLoading(false);
       await AppStorage.write(key: CACHE_ACCESS_TOKEN, value: r['auth_key']);
-      await Get.toNamed(Routes.HOME);
+      await Get.offNamed(Routes.HOME);
     } catch (e) {
       isLoading(false);
     }

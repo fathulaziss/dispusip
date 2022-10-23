@@ -50,25 +50,30 @@ class HomeMostCollectionBorrowed extends GetView<HomeController> {
               SizedBox(
                 width: Get.width,
                 height: 240.h,
-                child: ListView.builder(
-                  padding: EdgeInsets.zero,
-                  itemCount: controller.listMostCollectionBorrowed2.length,
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) {
-                    return HomeMostCollectionBorrowdCard(
-                      data: controller.listMostCollectionBorrowed2[index],
-                      margin: EdgeInsets.only(
-                        right: index !=
-                                controller.listMostCollectionBorrowed2.length
-                            ? 14.w
-                            : 0,
-                        bottom: 5.h,
-                        top: 5.h,
-                        left: index != 0 ? 0 : 5.w,
+                child: controller.listMostCollectionBorrowed.isNotEmpty
+                    ? ListView.builder(
+                        padding: EdgeInsets.zero,
+                        itemCount: controller.listMostCollectionBorrowed.length,
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (context, index) {
+                          return HomeMostCollectionBorrowdCard(
+                            data: controller.listMostCollectionBorrowed[index],
+                            margin: EdgeInsets.only(
+                              right: index !=
+                                      controller
+                                          .listMostCollectionBorrowed.length
+                                  ? 14.w
+                                  : 0,
+                              bottom: 5.h,
+                              top: 5.h,
+                              left: index != 0 ? 0 : 5.w,
+                            ),
+                          );
+                        },
+                      )
+                    : Center(
+                        child: Text('Tidak Ada Data', style: TextStyles.text),
                       ),
-                    );
-                  },
-                ),
               ),
             verticalSpace(30.h),
           ],

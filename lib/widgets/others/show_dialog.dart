@@ -27,7 +27,7 @@ showPopUpInfo({
           children: [
             Text(
               title ?? '',
-              style: TextStyles.title,
+              style: TextStyles.title.copyWith(fontSize: 16.w),
               textAlign: TextAlign.center,
             ),
             verticalSpace(Insets.med),
@@ -82,10 +82,7 @@ showPopUpChoice({
           children: [
             Text(
               title ?? 'Konfirmasi',
-              style: TextStyles.text.copyWith(
-                fontWeight: FontWeight.w600,
-                fontSize: 16.w,
-              ),
+              style: TextStyles.text.copyWith(fontWeight: FontWeight.w600),
               textAlign: TextAlign.center,
             ),
             verticalSpace(Insets.med),
