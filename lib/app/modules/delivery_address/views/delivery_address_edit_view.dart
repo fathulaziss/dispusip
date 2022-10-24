@@ -1,9 +1,8 @@
-import 'package:dispusip/app/modules/delivery_address/components/delivery_address_kecamatan_dropdown.dart';
-import 'package:dispusip/app/modules/delivery_address/components/delivery_address_kelurahan_dropdown.dart';
 import 'package:dispusip/app/modules/delivery_address/controllers/delivery_address_controller.dart';
 import 'package:dispusip/styles/styles.dart';
 import 'package:dispusip/utils/app_asset.dart';
 import 'package:dispusip/widgets/buttons/button_primary.dart';
+import 'package:dispusip/widgets/inputs/input_number.dart';
 import 'package:dispusip/widgets/inputs/input_primary.dart';
 import 'package:dispusip/widgets/pages/page_default_two.dart';
 import 'package:flutter/material.dart';
@@ -23,6 +22,9 @@ class DeliveryAddressEditView extends GetView<DeliveryAddressController> {
           InputPrimary(
             label: 'Alamat',
             hint: 'Masukkan Alamat',
+            controller: controller.cAlamatDomisili,
+            onChanged: (value) {},
+            validation: (value) => true,
             contentPadding: EdgeInsets.all(Insets.sm),
             inputStyle: InputStyle.line,
             prefixIcon: Padding(
@@ -39,9 +41,12 @@ class DeliveryAddressEditView extends GetView<DeliveryAddressController> {
               Expanded(
                 child: Padding(
                   padding: EdgeInsets.only(right: 10.w),
-                  child: InputPrimary(
+                  child: InputNumber(
                     label: 'RT',
                     hint: '001',
+                    controller: controller.cRtDomisili,
+                    value: (value) {},
+                    validation: (value) => true,
                     contentPadding: EdgeInsets.all(Insets.sm),
                     inputStyle: InputStyle.line,
                   ),
@@ -50,9 +55,12 @@ class DeliveryAddressEditView extends GetView<DeliveryAddressController> {
               Expanded(
                 child: Padding(
                   padding: EdgeInsets.only(left: 10.w),
-                  child: InputPrimary(
+                  child: InputNumber(
                     label: 'RW',
                     hint: '007',
+                    controller: controller.cRwDomisili,
+                    value: (value) {},
+                    validation: (value) => true,
                     contentPadding: EdgeInsets.all(Insets.sm),
                     inputStyle: InputStyle.line,
                   ),
@@ -61,13 +69,32 @@ class DeliveryAddressEditView extends GetView<DeliveryAddressController> {
             ],
           ),
           verticalSpace(Insets.lg),
-          const DeliveryAddressKecamatanDropdown(),
+          InputPrimary(
+            label: 'Kecamatan',
+            hint: 'Masukkan Kecamatan',
+            controller: controller.cKecamatanDomisili,
+            onChanged: (value) {},
+            validation: (value) => true,
+            contentPadding: EdgeInsets.all(Insets.sm),
+            inputStyle: InputStyle.line,
+          ),
           verticalSpace(Insets.lg),
-          const DeliveryAddressKelurahanDropdown(),
+          InputPrimary(
+            label: 'Kelurahan',
+            hint: 'Masukkan Kelurahan',
+            controller: controller.cKelurahanDomisili,
+            onChanged: (value) {},
+            validation: (value) => true,
+            contentPadding: EdgeInsets.all(Insets.sm),
+            inputStyle: InputStyle.line,
+          ),
           verticalSpace(Insets.lg),
           InputPrimary(
             label: 'Kabupaten',
             hint: 'Masukkan Kota / Kabupaten',
+            controller: controller.cKotaDomisili,
+            onChanged: (value) {},
+            validation: (value) => true,
             contentPadding: EdgeInsets.all(Insets.sm),
             inputStyle: InputStyle.line,
           ),
