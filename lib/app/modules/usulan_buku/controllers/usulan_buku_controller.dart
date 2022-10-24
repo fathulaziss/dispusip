@@ -116,6 +116,7 @@ class UsulanBukuController extends GetxController {
         'kotaterbit': kotaTerbit.value,
         'tahunterbit': tahunTerbit.value,
         'komentar': komentar.value,
+        'pengarang': pengarang.value,
       };
 
       final r = await ApiService().request(
@@ -127,8 +128,6 @@ class UsulanBukuController extends GetxController {
       isLoading(false);
 
       showPopUpInfo(title: 'Success', description: r['message']);
-
-      resetForm();
     } catch (e) {
       isLoading(false);
       logSys(e.toString());

@@ -61,8 +61,8 @@ class KunjunganKelompokController extends GetxController {
     validate();
   }
 
-  void setNoKetua(String value) {
-    noKetua(value);
+  void setNoKetua(int value) {
+    noKetua('$value');
     if (noKetua.value.isNotEmpty) {
       isValidNoKetua(true);
     } else {
@@ -91,8 +91,8 @@ class KunjunganKelompokController extends GetxController {
     validate();
   }
 
-  void setNoLembaga(String value) {
-    noLembaga(value);
+  void setNoLembaga(int value) {
+    noLembaga('$value');
     if (noLembaga.value.isNotEmpty) {
       isValidNoLembaga(true);
     } else {
@@ -111,8 +111,8 @@ class KunjunganKelompokController extends GetxController {
     validate();
   }
 
-  void setJumlahPersonel(String value) {
-    jumlahPersonel(value);
+  void setJumlahPersonel(int value) {
+    jumlahPersonel('$value');
     if (jumlahPersonel.value.isNotEmpty) {
       isValidJumlahPersonel(true);
     } else {
@@ -121,8 +121,8 @@ class KunjunganKelompokController extends GetxController {
     validate();
   }
 
-  void setJumlahLaki(String value) {
-    jumlahLaki(value);
+  void setJumlahLaki(int value) {
+    jumlahLaki('$value');
     if (jumlahLaki.value.isNotEmpty) {
       isValidJumlahLaki(true);
     } else {
@@ -131,8 +131,8 @@ class KunjunganKelompokController extends GetxController {
     validate();
   }
 
-  void setJumlahPerempuan(String value) {
-    jumlahPerempuan(value);
+  void setJumlahPerempuan(int value) {
+    jumlahPerempuan('$value');
     if (jumlahPerempuan.value.isNotEmpty) {
       isValidJumlahPerempuan(true);
     } else {
@@ -164,6 +164,8 @@ class KunjunganKelompokController extends GetxController {
         'rencanakunjungan': selectedDate.value,
         'jumlah_laki': jumlahLaki.value,
         'jumlah_perempuan': jumlahPerempuan.value,
+        'jumlahpersonel': jumlahPersonel.value,
+        'alamatlembaga': alamatLembaga.value
       };
 
       final r = await ApiService().request(
@@ -175,8 +177,6 @@ class KunjunganKelompokController extends GetxController {
       isLoading(false);
 
       showPopUpInfo(title: 'Success', description: r['message']);
-
-      resetForm();
     } catch (e) {
       isLoading(false);
       logSys(e.toString());

@@ -38,7 +38,7 @@ class HomeMostCollectionBorrowdCard extends StatelessWidget {
                 child: data.cover.isNotEmpty
                     ? ClipRRect(
                         borderRadius: BorderRadius.circular(10.w),
-                        child: Image.network(data.image, fit: BoxFit.fill),
+                        child: Image.network(data.cover, fit: BoxFit.fill),
                       )
                     : Image.asset(AppAsset.logo('logo_dispusip_black.png')),
               ),

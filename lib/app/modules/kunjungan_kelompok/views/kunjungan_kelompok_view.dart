@@ -36,6 +36,9 @@ class KunjunganKelompokView extends GetView<KunjunganKelompokController> {
             InputPrimary(
               label: 'Nama Ketua Rombongan',
               hint: 'Masukkan Nama Ketua',
+              controller: controller.cNamaKetua,
+              onChanged: controller.setNamaKetua,
+              validation: (value) => true,
               contentPadding: EdgeInsets.all(Insets.sm),
               inputStyle: InputStyle.line,
               prefixIcon: Padding(
@@ -50,6 +53,9 @@ class KunjunganKelompokView extends GetView<KunjunganKelompokController> {
             InputNumber(
               label: 'No. Telp Ketua Rombongan',
               hint: 'Masukkan No. Telp',
+              controller: controller.cNoKetua,
+              value: controller.setNoKetua,
+              validation: (value) => true,
               contentPadding: EdgeInsets.all(Insets.sm),
               inputStyle: InputStyle.line,
               prefixIcon: Padding(
@@ -64,6 +70,9 @@ class KunjunganKelompokView extends GetView<KunjunganKelompokController> {
             InputPrimary(
               label: 'Nama Lembaga',
               hint: 'Masukkan Nama Lembaga',
+              controller: controller.cNamaLembaga,
+              onChanged: controller.setNamaLembaga,
+              validation: (value) => true,
               contentPadding: EdgeInsets.all(Insets.sm),
               inputStyle: InputStyle.line,
               prefixIcon: Padding(
@@ -78,6 +87,9 @@ class KunjunganKelompokView extends GetView<KunjunganKelompokController> {
             InputPrimary(
               label: 'Alamat Lembaga',
               hint: 'Masukkan Alamat Lembaga',
+              controller: controller.cAlamatLembaga,
+              onChanged: controller.setAlamatLembaga,
+              validation: (value) => true,
               contentPadding: EdgeInsets.all(Insets.sm),
               inputStyle: InputStyle.line,
               prefixIcon: Padding(
@@ -92,6 +104,9 @@ class KunjunganKelompokView extends GetView<KunjunganKelompokController> {
             InputNumber(
               label: 'No. Telp Lembaga',
               hint: 'Masukkan No. Telp',
+              controller: controller.cNoLembaga,
+              value: controller.setNoLembaga,
+              validation: (value) => true,
               contentPadding: EdgeInsets.all(Insets.sm),
               inputStyle: InputStyle.line,
               prefixIcon: Padding(
@@ -106,6 +121,9 @@ class KunjunganKelompokView extends GetView<KunjunganKelompokController> {
             InputPrimary(
               label: 'Email Lembaga',
               hint: 'Masukkan Email',
+              controller: controller.cEmailLembaga,
+              onChanged: controller.setEmailLembaga,
+              validation: (value) => true,
               contentPadding: EdgeInsets.all(Insets.sm),
               keyboardType: TextInputType.emailAddress,
               inputStyle: InputStyle.line,
@@ -121,6 +139,9 @@ class KunjunganKelompokView extends GetView<KunjunganKelompokController> {
             InputNumber(
               label: 'Jumlah Personel',
               hint: 'Masukkan Jumlah Personel',
+              controller: controller.cJumlahPersonel,
+              value: controller.setJumlahPersonel,
+              validation: (value) => true,
               contentPadding: EdgeInsets.all(Insets.sm),
               inputStyle: InputStyle.line,
               prefixIcon: Padding(
@@ -140,6 +161,9 @@ class KunjunganKelompokView extends GetView<KunjunganKelompokController> {
                     child: InputNumber(
                       label: 'Jumlah Laki-laki',
                       hint: '0',
+                      controller: controller.cJumlahLaki,
+                      value: controller.setJumlahLaki,
+                      validation: (value) => true,
                       contentPadding: EdgeInsets.all(Insets.sm),
                       inputStyle: InputStyle.line,
                       prefixIcon: Padding(
@@ -158,6 +182,9 @@ class KunjunganKelompokView extends GetView<KunjunganKelompokController> {
                     child: InputNumber(
                       label: 'Jumlah Perempuan',
                       hint: '0',
+                      controller: controller.cJumlahPerempuan,
+                      value: controller.setJumlahPerempuan,
+                      validation: (value) => true,
                       contentPadding: EdgeInsets.all(Insets.sm),
                       inputStyle: InputStyle.line,
                       prefixIcon: Padding(
