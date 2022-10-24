@@ -16,7 +16,7 @@ class KunjunganKelompokDateDropdown
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Tanggal Peminjaman',
+          'Tanggal Rencana Kunjungan',
           style: TextStyles.desc.copyWith(color: AppColor.primaryColor),
         ),
         InkWell(

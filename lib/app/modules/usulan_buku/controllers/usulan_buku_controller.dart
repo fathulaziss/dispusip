@@ -110,7 +110,13 @@ class UsulanBukuController extends GetxController {
     try {
       isLoading(true);
 
-      final parameters = {'': ''};
+      final parameters = {
+        'judul': judulBuku.value,
+        'penerbit': penerbit.value,
+        'kotaterbit': kotaTerbit.value,
+        'tahunterbit': tahunTerbit.value,
+        'komentar': komentar.value,
+      };
 
       final r = await ApiService().request(
         url: 'book/usulan',
