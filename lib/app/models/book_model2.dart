@@ -43,7 +43,7 @@ class BookModel2 {
   String image;
 
   Map<String, dynamic> toJson() => {
-        'ID': author,
+        'ID': id,
         'Title': title,
         'Author': author,
         'Edition': edition,

@@ -5,6 +5,8 @@ import 'package:dispusip/app/modules/api_log/views/api_log_view.dart';
 import 'package:dispusip/app/modules/blocked_view.dart';
 import 'package:dispusip/app/modules/book_detail/bindings/book_detail_binding.dart';
 import 'package:dispusip/app/modules/book_detail/views/book_detail_view.dart';
+import 'package:dispusip/app/modules/book_detail2/bindings/book_detail2_binding.dart';
+import 'package:dispusip/app/modules/book_detail2/views/book_detail2_view.dart';
 import 'package:dispusip/app/modules/change_password/bindings/change_password_binding.dart';
 import 'package:dispusip/app/modules/change_password/views/change_password_view.dart';
 import 'package:dispusip/app/modules/delivery_address/bindings/delivery_address_binding.dart';
@@ -167,6 +169,11 @@ class AppPages {
       name: _Paths.MEMBER_DETAIL,
       page: () => const MemberDetailView(),
       binding: MemberDetailBinding(),
+    ),
+    GetPage(
+      name: _Paths.BOOK_DETAIL2,
+      page: () => const BookDetail2View(),
+      binding: BookDetail2Binding(),
     ),
   ];
 }
