@@ -44,27 +44,30 @@ class AccountHeader extends GetView<DashboardController> {
             verticalSpace(Insets.lg),
             Row(
               children: [
-                Container(
-                  width: 70.w,
-                  height: 70.w,
-                  decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: AppColor.grey,
+                if (controller.cUserInfo.dataUser.value.photo.isNotEmpty)
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(50.w),
+                    child: Image.network(
+                      controller.cUserInfo.dataUser.value.photo,
+                      width: 70.w,
+                      height: 70.w,
+                      fit: BoxFit.cover,
+                    ),
+                  )
+                else
+                  Container(
+                    width: 70.w,
+                    height: 70.w,
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: AppColor.grey,
+                    ),
+                    child: Icon(
+                      Icons.person_rounded,
+                      size: 40.w,
+                      color: AppColor.blue,
+                    ),
                   ),
-                  child: Icon(
-                    Icons.person_rounded,
-                    size: 40.w,
-                    color: AppColor.blue,
-                  ),
-                ),
-                // ClipRRect(
-                //   borderRadius: BorderRadius.circular(50.w),
-                //   child: Image.asset(
-                //     AppAsset.image('img_profile.png'),
-                //     width: 90.w,
-                //     fit: BoxFit.cover,
-                //   ),
-                // ),
                 horizontalSpace(Insets.med),
                 Expanded(
                   child: Column(

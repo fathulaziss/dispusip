@@ -345,11 +345,11 @@ class RegisterController extends GetxController {
 
     if (datePicked != null) {
       if (dateFormat == null) {
-        final date = DateFormat('dd-MM-yyyy').format(datePicked);
-        setBirthday(date.replaceAll('-', '/'));
+        final date = DateFormat('yyyy-MM-dd').format(datePicked);
+        setBirthday(date);
       } else {
         final date = DateFormat(dateFormat).format(datePicked);
-        setBirthPlace(date.replaceAll('-', '/'));
+        setBirthPlace(date);
       }
     }
   }
