@@ -157,7 +157,7 @@ class ApiService {
       return response['response_data'];
     }
 
-    showToast(message: response['message']);
-    throw Exception(response['message']);
+    showToast(message: response['response_data']['message']);
+    throw Exception(response['response_data']['message']);
   }
 }
