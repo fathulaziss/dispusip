@@ -107,20 +107,21 @@ class CardMember extends GetView<UserInfoController> {
                 ),
               ),
             ),
-            Positioned(
-              right: 20.w,
-              top: 40.w,
-              child: ButtonPrimary(
-                onTap: () => Get.toNamed(Routes.MEMBER_DETAIL),
-                height: 25.h,
-                width: 60.w,
-                label: 'Detail',
-                textStyle:
-                    TextStyles.desc.copyWith(fontWeight: FontWeight.w500),
-                color: AppColor.orange,
-                radius: 4.w,
+            if (controller.dataUser.value.namaLengkap.isNotEmpty)
+              Positioned(
+                right: 20.w,
+                top: 40.w,
+                child: ButtonPrimary(
+                  onTap: () => Get.toNamed(Routes.MEMBER_DETAIL),
+                  height: 25.h,
+                  width: 60.w,
+                  label: 'Detail',
+                  textStyle:
+                      TextStyles.desc.copyWith(fontWeight: FontWeight.w500),
+                  color: AppColor.orange,
+                  radius: 4.w,
+                ),
               ),
-            ),
           ],
         ),
       ),

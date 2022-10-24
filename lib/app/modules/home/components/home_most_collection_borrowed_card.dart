@@ -1,6 +1,7 @@
 import 'package:dispusip/app/models/book_model2.dart';
 import 'package:dispusip/styles/colors.dart';
 import 'package:dispusip/styles/styles.dart';
+import 'package:dispusip/utils/app_asset.dart';
 import 'package:dispusip/widgets/cards/card_app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -36,7 +37,7 @@ class HomeMostCollectionBorrowdCard extends StatelessWidget {
                       borderRadius: BorderRadius.circular(10.w),
                       child: Image.network(data.image, fit: BoxFit.fill),
                     )
-                  : const SizedBox(),
+                  : Image.asset(AppAsset.logo('logo_dispusip_black.png')),
             ),
           ),
           Padding(
