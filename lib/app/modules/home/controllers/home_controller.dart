@@ -1,3 +1,4 @@
+import 'package:dispusip/app/controllers/user_info_controller.dart';
 import 'package:dispusip/app/data/data_home.dart';
 import 'package:dispusip/app/models/book_model2.dart';
 import 'package:dispusip/app/models/news_author_model.dart';
@@ -13,6 +14,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class HomeController extends GetxController {
+  final cUserInfo = Get.find<UserInfoController>();
+
   final pageController = PageController();
   RxInt selectedPage = 0.obs;
 
@@ -39,6 +42,7 @@ class HomeController extends GetxController {
 
   @override
   void onInit() {
+    cUserInfo.getProfile();
     getBookCategory();
     getNewCollection();
     getMostCollectionBorrowed();

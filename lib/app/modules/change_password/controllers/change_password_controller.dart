@@ -60,6 +60,16 @@ class ChangePasswordController extends GetxController {
     }
   }
 
+  void resetForm() {
+    cOldPassword.clear();
+    cNewPassword.clear();
+    cConfirmNewPassword.clear();
+    oldPassword('');
+    newPassword('');
+    confirmNewPassword('');
+    isValidForm(false);
+  }
+
   Future<void> submit() async {
     try {
       isLoading(true);
@@ -79,12 +89,7 @@ class ChangePasswordController extends GetxController {
       isLoading(false);
 
       showPopUpInfo(title: 'Success', description: r['message']);
-      cOldPassword.clear();
-      cNewPassword.clear();
-      cConfirmNewPassword.clear();
-      oldPassword('');
-      newPassword('');
-      confirmNewPassword('');
+      resetForm();
     } catch (e) {
       isLoading(false);
       logSys(e.toString());

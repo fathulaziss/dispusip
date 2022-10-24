@@ -16,7 +16,7 @@ class MemberDetailTabbarViewOne extends GetView<MemberDetailController> {
           child: QrImage(
             data: controller.cUserInfo.dataUser.value.nomorAnggota,
             gapless: false,
-            embeddedImage: const AssetImage('assets/icons/ic_launcher.png'),
+            embeddedImage: const AssetImage('assets/logos/logo_perpusnas.png'),
             embeddedImageStyle: QrEmbeddedImageStyle(
               size: Size(50.w, 50.w),
             ),

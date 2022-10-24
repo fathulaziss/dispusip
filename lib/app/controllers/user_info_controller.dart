@@ -9,12 +9,6 @@ import 'package:get/get.dart';
 class UserInfoController extends GetxController {
   Rx<UserInfoModel> dataUser = UserInfoModel().obs;
 
-  @override
-  void onInit() {
-    getProfile();
-    super.onInit();
-  }
-
   Future<void> getProfile() async {
     try {
       final token = await AppStorage.read(key: CACHE_ACCESS_TOKEN);

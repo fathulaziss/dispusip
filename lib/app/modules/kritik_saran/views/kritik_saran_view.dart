@@ -18,44 +18,53 @@ class KritikSaranView extends GetView<KritikSaranController> {
     return PageDefaultTwo(
       titlePage: 'Informasi & Saran',
       isShowFooter: true,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            'Silahkan sampaikan saran Anda dengan mengisi form berikut',
-            style: TextStyles.desc,
-          ),
-          verticalSpace(Insets.xxl),
-          CardApp(
-            width: double.infinity,
-            height: 145.h,
-            isShowShadows: true,
-            isOutlined: true,
-            outlineColor: AppColor.darkGrey,
-            radius: 15.w,
-            shadows: [
-              BoxShadow(
-                color: AppColor.primaryColor.withOpacity(0.5),
-                spreadRadius: 0.15,
-                blurRadius: 10,
-                offset: const Offset(1, 2),
-              ),
-            ],
-            child: TextField(
-              minLines: null,
-              maxLines: null,
-              onChanged: (value) {},
-              style: TextStyles.text,
-              decoration: InputDecoration(
-                border: InputBorder.none,
-                hintText: 'Isikan Saran Anda disini....',
-                hintStyle: TextStyles.text.copyWith(color: AppColor.darkGrey),
+      child: Obx(
+        () => Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Silahkan sampaikan saran Anda dengan mengisi form berikut',
+              style: TextStyles.desc,
+            ),
+            verticalSpace(Insets.xxl),
+            CardApp(
+              width: double.infinity,
+              height: 145.h,
+              isShowShadows: true,
+              isOutlined: true,
+              outlineColor: AppColor.darkGrey,
+              radius: 15.w,
+              shadows: [
+                BoxShadow(
+                  color: AppColor.primaryColor.withOpacity(0.5),
+                  spreadRadius: 0.15,
+                  blurRadius: 10,
+                  offset: const Offset(1, 2),
+                ),
+              ],
+              child: TextField(
+                minLines: null,
+                maxLines: null,
+                autocorrect: false,
+                controller: controller.cKritikSaran,
+                onChanged: controller.setKritikSaran,
+                style: TextStyles.text,
+                decoration: InputDecoration(
+                  border: InputBorder.none,
+                  hintText: 'Isikan Saran Anda disini....',
+                  hintStyle: TextStyles.text.copyWith(color: AppColor.darkGrey),
+                ),
               ),
             ),
-          ),
-          verticalSpace(Insets.xxl),
-          ButtonPrimary(onTap: () {}, label: 'KIRIM SARAN')
-        ],
+            verticalSpace(Insets.xxl),
+            ButtonPrimary(
+              onTap: controller.submit,
+              isLoading: controller.isLoading.value,
+              enabled: controller.isValidKritikSaran.value,
+              label: 'KIRIM SARAN',
+            )
+          ],
+        ),
       ),
     );
   }
