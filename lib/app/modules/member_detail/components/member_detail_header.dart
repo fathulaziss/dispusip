@@ -15,19 +15,30 @@ class MemberDetailHeader extends GetView<MemberDetailController> {
         padding: EdgeInsets.all(Insets.med),
         child: Row(
           children: [
-            Container(
-              width: 60.w,
-              height: 60.w,
-              decoration: const BoxDecoration(
-                shape: BoxShape.circle,
-                color: AppColor.grey,
+            if (controller.cUserInfo.dataUser.value.photo.isNotEmpty)
+              ClipRRect(
+                borderRadius: BorderRadius.circular(50.w),
+                child: Image.network(
+                  controller.cUserInfo.dataUser.value.photo,
+                  width: 50.w,
+                  height: 50.w,
+                  fit: BoxFit.cover,
+                ),
+              )
+            else
+              Container(
+                width: 50.w,
+                height: 50.w,
+                decoration: const BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: AppColor.grey,
+                ),
+                child: Icon(
+                  Icons.person_rounded,
+                  size: 40.w,
+                  color: AppColor.blue,
+                ),
               ),
-              child: Icon(
-                Icons.person_rounded,
-                size: 40.w,
-                color: AppColor.blue,
-              ),
-            ),
             horizontalSpace(Insets.med),
             Expanded(
               child: Column(
