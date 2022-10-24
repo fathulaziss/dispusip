@@ -31,16 +31,22 @@ class TabDashboard extends GetView<DashboardController> {
                   verticalSpace(48.h),
                   const DashboardHeader(),
                   verticalSpace(37.h),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 22.w),
-                    child: Text(
-                      'Kartu Anggota Virtual',
-                      style: TextStyles.title
-                          .copyWith(color: Colors.white, fontSize: 16.w),
+                  if (controller
+                      .cUserInfo.dataUser.value.nomorAnggota.isNotEmpty)
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 22.w),
+                      child: Text(
+                        'Kartu Anggota Virtual',
+                        style: TextStyles.title
+                            .copyWith(color: Colors.white, fontSize: 16.w),
+                      ),
                     ),
-                  ),
                   verticalSpace(Insets.med),
-                  const CardMember(),
+                  if (controller
+                      .cUserInfo.dataUser.value.nomorAnggota.isNotEmpty)
+                    const CardMember()
+                  else
+                    verticalSpace(200.h),
                   verticalSpace(36.h),
                   CardApp(
                     width: double.infinity,

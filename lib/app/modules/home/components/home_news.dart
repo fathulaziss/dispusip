@@ -66,24 +66,30 @@ class HomeNews extends GetView<HomeController> {
               SizedBox(
                 width: Get.width,
                 height: 230.h,
-                child: ListView.builder(
-                  padding: EdgeInsets.zero,
-                  itemCount: controller.listNews.length,
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) {
-                    return HomeNewsCard(
-                      data: controller.listNews[index],
-                      dataMedia: controller.listNewsMedia[index],
-                      dataAuthor: controller.listNewsAuthor[index],
-                      margin: EdgeInsets.only(
-                        right: index != controller.listNews.length ? 14.w : 0,
-                        bottom: 5.h,
-                        top: 5.h,
-                        left: index != 0 ? 0 : 5.w,
+                child: controller.listNews.isNotEmpty
+                    ? ListView.builder(
+                        padding: EdgeInsets.zero,
+                        itemCount: controller.listNews.length,
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (context, index) {
+                          return HomeNewsCard(
+                            data: controller.listNews[index],
+                            dataMedia: controller.listNewsMedia[index],
+                            dataAuthor: controller.listNewsAuthor[index],
+                            margin: EdgeInsets.only(
+                              right: index != controller.listNews.length
+                                  ? 14.w
+                                  : 0,
+                              bottom: 5.h,
+                              top: 5.h,
+                              left: index != 0 ? 0 : 5.w,
+                            ),
+                          );
+                        },
+                      )
+                    : Center(
+                        child: Text('Tidak Ada Data', style: TextStyles.text),
                       ),
-                    );
-                  },
-                ),
               ),
             verticalSpace(30.h),
           ],

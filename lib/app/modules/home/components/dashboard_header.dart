@@ -59,6 +59,7 @@ class DashboardHeader extends GetView<DashboardController> {
                 width: double.infinity,
                 height: 50.h,
                 child: Align(
+                  alignment: Alignment.centerLeft,
                   child: Text(
                     'Hai, ${controller.cUserInfo.dataUser.value.namaLengkap}',
                     style: TextStyles.title
