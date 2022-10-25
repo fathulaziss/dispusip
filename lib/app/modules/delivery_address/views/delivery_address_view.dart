@@ -21,7 +21,8 @@ class DeliveryAddressView extends GetView<DeliveryAddressController> {
         children: [
           DeliveryAddressCard(
             onTap: () {},
-            alamat: controller.alamatAsli.value,
+            // alamat: controller.alamatAsli.value,
+            alamat: controller.cUserInfo.dataUser.value.alamatAsli,
             buttonColor: const Color(0xFFC4C4C4),
             buttonLabel: 'Tidak bisa diubah',
             kelurahan: controller.kelKecAsli.value,
@@ -32,7 +33,8 @@ class DeliveryAddressView extends GetView<DeliveryAddressController> {
           verticalSpace(50.h),
           DeliveryAddressCard(
             onTap: () => Get.toNamed(Routes.DELIVERY_ADDRESS_EDIT),
-            alamat: controller.alamatDomisili.value,
+            // alamat: controller.alamatDomisili.value,
+            alamat: controller.cUserInfo.dataUser.value.alamatDomisili,
             buttonColor: AppColor.primaryColor,
             buttonLabel: 'Ubah',
             kelurahan: controller.kelKecDomisili.value,

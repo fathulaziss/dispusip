@@ -56,15 +56,15 @@ class DeliveryAddressCard extends StatelessWidget {
             alamat,
             style: TextStyles.text.copyWith(color: AppColor.darkGrey),
           ),
-          Text(rTrW, style: TextStyles.text.copyWith(color: AppColor.darkGrey)),
-          Text(
-            kelurahan,
-            style: TextStyles.text.copyWith(color: AppColor.darkGrey),
-          ),
-          Text(
-            kotaKabupaten,
-            style: TextStyles.text.copyWith(color: AppColor.darkGrey),
-          ),
+          // Text(rTrW, style: TextStyles.text.copyWith(color: AppColor.darkGrey)),
+          // Text(
+          //   kelurahan,
+          //   style: TextStyles.text.copyWith(color: AppColor.darkGrey),
+          // ),
+          // Text(
+          //   kotaKabupaten,
+          //   style: TextStyles.text.copyWith(color: AppColor.darkGrey),
+          // ),
           verticalSpace(10.h),
           InkWell(
             onTap: onTap,
