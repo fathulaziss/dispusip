@@ -1,6 +1,6 @@
 // ignore_for_file: avoid_redundant_argument_values
 
-import 'package:dispusip/app/modules/edit_profile/controllers/edit_profile_controller.dart';
+import 'package:dispusip/app/modules/profile/controllers/profile_controller.dart';
 import 'package:dispusip/styles/styles.dart';
 import 'package:dispusip/widgets/inputs/input_number.dart';
 import 'package:dispusip/widgets/inputs/input_primary.dart';
@@ -9,13 +9,13 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
-class EditProfileView extends GetView<EditProfileController> {
-  const EditProfileView({Key? key}) : super(key: key);
+class ProfileView extends GetView<ProfileController> {
+  const ProfileView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return PageDefaultTwo(
-      titlePage: 'Edit Profile',
+      titlePage: 'Profile',
       isShowFooter: true,
       child: Column(
         children: [

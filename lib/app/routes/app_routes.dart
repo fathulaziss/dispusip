@@ -19,7 +19,7 @@ abstract class Routes {
   static const PINJAM_KOLEKTIF = _Paths.PINJAM_KOLEKTIF;
   static const KUNJUNGAN_KELOMPOK = _Paths.KUNJUNGAN_KELOMPOK;
   static const KRITIK_SARAN = _Paths.KRITIK_SARAN;
-  static const EDIT_PROFILE = _Paths.EDIT_PROFILE;
+  static const PROFILE = _Paths.PROFILE;
   static const SETTING = _Paths.SETTING;
   static const DELIVERY_ADDRESS = _Paths.DELIVERY_ADDRESS;
   static const DELIVERY_ADDRESS_EDIT = _Paths.DELIVERY_ADDRESS_EDIT;
@@ -48,7 +48,7 @@ abstract class _Paths {
   static const PINJAM_KOLEKTIF = '/pinjam-kolektif';
   static const KUNJUNGAN_KELOMPOK = '/kunjungan-kelompok';
   static const KRITIK_SARAN = '/kritik-saran';
-  static const EDIT_PROFILE = '/edit-profile';
+  static const PROFILE = '/profile';
   static const SETTING = '/setting';
   static const DELIVERY_ADDRESS = '/delivery-address';
   static const DELIVERY_ADDRESS_EDIT = '/delivery-address-edit';

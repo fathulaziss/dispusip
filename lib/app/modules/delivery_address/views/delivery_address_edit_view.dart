@@ -17,90 +17,101 @@ class DeliveryAddressEditView extends GetView<DeliveryAddressController> {
     return PageDefaultTwo(
       titlePage: 'Edit Alamat Domisili',
       isShowFooter: true,
-      child: Column(
-        children: [
-          InputPrimary(
-            label: 'Alamat',
-            hint: 'Masukkan Alamat',
-            controller: controller.cAlamatDomisili,
-            onChanged: (value) {},
-            validation: (value) => true,
-            contentPadding: EdgeInsets.all(Insets.sm),
-            inputStyle: InputStyle.line,
-            prefixIcon: Padding(
-              padding: EdgeInsets.symmetric(horizontal: Insets.sm),
-              child: SizedBox.square(
-                dimension: 18.w,
-                child: Image.asset(AppAsset.icon('ic_location.png')),
+      child: Obx(
+        () => Column(
+          children: [
+            InputPrimary(
+              label: 'Alamat',
+              hint: 'Masukkan Alamat',
+              controller: controller.cAlamatDomisili,
+              onChanged: controller.setAlamatDomisili,
+              validation: (value) => true,
+              contentPadding: EdgeInsets.all(Insets.sm),
+              inputStyle: InputStyle.line,
+              prefixIcon: Padding(
+                padding: EdgeInsets.symmetric(horizontal: Insets.sm),
+                child: SizedBox.square(
+                  dimension: 18.w,
+                  child: Image.asset(AppAsset.icon('ic_location.png')),
+                ),
               ),
             ),
-          ),
-          verticalSpace(Insets.lg),
-          Row(
-            children: [
-              Expanded(
-                child: Padding(
-                  padding: EdgeInsets.only(right: 10.w),
-                  child: InputNumber(
-                    label: 'RT',
-                    hint: '001',
-                    controller: controller.cRtDomisili,
-                    value: (value) {},
-                    validation: (value) => true,
-                    contentPadding: EdgeInsets.all(Insets.sm),
-                    inputStyle: InputStyle.line,
+            verticalSpace(Insets.lg),
+            Row(
+              children: [
+                Expanded(
+                  child: Padding(
+                    padding: EdgeInsets.only(right: 10.w),
+                    child: InputNumber(
+                      label: 'RT',
+                      hint: '001',
+                      controller: controller.cRtDomisili,
+                      value: (value) {
+                        controller.setRtDomisili(value.toString());
+                      },
+                      validation: (value) => true,
+                      contentPadding: EdgeInsets.all(Insets.sm),
+                      inputStyle: InputStyle.line,
+                    ),
                   ),
                 ),
-              ),
-              Expanded(
-                child: Padding(
-                  padding: EdgeInsets.only(left: 10.w),
-                  child: InputNumber(
-                    label: 'RW',
-                    hint: '007',
-                    controller: controller.cRwDomisili,
-                    value: (value) {},
-                    validation: (value) => true,
-                    contentPadding: EdgeInsets.all(Insets.sm),
-                    inputStyle: InputStyle.line,
+                Expanded(
+                  child: Padding(
+                    padding: EdgeInsets.only(left: 10.w),
+                    child: InputNumber(
+                      label: 'RW',
+                      hint: '007',
+                      controller: controller.cRwDomisili,
+                      value: (value) {
+                        controller.setRwDomisili(value.toString());
+                      },
+                      validation: (value) => true,
+                      contentPadding: EdgeInsets.all(Insets.sm),
+                      inputStyle: InputStyle.line,
+                    ),
                   ),
-                ),
-              )
-            ],
-          ),
-          verticalSpace(Insets.lg),
-          InputPrimary(
-            label: 'Kecamatan',
-            hint: 'Masukkan Kecamatan',
-            controller: controller.cKecamatanDomisili,
-            onChanged: (value) {},
-            validation: (value) => true,
-            contentPadding: EdgeInsets.all(Insets.sm),
-            inputStyle: InputStyle.line,
-          ),
-          verticalSpace(Insets.lg),
-          InputPrimary(
-            label: 'Kelurahan',
-            hint: 'Masukkan Kelurahan',
-            controller: controller.cKelurahanDomisili,
-            onChanged: (value) {},
-            validation: (value) => true,
-            contentPadding: EdgeInsets.all(Insets.sm),
-            inputStyle: InputStyle.line,
-          ),
-          verticalSpace(Insets.lg),
-          InputPrimary(
-            label: 'Kabupaten',
-            hint: 'Masukkan Kota / Kabupaten',
-            controller: controller.cKotaDomisili,
-            onChanged: (value) {},
-            validation: (value) => true,
-            contentPadding: EdgeInsets.all(Insets.sm),
-            inputStyle: InputStyle.line,
-          ),
-          verticalSpace(35.h),
-          ButtonPrimary(label: 'SIMPAN', onTap: () {})
-        ],
+                )
+              ],
+            ),
+            verticalSpace(Insets.lg),
+            InputPrimary(
+              label: 'Kecamatan',
+              hint: 'Masukkan Kecamatan',
+              controller: controller.cKecamatanDomisili,
+              onChanged: controller.setKecamatanDomisili,
+              validation: (value) => true,
+              contentPadding: EdgeInsets.all(Insets.sm),
+              inputStyle: InputStyle.line,
+            ),
+            verticalSpace(Insets.lg),
+            InputPrimary(
+              label: 'Kelurahan',
+              hint: 'Masukkan Kelurahan',
+              controller: controller.cKelurahanDomisili,
+              onChanged: controller.setKelurahanDomisili,
+              validation: (value) => true,
+              contentPadding: EdgeInsets.all(Insets.sm),
+              inputStyle: InputStyle.line,
+            ),
+            verticalSpace(Insets.lg),
+            InputPrimary(
+              label: 'Kabupaten',
+              hint: 'Masukkan Kota / Kabupaten',
+              controller: controller.cKotaDomisili,
+              onChanged: controller.setKotaDomisili,
+              validation: (value) => true,
+              contentPadding: EdgeInsets.all(Insets.sm),
+              inputStyle: InputStyle.line,
+            ),
+            verticalSpace(35.h),
+            ButtonPrimary(
+              onTap: controller.submit,
+              label: 'SIMPAN',
+              isLoading: controller.isLoading.value,
+              enabled: controller.isValidForm.value,
+            )
+          ],
+        ),
       ),
     );
   }

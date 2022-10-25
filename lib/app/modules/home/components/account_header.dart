@@ -1,5 +1,4 @@
 import 'package:dispusip/app/modules/home/controllers/dashboard_controller.dart';
-import 'package:dispusip/app/routes/app_pages.dart';
 import 'package:dispusip/styles/colors.dart';
 import 'package:dispusip/styles/styles.dart';
 import 'package:dispusip/utils/app_asset.dart';
@@ -18,28 +17,12 @@ class AccountHeader extends GetView<DashboardController> {
         color: AppColor.primaryColor,
         padding: EdgeInsets.fromLTRB(24.w, 0, 20.w, 40.h),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             verticalSpace(36.h),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Image.asset(
-                  AppAsset.logo('logo_dispusip_white2.png'),
-                  height: 40.h,
-                ),
-                TextButton.icon(
-                  onPressed: () => Get.toNamed(Routes.EDIT_PROFILE),
-                  icon: SizedBox.square(
-                    dimension: 18.w,
-                    child: Image.asset(AppAsset.icon('ic_edit.png')),
-                  ),
-                  label: Text(
-                    'Edit',
-                    style: TextStyles.title
-                        .copyWith(fontSize: 14.w, color: Colors.white),
-                  ),
-                ),
-              ],
+            Image.asset(
+              AppAsset.logo('logo_dispusip_white2.png'),
+              height: 40.h,
             ),
             verticalSpace(Insets.lg),
             Row(

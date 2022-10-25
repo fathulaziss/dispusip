@@ -17,32 +17,39 @@ class DeliveryAddressView extends GetView<DeliveryAddressController> {
     return PageDefaultTwo(
       titlePage: 'Alamat Pengantaran',
       isShowFooter: true,
-      child: Column(
-        children: [
-          DeliveryAddressCard(
-            onTap: () {},
-            // alamat: controller.alamatAsli.value,
-            alamat: controller.cUserInfo.dataUser.value.alamatAsli,
-            buttonColor: const Color(0xFFC4C4C4),
-            buttonLabel: 'Tidak bisa diubah',
-            kelurahan: controller.kelKecAsli.value,
-            kotaKabupaten: controller.kotaAsli.value,
-            rTrW: controller.rtrwAsli.value,
-            title: 'Alamat Asli (Sesuai KTP)',
-          ),
-          verticalSpace(50.h),
-          DeliveryAddressCard(
-            onTap: () => Get.toNamed(Routes.DELIVERY_ADDRESS_EDIT),
-            // alamat: controller.alamatDomisili.value,
-            alamat: controller.cUserInfo.dataUser.value.alamatDomisili,
-            buttonColor: AppColor.primaryColor,
-            buttonLabel: 'Ubah',
-            kelurahan: controller.kelKecDomisili.value,
-            kotaKabupaten: controller.kotaDomisili.value,
-            rTrW: controller.rtrwDomisili.value,
-            title: 'Domisili',
-          ),
-        ],
+      child: Obx(
+        () => Column(
+          children: [
+            DeliveryAddressCard(
+              onTap: () {},
+              buttonColor: const Color(0xFFC4C4C4),
+              buttonLabel: 'Tidak bisa diubah',
+              alamat: controller.cUserInfo.dataUser.value.alamatAsli,
+              rTrW:
+                  'RT. ${controller.cUserInfo.dataUser.value.rTAsli} RW. ${controller.cUserInfo.dataUser.value.rWAsli}',
+              kelKec:
+                  'Kel. ${controller.cUserInfo.dataUser.value.kelurahanAsli} Kec.${controller.cUserInfo.dataUser.value.kecamatanAsli}',
+              kotaKabupaten: controller.cUserInfo.dataUser.value.kotaAsli,
+              title: 'Alamat Asli (Sesuai KTP)',
+            ),
+            verticalSpace(50.h),
+            DeliveryAddressCard(
+              onTap: () {
+                controller.setDataDomisili();
+                Get.toNamed(Routes.DELIVERY_ADDRESS_EDIT);
+              },
+              buttonColor: AppColor.primaryColor,
+              buttonLabel: 'Ubah',
+              alamat: controller.cUserInfo.dataUser.value.alamatDomisili,
+              rTrW:
+                  'RT. ${controller.cUserInfo.dataUser.value.rTDomisili} RW. ${controller.cUserInfo.dataUser.value.rWDomisili}',
+              kelKec:
+                  'Kel. ${controller.cUserInfo.dataUser.value.kelurahanDomisili} Kec.${controller.cUserInfo.dataUser.value.kecamatanDomisili}',
+              kotaKabupaten: controller.cUserInfo.dataUser.value.kotaDomisili,
+              title: 'Domisili',
+            ),
+          ],
+        ),
       ),
     );
   }

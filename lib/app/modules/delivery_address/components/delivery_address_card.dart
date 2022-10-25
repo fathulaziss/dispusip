@@ -10,7 +10,7 @@ class DeliveryAddressCard extends StatelessWidget {
     required this.alamat,
     required this.buttonColor,
     required this.buttonLabel,
-    required this.kelurahan,
+    required this.kelKec,
     required this.kotaKabupaten,
     required this.onTap,
     required this.rTrW,
@@ -20,7 +20,7 @@ class DeliveryAddressCard extends StatelessWidget {
   final String title;
   final String alamat;
   final String rTrW;
-  final String kelurahan;
+  final String kelKec;
   final String kotaKabupaten;
   final String buttonLabel;
   final Color buttonColor;
@@ -42,8 +42,7 @@ class DeliveryAddressCard extends StatelessWidget {
           offset: const Offset(2, 5),
         ),
       ],
-      padding:
-          EdgeInsets.symmetric(horizontal: Insets.lg, vertical: Insets.med),
+      padding: EdgeInsets.all(Insets.lg),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -56,15 +55,21 @@ class DeliveryAddressCard extends StatelessWidget {
             alamat,
             style: TextStyles.text.copyWith(color: AppColor.darkGrey),
           ),
-          // Text(rTrW, style: TextStyles.text.copyWith(color: AppColor.darkGrey)),
-          // Text(
-          //   kelurahan,
-          //   style: TextStyles.text.copyWith(color: AppColor.darkGrey),
-          // ),
-          // Text(
-          //   kotaKabupaten,
-          //   style: TextStyles.text.copyWith(color: AppColor.darkGrey),
-          // ),
+          if (rTrW.isNotEmpty)
+            Text(
+              rTrW,
+              style: TextStyles.text.copyWith(color: AppColor.darkGrey),
+            ),
+          if (kelKec.isNotEmpty)
+            Text(
+              kelKec,
+              style: TextStyles.text.copyWith(color: AppColor.darkGrey),
+            ),
+          if (kotaKabupaten.isNotEmpty)
+            Text(
+              kotaKabupaten,
+              style: TextStyles.text.copyWith(color: AppColor.darkGrey),
+            ),
           verticalSpace(10.h),
           InkWell(
             onTap: onTap,

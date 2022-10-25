@@ -3,10 +3,14 @@ class UserInfoModel {
     this.nomorAnggota = '',
     this.namaLengkap = '',
     this.alamatDomisili = '',
+    this.kelurahanDomisili = '',
+    this.kecamatanDomisili = '',
     this.kotaDomisili = '',
     this.rTDomisili = '',
     this.rWDomisili = '',
     this.alamatAsli = '',
+    this.kelurahanAsli = '',
+    this.kecamatanAsli = '',
     this.kotaAsli = '',
     this.rTAsli = '',
     this.rWAsli = '',
@@ -22,10 +26,14 @@ class UserInfoModel {
         nomorAnggota: json['NomorAnggota'] ?? '',
         namaLengkap: json['NamaLengkap'] ?? '',
         alamatDomisili: json['AlamatDomisili'] ?? '',
+        kelurahanDomisili: json['KelurahanDomisili'] ?? '',
+        kecamatanDomisili: json['KecamatanDomisili'] ?? '',
         kotaDomisili: json['KotaDomisili'] ?? '',
         rTDomisili: json['RTDomisili'] ?? '',
         rWDomisili: json['RWDomisili'] ?? '',
         alamatAsli: json['AlamatAsli'] ?? '',
+        kelurahanAsli: json['KelurahanAsli'] ?? '',
+        kecamatanAsli: json['KecamatanAsli'] ?? '',
         kotaAsli: json['KotaAsli'] ?? '',
         rTAsli: json['RTAsli'] ?? '',
         rWAsli: json['RWAsli'] ?? '',
@@ -40,10 +48,14 @@ class UserInfoModel {
   String nomorAnggota;
   String namaLengkap;
   String alamatDomisili;
+  String kelurahanDomisili;
+  String kecamatanDomisili;
   String kotaDomisili;
   String rTDomisili;
   String rWDomisili;
   String alamatAsli;
+  String kelurahanAsli;
+  String kecamatanAsli;
   String kotaAsli;
   String rTAsli;
   String rWAsli;
@@ -58,10 +70,14 @@ class UserInfoModel {
         'NomorAnggota': nomorAnggota,
         'NamaLengkap': namaLengkap,
         'AlamatDomisili': alamatDomisili,
+        'KelurahanDomisili': kelurahanDomisili,
+        'KecamatanDomisili': kecamatanDomisili,
         'KotaDomisili': kotaDomisili,
         'RTDomisili': rTDomisili,
         'RWDomisili': rWDomisili,
         'AlamatAsli': alamatAsli,
+        'KelurahanAsli': kelurahanAsli,
+        'KecamatanAsli': kecamatanAsli,
         'KotaAsli': kotaAsli,
         'RTAsli': rTAsli,
         'RWAsli': rWAsli,

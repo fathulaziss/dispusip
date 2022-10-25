@@ -27,7 +27,7 @@ class TabAccount extends StatelessWidget {
                   children: [
                     AccountMenuItem(
                       label: 'Profile',
-                      onTap: () => Get.toNamed(Routes.EDIT_PROFILE),
+                      onTap: () => Get.toNamed(Routes.PROFILE),
                     ),
                     AccountMenuItem(
                       label: 'Pengaturan',

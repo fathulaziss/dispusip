@@ -12,8 +12,6 @@ import 'package:dispusip/app/modules/change_password/views/change_password_view.
 import 'package:dispusip/app/modules/delivery_address/bindings/delivery_address_binding.dart';
 import 'package:dispusip/app/modules/delivery_address/views/delivery_address_edit_view.dart';
 import 'package:dispusip/app/modules/delivery_address/views/delivery_address_view.dart';
-import 'package:dispusip/app/modules/edit_profile/bindings/edit_profile_binding.dart';
-import 'package:dispusip/app/modules/edit_profile/views/edit_profile_view.dart';
 import 'package:dispusip/app/modules/forgot_password/bindings/forgot_password_binding.dart';
 import 'package:dispusip/app/modules/forgot_password/views/forgot_password_view.dart';
 import 'package:dispusip/app/modules/home/bindings/home_binding.dart';
@@ -33,6 +31,8 @@ import 'package:dispusip/app/modules/onboarding/bindings/onboarding_binding.dart
 import 'package:dispusip/app/modules/onboarding/views/onboarding_view.dart';
 import 'package:dispusip/app/modules/pinjam_kolektif/bindings/pinjam_kolektif_binding.dart';
 import 'package:dispusip/app/modules/pinjam_kolektif/views/pinjam_kolektif_view.dart';
+import 'package:dispusip/app/modules/profile/bindings/profile_binding.dart';
+import 'package:dispusip/app/modules/profile/views/profile_view.dart';
 import 'package:dispusip/app/modules/register/bindings/register_binding.dart';
 import 'package:dispusip/app/modules/register/views/register_view.dart';
 import 'package:dispusip/app/modules/service_policy/bindings/service_policy_binding.dart';
@@ -121,9 +121,9 @@ class AppPages {
       binding: KritikSaranBinding(),
     ),
     GetPage(
-      name: _Paths.EDIT_PROFILE,
-      page: () => const EditProfileView(),
-      binding: EditProfileBinding(),
+      name: _Paths.PROFILE,
+      page: () => const ProfileView(),
+      binding: ProfileBinding(),
     ),
     GetPage(
       name: _Paths.SETTING,
