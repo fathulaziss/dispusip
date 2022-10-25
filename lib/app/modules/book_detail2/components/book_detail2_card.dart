@@ -13,7 +13,7 @@ class BookDetail2Card extends GetView<BookDetail2Controller> {
   Widget build(BuildContext context) {
     return CardApp(
       width: double.infinity,
-      margin: EdgeInsets.symmetric(horizontal: Insets.lg),
+      margin: EdgeInsets.all(Insets.lg),
       padding: EdgeInsets.symmetric(vertical: Insets.med),
       color: AppColor.blue,
       child: Column(
