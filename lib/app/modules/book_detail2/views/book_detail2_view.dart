@@ -1,4 +1,5 @@
 import 'package:dispusip/app/modules/book_detail2/components/book_detail2_background.dart';
+import 'package:dispusip/app/modules/book_detail2/components/book_detail2_card.dart';
 import 'package:dispusip/app/modules/book_detail2/components/book_detail2_desc.dart';
 import 'package:dispusip/app/modules/book_detail2/components/book_detail2_header.dart';
 import 'package:dispusip/app/modules/book_detail2/controllers/book_detail2_controller.dart';
@@ -63,105 +64,7 @@ class BookDetail2View extends GetView<BookDetail2Controller> {
                           textAlign: TextAlign.center,
                         ),
                         verticalSpace(10.h),
-                        CardApp(
-                          width: double.infinity,
-                          margin: EdgeInsets.symmetric(horizontal: Insets.lg),
-                          padding: EdgeInsets.symmetric(vertical: Insets.med),
-                          color: AppColor.blue,
-                          child: Column(
-                            children: [
-                              Row(
-                                children: [
-                                  Expanded(
-                                    child: Column(
-                                      children: [
-                                        Text(
-                                          '0',
-                                          style: TextStyles.title.copyWith(
-                                            color: Colors.white,
-                                            fontSize: 14.w,
-                                          ),
-                                        ),
-                                        Text(
-                                          'Eksemplar',
-                                          style: TextStyles.text.copyWith(
-                                            fontSize: 10.w,
-                                            color: Colors.white,
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                  Container(
-                                    width: 1.w,
-                                    height: 50.h,
-                                    color: Colors.white,
-                                  ),
-                                  Expanded(
-                                    child: Column(
-                                      children: [
-                                        Text(
-                                          '0',
-                                          style: TextStyles.title.copyWith(
-                                            color: Colors.white,
-                                            fontSize: 14.w,
-                                          ),
-                                        ),
-                                        Text(
-                                          'Tersedia Offline',
-                                          style: TextStyles.text.copyWith(
-                                            fontSize: 10.w,
-                                            color: Colors.white,
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                  Container(
-                                    width: 1.w,
-                                    height: 50.h,
-                                    color: Colors.white,
-                                  ),
-                                  Expanded(
-                                    child: Column(
-                                      children: [
-                                        Text(
-                                          controller.data.value.languages,
-                                          style: TextStyles.title.copyWith(
-                                            color: Colors.white,
-                                            fontSize: 14.w,
-                                          ),
-                                        ),
-                                        Text(
-                                          'Bahasa',
-                                          style: TextStyles.text.copyWith(
-                                            fontSize: 10.w,
-                                            color: Colors.white,
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                  )
-                                ],
-                              ),
-                              const Divider(color: AppColor.grey),
-                              Text(
-                                'No. Panggil',
-                                style: TextStyles.text.copyWith(
-                                  fontSize: 10.w,
-                                  color: Colors.white,
-                                ),
-                              ),
-                              Text(
-                                controller.data.value.callNumber,
-                                style: TextStyles.title.copyWith(
-                                  color: Colors.white,
-                                  fontSize: 14.w,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
+                        const BookDetail2Card(),
                         verticalSpace(Insets.lg),
                       ],
                     ),
