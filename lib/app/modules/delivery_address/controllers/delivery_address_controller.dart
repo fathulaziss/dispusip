@@ -39,8 +39,8 @@ class DeliveryAddressController extends GetxController {
 
   @override
   void onInit() {
-    parsingDataAsli();
-    parsingDataDomisili();
+    // parsingDataAsli();
+    // parsingDataDomisili();
     super.onInit();
   }
 
