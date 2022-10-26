@@ -2,15 +2,13 @@ import 'package:dispusip/app/controllers/user_info_controller.dart';
 import 'package:dispusip/app/routes/app_pages.dart';
 import 'package:dispusip/styles/colors.dart';
 import 'package:dispusip/styles/styles.dart';
-import 'package:dispusip/widgets/buttons/button_primary.dart';
 import 'package:dispusip/widgets/cards/card_app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:syncfusion_flutter_barcodes/barcodes.dart';
 
-class CardMember extends GetView<UserInfoController> {
-  const CardMember({Key? key}) : super(key: key);
+class CardMemberTwo extends GetView<UserInfoController> {
+  const CardMemberTwo({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +17,9 @@ class CardMember extends GetView<UserInfoController> {
         margin: EdgeInsets.symmetric(horizontal: 22.w),
         padding: EdgeInsets.zero,
         width: double.infinity,
-        height: 200.h,
+        height: 86.h,
         radius: 15.w,
-        color: Colors.white,
+        color: AppColor.blue,
         child: Stack(
           children: [
             Flex(
@@ -34,7 +32,6 @@ class CardMember extends GetView<UserInfoController> {
                       topLeft: Radius.circular(15.w),
                       topRight: Radius.circular(15.w),
                     ),
-                    color: AppColor.blue,
                   ),
                   padding: EdgeInsets.symmetric(vertical: Insets.med),
                   child: Column(
@@ -77,15 +74,6 @@ class CardMember extends GetView<UserInfoController> {
                     ],
                   ),
                 ),
-                verticalSpace(Insets.sm),
-                Expanded(
-                  child: SfBarcodeGenerator(
-                    value: controller.dataUser.value.nomorAnggota,
-                    textStyle: TextStyles.text,
-                    textSpacing: 0,
-                    showValue: true,
-                  ),
-                ),
               ],
             ),
             Positioned(
@@ -109,17 +97,28 @@ class CardMember extends GetView<UserInfoController> {
             ),
             if (controller.dataUser.value.namaLengkap.isNotEmpty)
               Positioned(
-                right: 20.w,
+                right: 10.w,
                 top: 40.w,
-                child: ButtonPrimary(
+                child: InkWell(
                   onTap: () => Get.toNamed(Routes.MEMBER_DETAIL),
-                  height: 25.h,
-                  width: 60.w,
-                  label: 'Detail',
-                  textStyle:
-                      TextStyles.desc.copyWith(fontWeight: FontWeight.w500),
-                  color: AppColor.orange,
-                  radius: 4.w,
+                  child: CardApp(
+                    width: 90.w,
+                    height: 20.w,
+                    radius: 25.w,
+                    padding: EdgeInsets.symmetric(horizontal: Insets.sm),
+                    constraints: BoxConstraints(minHeight: 20.w),
+                    color: Colors.white,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Detail Kartu',
+                          style: TextStyles.desc.copyWith(fontSize: 10.w),
+                        ),
+                        Icon(Icons.arrow_forward_ios, size: 12.w)
+                      ],
+                    ),
+                  ),
                 ),
               ),
           ],

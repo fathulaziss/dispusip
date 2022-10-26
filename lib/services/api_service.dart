@@ -15,8 +15,6 @@ import 'package:dispusip/widgets/others/show_dialog.dart';
 class ApiService {
   Dio? _dio;
 
-  // static header() => {'Content-Type': 'application/json'};
-
   Future<ApiService> init() async {
     logSys('Api Service Initialized');
     _dio = Dio(
@@ -41,7 +39,7 @@ class ApiService {
         },
         onResponse: (response, handler) {
           logSys(
-            '[RESPONSE_STATUS_CODE] : ${response.statusCode}\n[RESPONSE_DATA] : ${response.data}\n',
+            '[RESPONSE_STATUS_CODE] : ${response.statusCode}\n[RESPONSE_DATA] : ${jsonEncode(response.data)}\n',
           );
           return handler.next(response);
         },
