@@ -1,13 +1,11 @@
 import 'package:dispusip/app/modules/home/components/dashboard_card_two.dart';
 import 'package:dispusip/app/modules/home/components/dashboard_information.dart';
-import 'package:dispusip/app/modules/home/controllers/dashboard_controller.dart';
 import 'package:dispusip/styles/styles.dart';
 import 'package:dispusip/widgets/cards/card_app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 
-class DashboardHeaderTwo extends GetView<DashboardController> {
+class DashboardHeaderTwo extends StatelessWidget {
   const DashboardHeaderTwo({Key? key}) : super(key: key);
 
   @override
@@ -28,7 +26,7 @@ class DashboardHeaderTwo extends GetView<DashboardController> {
             alignment: Alignment.bottomCenter,
             child: Container(
               width: double.infinity,
-              height: 30.w,
+              height: 40.w,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.only(
                   topLeft: Corners.xxlRadius,
@@ -37,7 +35,7 @@ class DashboardHeaderTwo extends GetView<DashboardController> {
                 color: const Color(0xFFFCFCFC),
               ),
               child: Stack(
-                alignment: Alignment.bottomCenter,
+                alignment: Alignment.center,
                 children: [
                   CardApp(
                     width: 60.w,

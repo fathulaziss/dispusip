@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-class BookDetail2Header extends StatelessWidget {
-  const BookDetail2Header({Key? key}) : super(key: key);
+class BookDetail2ButtonTop extends StatelessWidget {
+  const BookDetail2ButtonTop({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
