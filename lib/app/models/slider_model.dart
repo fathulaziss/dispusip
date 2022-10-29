@@ -1,13 +1,12 @@
-class HomeSliderModel {
-  HomeSliderModel({
+class SliderModel {
+  SliderModel({
     this.image = '',
     this.link = '',
     this.title = '',
     this.date = '',
   });
 
-  factory HomeSliderModel.fromJson(Map<String, dynamic> json) =>
-      HomeSliderModel(
+  factory SliderModel.fromJson(Map<String, dynamic> json) => SliderModel(
         image: json['image'],
         link: json['link'],
         title: json['title'],

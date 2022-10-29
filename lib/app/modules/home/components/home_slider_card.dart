@@ -1,4 +1,4 @@
-import 'package:dispusip/app/modules/home/models/home_slider_model.dart';
+import 'package:dispusip/app/models/slider_model.dart';
 import 'package:dispusip/styles/styles.dart';
 import 'package:dispusip/utils/app_asset.dart';
 import 'package:dispusip/utils/app_utils.dart';
@@ -10,7 +10,7 @@ import 'package:get/get.dart';
 class HomeSliderCard extends StatelessWidget {
   const HomeSliderCard({Key? key, required this.data}) : super(key: key);
 
-  final HomeSliderModel data;
+  final SliderModel data;
 
   @override
   Widget build(BuildContext context) {

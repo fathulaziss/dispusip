@@ -1,11 +1,11 @@
 import 'package:dispusip/app/controllers/user_info_controller.dart';
 import 'package:dispusip/app/data/data_home.dart';
+import 'package:dispusip/app/models/book_category_model.dart';
 import 'package:dispusip/app/models/book_model.dart';
 import 'package:dispusip/app/models/news_author_model.dart';
 import 'package:dispusip/app/models/news_media_model.dart';
 import 'package:dispusip/app/models/news_model.dart';
-import 'package:dispusip/app/modules/home/models/home_book_category_model.dart';
-import 'package:dispusip/app/modules/home/models/home_slider_model.dart';
+import 'package:dispusip/app/models/slider_model.dart';
 import 'package:dispusip/services/api_service.dart';
 import 'package:dispusip/services/http_service.dart';
 import 'package:dispusip/styles/styles.dart';
@@ -21,11 +21,10 @@ class HomeController extends GetxController {
 
   Rx<Color> backgroundColor = Colors.white.obs;
 
-  RxList<HomeSliderModel> listSlider = <HomeSliderModel>[].obs;
+  RxList<SliderModel> listSlider = <SliderModel>[].obs;
   RxInt activeSliderIndex = 0.obs;
 
-  RxList<HomeBookCategoryModel> listBookCategory =
-      <HomeBookCategoryModel>[].obs;
+  RxList<BookCategoryModel> listBookCategory = <BookCategoryModel>[].obs;
 
   RxList<BookModel> listNewCollection = <BookModel>[].obs;
 
@@ -36,6 +35,7 @@ class HomeController extends GetxController {
   RxList<NewsAuthorModel> listNewsAuthor = <NewsAuthorModel>[].obs;
 
   RxBool isLoadingSlider = false.obs;
+  RxBool isLoadingBookCategory = false.obs;
   RxBool isLoadingNewCollection = false.obs;
   RxBool isLoadingMostCollectionBorrowed = false.obs;
   RxBool isLoadingNews = false.obs;
@@ -47,7 +47,7 @@ class HomeController extends GetxController {
     getNewCollection();
     getMostCollectionBorrowed();
     getSlider();
-    getNews();
+    // getNews();
     super.onInit();
   }
 
@@ -74,11 +74,20 @@ class HomeController extends GetxController {
 
   Future<void> getBookCategory() async {
     try {
-      const r = bookCategoryHome;
+      isLoadingBookCategory(true);
+
+      final r =
+          await ApiService().request(url: 'book/category', method: Method.GET);
+
+      isLoadingBookCategory(false);
+
+      final List data = r;
+
       listBookCategory(
-        RxList.from(r.map((e) => HomeBookCategoryModel.fromJson(e))),
+        RxList.from(data.map((e) => BookCategoryModel.fromJson(e))),
       );
     } catch (e) {
+      isLoadingBookCategory(false);
       logSys(e.toString());
     }
   }
@@ -139,7 +148,7 @@ class HomeController extends GetxController {
       await Future.delayed(const Duration(seconds: 3));
       isLoadingSlider(false);
       const r = sliderHome;
-      listSlider(RxList.from(r.map((e) => HomeSliderModel.fromJson(e))));
+      listSlider(RxList.from(r.map((e) => SliderModel.fromJson(e))));
     } catch (e) {
       isLoadingSlider(false);
       logSys(e.toString());
