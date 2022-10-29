@@ -1,59 +1,63 @@
 class BookModel {
   BookModel({
+    this.edition = '',
+    this.id = 0,
     this.author = '',
-    this.callNumber = '',
-    this.category = '',
-    this.collectionType = '',
-    this.image = '',
-    this.isbnNumber = '',
-    this.language = '',
-    this.physicDesc = '',
-    this.publisher = '',
-    this.sinopsis = '',
-    this.subject = '',
     this.title = '',
+    this.publisher = '',
+    this.publishYear = '',
+    this.publishLocation = '',
+    this.photos = '',
+    this.cover = '',
+    this.note = '',
+    this.subject = '',
+    this.worksheetName = '',
+    this.category = '',
   });
 
   factory BookModel.fromJson(Map<String, dynamic> json) => BookModel(
-        author: json['author'],
-        callNumber: json['call_number'],
-        category: json['category'],
-        collectionType: json['collection_type'],
-        image: json['image'],
-        isbnNumber: json['isbn_number'],
-        language: json['language'],
-        physicDesc: json['physic_desc'],
-        publisher: json['publisher'],
-        sinopsis: json['sinopsis'],
-        subject: json['subject'],
-        title: json['title'],
+        edition: json['Edition'] ?? '',
+        id: json['ID'] ?? 0,
+        author: json['Author'] ?? '',
+        title: json['Title'] ?? '',
+        publisher: json['Publisher'] ?? '',
+        publishYear: json['PublishYear'] ?? '',
+        publishLocation: json['PublishLocation'] ?? '',
+        photos: json['Photos'] ?? '',
+        cover: json['cover'] ?? '',
+        note: json['Note'] ?? '',
+        subject: json['Subject'] ?? '',
+        worksheetName: json['WorksheetName'] ?? '',
+        category: json['Category'] ?? '',
       );
 
-  final String author,
-      category,
-      image,
-      title,
-      subject,
-      collectionType,
-      physicDesc,
-      publisher,
-      isbnNumber,
-      language,
-      sinopsis,
-      callNumber;
+  final String edition;
+  final int id;
+  final String author;
+  final String title;
+  final String publisher;
+  final String publishYear;
+  final String publishLocation;
+  final String photos;
+  final String cover;
+  final String note;
+  final String subject;
+  final String worksheetName;
+  final String category;
 
   Map<String, dynamic> toJson() => {
-        'author': author,
-        'call_number': callNumber,
-        'category': category,
-        'collection_type': collectionType,
-        'image': image,
-        'isbn_number': isbnNumber,
-        'language': language,
-        'physic_desc': physicDesc,
-        'publisher': publisher,
-        'sinopsis': sinopsis,
-        'subject': subject,
-        'title': title,
+        'Edition': edition,
+        'ID': id,
+        'Author': author,
+        'Title': title,
+        'Publisher': publisher,
+        'PublishYear': publishYear,
+        'PublishLocation': publishLocation,
+        'Photos': photos,
+        'cover': cover,
+        'Note': note,
+        'Subject': subject,
+        'WorksheetName': worksheetName,
+        'Category': category,
       };
 }

@@ -11,15 +11,11 @@ class MemberDetailTabbarViewTwo extends GetView<MemberDetailController> {
   Widget build(BuildContext context) {
     return Obx(
       () => Padding(
-        padding: EdgeInsets.symmetric(vertical: Get.width / 2.5),
-        child: Stack(
-          children: [
-            SfBarcodeGenerator(
-              value: controller.cUserInfo.dataUser.value.nomorAnggota,
-              textStyle: TextStyles.text,
-              showValue: true,
-            ),
-          ],
+        padding: EdgeInsets.symmetric(vertical: Get.width / 2),
+        child: SfBarcodeGenerator(
+          value: controller.cUserInfo.dataUser.value.nomorAnggota,
+          textStyle: TextStyles.desc,
+          showValue: true,
         ),
       ),
     );

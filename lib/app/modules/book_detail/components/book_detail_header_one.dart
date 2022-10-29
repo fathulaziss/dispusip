@@ -1,5 +1,6 @@
-import 'package:dispusip/app/modules/book_detail2/components/book_detail2_button_top.dart';
-import 'package:dispusip/app/modules/book_detail2/controllers/book_detail2_controller.dart';
+import 'package:dispusip/app/modules/book_detail/components/book_detail_button_top.dart';
+import 'package:dispusip/app/modules/book_detail/components/book_detail_card.dart';
+import 'package:dispusip/app/modules/book_detail/controllers/book_detail_controller.dart';
 import 'package:dispusip/styles/styles.dart';
 import 'package:dispusip/utils/app_asset.dart';
 import 'package:dispusip/widgets/cards/card_app.dart';
@@ -7,8 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-class BookDetail2HeaderTwo extends GetView<BookDetail2Controller> {
-  const BookDetail2HeaderTwo({Key? key}) : super(key: key);
+class BookDetailHeaderOne extends GetView<BookDetailController> {
+  const BookDetailHeaderOne({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,8 +20,8 @@ class BookDetail2HeaderTwo extends GetView<BookDetail2Controller> {
           children: [
             Column(
               children: [
-                verticalSpace(30.w),
-                const BookDetail2ButtonTop(),
+                verticalSpace(35.w),
+                const BookDetailButtonTop(),
                 verticalSpace(Insets.xs),
                 if (controller.data.value.photos.isNotEmpty)
                   Image.network(
@@ -56,8 +57,15 @@ class BookDetail2HeaderTwo extends GetView<BookDetail2Controller> {
                   style: TextStyles.desc.copyWith(color: Colors.white),
                   textAlign: TextAlign.center,
                 ),
-                verticalSpace(Insets.lg),
+                const BookDetailCard(),
               ],
+            ),
+            Align(
+              alignment: Alignment.bottomLeft,
+              child: Divider(
+                color: Colors.pink,
+                thickness: 5.h,
+              ),
             ),
             Align(
               alignment: Alignment.bottomCenter,

@@ -18,7 +18,7 @@ class MemberDetailTabbarViewOne extends GetView<MemberDetailController> {
             gapless: false,
             embeddedImage: const AssetImage('assets/logos/logo_banyuwangi.png'),
             embeddedImageStyle: QrEmbeddedImageStyle(
-              size: Size(40.w, 40.w),
+              size: Size(30.w, 40.w),
             ),
           ),
         ),

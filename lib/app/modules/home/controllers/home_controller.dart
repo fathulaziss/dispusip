@@ -1,6 +1,6 @@
 import 'package:dispusip/app/controllers/user_info_controller.dart';
 import 'package:dispusip/app/data/data_home.dart';
-import 'package:dispusip/app/models/book_model2.dart';
+import 'package:dispusip/app/models/book_model.dart';
 import 'package:dispusip/app/models/news_author_model.dart';
 import 'package:dispusip/app/models/news_media_model.dart';
 import 'package:dispusip/app/models/news_model.dart';
@@ -27,9 +27,9 @@ class HomeController extends GetxController {
   RxList<HomeBookCategoryModel> listBookCategory =
       <HomeBookCategoryModel>[].obs;
 
-  RxList<BookModel2> listNewCollection = <BookModel2>[].obs;
+  RxList<BookModel> listNewCollection = <BookModel>[].obs;
 
-  RxList<BookModel2> listMostCollectionBorrowed = <BookModel2>[].obs;
+  RxList<BookModel> listMostCollectionBorrowed = <BookModel>[].obs;
 
   RxList<NewsModel> listNews = <NewsModel>[].obs;
   RxList<NewsMediaModel> listNewsMedia = <NewsMediaModel>[].obs;
@@ -96,7 +96,7 @@ class HomeController extends GetxController {
       final List data = r[0];
 
       listNewCollection(
-        RxList.from(data.map((e) => BookModel2.fromJson(e))),
+        RxList.from(data.map((e) => BookModel.fromJson(e))),
       );
     } catch (e) {
       isLoadingNewCollection(false);
@@ -117,7 +117,7 @@ class HomeController extends GetxController {
       final List data = r[0];
 
       listMostCollectionBorrowed(
-        RxList.from(data.map((e) => BookModel2.fromJson(e))),
+        RxList.from(data.map((e) => BookModel.fromJson(e))),
       );
     } catch (e) {
       isLoadingMostCollectionBorrowed(false);

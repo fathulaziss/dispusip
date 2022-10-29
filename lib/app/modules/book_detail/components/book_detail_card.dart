@@ -1,4 +1,4 @@
-import 'package:dispusip/app/modules/book_detail2/controllers/book_detail2_controller.dart';
+import 'package:dispusip/app/modules/book_detail/controllers/book_detail_controller.dart';
 import 'package:dispusip/styles/colors.dart';
 import 'package:dispusip/styles/styles.dart';
 import 'package:dispusip/widgets/cards/card_app.dart';
@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-class BookDetail2Card extends GetView<BookDetail2Controller> {
-  const BookDetail2Card({Key? key}) : super(key: key);
+class BookDetailCard extends GetView<BookDetailController> {
+  const BookDetailCard({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class BookDetail2Card extends GetView<BookDetail2Controller> {
                 child: Column(
                   children: [
                     Text(
-                      '0',
+                      '${controller.data.value.jumlahEksemplar}',
                       style: TextStyles.title.copyWith(
                         color: Colors.white,
                         fontSize: 14.w,
@@ -49,7 +49,7 @@ class BookDetail2Card extends GetView<BookDetail2Controller> {
                 child: Column(
                   children: [
                     Text(
-                      '0',
+                      '${controller.data.value.tersediaOffline}',
                       style: TextStyles.title.copyWith(
                         color: Colors.white,
                         fontSize: 14.w,
@@ -74,7 +74,9 @@ class BookDetail2Card extends GetView<BookDetail2Controller> {
                 child: Column(
                   children: [
                     Text(
-                      controller.data.value.languages,
+                      controller.data.value.languages.isNotEmpty
+                          ? controller.data.value.languages
+                          : 'Ind',
                       style: TextStyles.title.copyWith(
                         color: Colors.white,
                         fontSize: 14.w,

@@ -21,11 +21,11 @@ class HomeMostCollectionBorrowed extends GetView<HomeController> {
               'Koleksi Sering Dipinjam',
               style: TextStyles.title.copyWith(fontSize: 14.w),
             ),
-            verticalSpace(10.h),
+            verticalSpace(Insets.sm),
             if (controller.isLoadingMostCollectionBorrowed.value)
               SizedBox(
                 width: Get.width,
-                height: 240.h,
+                height: 200.w,
                 child: ListView.builder(
                   padding: EdgeInsets.zero,
                   itemCount: 3,
@@ -33,7 +33,7 @@ class HomeMostCollectionBorrowed extends GetView<HomeController> {
                   itemBuilder: (context, index) {
                     return ShimmerIndicator(
                       width: 150.w,
-                      height: 240.h,
+                      height: 200.w,
                       radius: 10.w,
                       padding: EdgeInsets.zero,
                       margin: EdgeInsets.only(
@@ -49,7 +49,7 @@ class HomeMostCollectionBorrowed extends GetView<HomeController> {
             else
               SizedBox(
                 width: Get.width,
-                height: 240.h,
+                height: 200.w,
                 child: controller.listMostCollectionBorrowed.isNotEmpty
                     ? ListView.builder(
                         padding: EdgeInsets.zero,
@@ -75,7 +75,7 @@ class HomeMostCollectionBorrowed extends GetView<HomeController> {
                         child: Text('Tidak Ada Data', style: TextStyles.text),
                       ),
               ),
-            verticalSpace(30.h),
+            verticalSpace(Insets.lg),
           ],
         ),
       ),

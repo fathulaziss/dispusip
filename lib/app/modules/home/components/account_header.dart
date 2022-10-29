@@ -15,16 +15,16 @@ class AccountHeader extends GetView<DashboardController> {
       () => Container(
         width: double.infinity,
         color: AppColor.primaryColor,
-        padding: EdgeInsets.fromLTRB(24.w, 0, 20.w, 40.h),
+        padding: EdgeInsets.fromLTRB(24.w, 0, 20.w, 20.w),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            verticalSpace(36.h),
+            verticalSpace(35.w),
             Image.asset(
               AppAsset.logo('logo_dispusip_white2.png'),
-              height: 40.h,
+              height: 35.w,
             ),
-            verticalSpace(Insets.lg),
+            verticalSpace(Insets.med),
             Row(
               children: [
                 if (controller.cUserInfo.dataUser.value.photo.isNotEmpty)

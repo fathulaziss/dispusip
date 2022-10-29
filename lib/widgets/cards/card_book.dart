@@ -20,7 +20,7 @@ class CardBook extends StatelessWidget {
     return (image.isNotEmpty)
         ? CardApp(
             width: 70.w,
-            height: 125.h,
+            height: 100.w,
             color: AppColor.grey,
             padding: EdgeInsets.zero,
             child: ClipRRect(
@@ -32,7 +32,7 @@ class CardBook extends StatelessWidget {
           )
         : CardApp(
             width: 70.w,
-            height: 125.h,
+            height: 100.w,
             color: AppColor.grey,
             padding: EdgeInsets.symmetric(horizontal: Insets.sm),
             child: Image.asset(

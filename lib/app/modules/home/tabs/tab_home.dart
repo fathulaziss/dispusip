@@ -25,10 +25,10 @@ class TabHome extends GetView<HomeController> {
             ),
             SizedBox(
               width: Get.width,
-              height: 360.h,
+              height: 315.w,
               child: Stack(
                 children: [
-                  HomeBackground(height: Get.height / 3),
+                  HomeBackground(height: Get.width / 1.6.w),
                   Column(
                     children: const [
                       HomeHeader(),

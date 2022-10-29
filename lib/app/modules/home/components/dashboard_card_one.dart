@@ -11,18 +11,18 @@ class DashboardCardOne extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        verticalSpace(Insets.med),
+        verticalSpace(Insets.sm),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 22.w),
           child: Text(
             'Kartu Anggota Virtual',
             style:
-                TextStyles.title.copyWith(color: Colors.white, fontSize: 16.w),
+                TextStyles.title.copyWith(color: Colors.white, fontSize: 14.w),
           ),
         ),
-        verticalSpace(Insets.med),
+        verticalSpace(Insets.sm),
         const CardMemberOne(),
-        verticalSpace(Insets.lg),
+        verticalSpace(Insets.med),
       ],
     );
   }

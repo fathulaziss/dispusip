@@ -5,7 +5,6 @@ import 'package:dispusip/widgets/cards/card_app.dart';
 import 'package:dispusip/widgets/cards/card_book.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 
 class OpacCardItem extends StatelessWidget {
   const OpacCardItem({
@@ -26,11 +25,12 @@ class OpacCardItem extends StatelessWidget {
       child: CardApp(
         margin: EdgeInsets.fromLTRB(Insets.med, 0, Insets.med, Insets.lg),
         padding: EdgeInsets.all(Insets.sm),
+        radius: 12.w,
         isShowShadows: true,
         shadows: Shadows.universal,
         child: Row(
           children: [
-            CardBook(image: data.image, isAssetImage: isAssetImage),
+            CardBook(image: data.photos, isAssetImage: isAssetImage),
             horizontalSpace(Insets.lg),
             Expanded(
               child: Column(
@@ -39,7 +39,7 @@ class OpacCardItem extends StatelessWidget {
                   Text(
                     data.title,
                     style:
-                        TextStyles.text.copyWith(fontWeight: FontWeight.w600),
+                        TextStyles.desc.copyWith(fontWeight: FontWeight.w600),
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                   ),
@@ -49,19 +49,21 @@ class OpacCardItem extends StatelessWidget {
                     style: TextStyles.desc.copyWith(color: AppColor.darkGrey),
                   ),
                   verticalSpace(Insets.med),
-                  CardApp(
-                    isOutlined: true,
-                    outlineColor: AppColor.primaryColor,
-                    constraints: BoxConstraints(minHeight: 22.h),
-                    radius: 20.w,
-                    width: Get.width / 3.w,
-                    padding: EdgeInsets.symmetric(horizontal: Insets.med),
-                    child: Text(
-                      data.subject.toUpperCase(),
-                      style: TextStyles.desc,
-                      textAlign: TextAlign.center,
-                    ),
-                  )
+                  if (data.subject.isNotEmpty)
+                    CardApp(
+                      isOutlined: true,
+                      outlineColor: AppColor.primaryColor,
+                      padding: EdgeInsets.symmetric(horizontal: Insets.xs),
+                      width: data.subject.length + 90.w,
+                      height: 20.w,
+                      constraints: BoxConstraints(minHeight: 20.w),
+                      radius: 20.w,
+                      child: Text(
+                        data.subject.toUpperCase(),
+                        style: TextStyles.desc,
+                        textAlign: TextAlign.center,
+                      ),
+                    )
                 ],
               ),
             ),

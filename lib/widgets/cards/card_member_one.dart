@@ -18,7 +18,7 @@ class CardMemberOne extends GetView<UserInfoController> {
         margin: EdgeInsets.symmetric(horizontal: 22.w),
         padding: EdgeInsets.zero,
         width: double.infinity,
-        height: 200.h,
+        height: 170.w,
         radius: 15.w,
         color: Colors.white,
         child: Stack(
@@ -42,21 +42,22 @@ class CardMemberOne extends GetView<UserInfoController> {
                         children: [
                           Expanded(
                             child: Padding(
-                              padding:
-                                  EdgeInsets.symmetric(horizontal: Insets.lg),
+                              padding: EdgeInsets.symmetric(
+                                horizontal: Insets.lg,
+                                vertical: Insets.xs,
+                              ),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
                                     controller.dataUser.value.namaLengkap,
                                     style: TextStyles.title.copyWith(
-                                      fontSize: 16.w,
+                                      fontSize: 14.w,
                                       color: Colors.white,
                                     ),
                                     maxLines: 1,
                                     overflow: TextOverflow.ellipsis,
                                   ),
-                                  verticalSpace(Insets.xs),
                                   Text(
                                     controller.dataUser.value.email,
                                     style: TextStyles.desc.copyWith(
@@ -80,7 +81,7 @@ class CardMemberOne extends GetView<UserInfoController> {
                 Expanded(
                   child: SfBarcodeGenerator(
                     value: controller.dataUser.value.nomorAnggota,
-                    textStyle: TextStyles.text,
+                    textStyle: TextStyles.desc,
                     textSpacing: 0,
                     showValue: true,
                   ),
@@ -91,7 +92,7 @@ class CardMemberOne extends GetView<UserInfoController> {
               right: 0,
               child: Container(
                 width: 118.w,
-                height: 38.h,
+                height: 30.w,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(15.w),

@@ -15,24 +15,24 @@ class DashboardNotification extends GetView<DashboardController> {
     return InkWell(
       onTap: () => Get.toNamed(Routes.UNDER_DEVELOPMENT),
       child: Container(
-        width: 50.w,
-        height: 50.w,
+        width: 40.w,
+        height: 40.w,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
           border: Border.all(color: Colors.white),
         ),
         child: SizedBox.square(
-          dimension: 50.w,
+          dimension: 40.w,
           child: Stack(
             alignment: Alignment.center,
             children: [
               SizedBox.square(
-                dimension: 24.w,
+                dimension: 20.w,
                 child: Image.asset(AppAsset.icon('ic_notification.png')),
               ),
               Positioned(
-                right: 6,
-                bottom: 27,
+                right: 5.w,
+                bottom: 22.w,
                 child: Container(
                   decoration: const BoxDecoration(
                     shape: BoxShape.circle,
@@ -43,7 +43,7 @@ class DashboardNotification extends GetView<DashboardController> {
                     '99+',
                     style: TextStyles.text.copyWith(
                       color: Colors.white,
-                      fontSize: 8.w,
+                      fontSize: 6.w,
                     ),
                     textAlign: TextAlign.center,
                   ),

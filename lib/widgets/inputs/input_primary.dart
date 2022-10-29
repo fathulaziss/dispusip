@@ -238,6 +238,7 @@ class _InputPrimaryState extends State<InputPrimary> {
               child: Focus(
                 onFocusChange: _onFocusChange,
                 child: TextField(
+                  autocorrect: false,
                   minLines: widget.minLines,
                   maxLines: widget.maxLines,
                   onTap: widget.onTap,

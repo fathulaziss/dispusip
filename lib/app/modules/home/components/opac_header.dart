@@ -17,7 +17,7 @@ class OpacHeader extends GetView<OpacController> {
     return Obx(
       () => Container(
         width: double.infinity,
-        height: Get.height / 3,
+        height: Get.width / 1.8.w,
         margin: EdgeInsets.only(bottom: Insets.med),
         padding: EdgeInsets.symmetric(horizontal: 22.w),
         decoration:
@@ -26,7 +26,7 @@ class OpacHeader extends GetView<OpacController> {
           direction: Axis.vertical,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            verticalSpace(49.h),
+            verticalSpace(40.w),
             Row(
               children: [
                 Expanded(
@@ -81,28 +81,20 @@ class OpacHeader extends GetView<OpacController> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
-                  'Filter Pencarian',
-                  style: TextStyles.title
-                      .copyWith(fontSize: 16.w, fontWeight: FontWeight.w500),
-                ),
+                Text('Filter Pencarian', style: TextStyles.text),
                 Padding(
                   padding: EdgeInsets.only(right: 8.w),
                   child: Text('X', style: TextStyles.text),
                 ),
               ],
             ),
-            verticalSpace(Insets.lg),
+            verticalSpace(Insets.sm),
             SizedBox(
               width: double.infinity,
-              height: 24.h,
+              height: 24.w,
               child: Row(
                 children: [
-                  Text(
-                    'Berdasarkan',
-                    style: TextStyles.title
-                        .copyWith(fontSize: 16.w, fontWeight: FontWeight.w500),
-                  ),
+                  Text('Berdasarkan', style: TextStyles.text),
                   horizontalSpace(Insets.xs),
                   Expanded(
                     child: ListView.builder(
@@ -123,25 +115,22 @@ class OpacHeader extends GetView<OpacController> {
                 ],
               ),
             ),
-            verticalSpace(Insets.xl),
-            if (controller.listSearch.isNotEmpty)
-              CustomRichText(
-                child: [
-                  const TextSpan(text: 'Ditemukan '),
-                  TextSpan(
-                    text: '${controller.listSearch.length} ',
-                    style:
-                        TextStyles.desc.copyWith(fontWeight: FontWeight.w600),
-                  ),
-                  const TextSpan(text: 'Buku dari '),
-                  TextSpan(
-                    text: '1189956 ',
-                    style:
-                        TextStyles.desc.copyWith(fontWeight: FontWeight.w600),
-                  ),
-                  const TextSpan(text: 'Koleksi'),
-                ],
-              ),
+            verticalSpace(Insets.med),
+            CustomRichText(
+              child: [
+                const TextSpan(text: 'Ditemukan '),
+                TextSpan(
+                  text: '${controller.listOpac.value.findbook} ',
+                  style: TextStyles.desc.copyWith(fontWeight: FontWeight.w600),
+                ),
+                const TextSpan(text: 'Buku dari '),
+                TextSpan(
+                  text: controller.listOpac.value.totalCollection,
+                  style: TextStyles.desc.copyWith(fontWeight: FontWeight.w600),
+                ),
+                const TextSpan(text: ' Koleksi'),
+              ],
+            ),
           ],
         ),
       ),

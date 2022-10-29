@@ -20,7 +20,7 @@ class HomeSlider extends GetView<HomeController> {
         child: controller.isLoadingSlider.value
             ? SizedBox(
                 width: Get.width,
-                height: 160.h,
+                height: 140.w,
                 child: Stack(
                   children: [
                     CarouselSlider.builder(
@@ -38,14 +38,14 @@ class HomeSlider extends GetView<HomeController> {
                         return ShimmerIndicator(
                           margin: EdgeInsets.symmetric(horizontal: 5.w),
                           width: double.infinity,
-                          height: 160.h,
+                          height: 160.w,
                           radius: 15.w,
                         );
                       },
                     ),
                     Positioned(
-                      right: 45,
-                      bottom: 20,
+                      right: 45.w,
+                      bottom: 20.w,
                       child: AnimatedSmoothIndicator(
                         effect: JumpingDotEffect(
                           dotHeight: 6.w,
@@ -63,7 +63,7 @@ class HomeSlider extends GetView<HomeController> {
               )
             : SizedBox(
                 width: Get.width,
-                height: 160.h,
+                height: 140.w,
                 child: Stack(
                   children: [
                     CarouselSlider.builder(
@@ -84,8 +84,8 @@ class HomeSlider extends GetView<HomeController> {
                       },
                     ),
                     Positioned(
-                      right: 45,
-                      bottom: 20,
+                      right: 45.w,
+                      bottom: 20.w,
                       child: AnimatedSmoothIndicator(
                         effect: JumpingDotEffect(
                           dotHeight: 6.w,

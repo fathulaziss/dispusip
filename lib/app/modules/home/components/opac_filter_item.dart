@@ -27,12 +27,13 @@ class OpacFilterItem extends GetView<OpacController> {
           margin: EdgeInsets.only(
             right: index != controller.listFilter.length ? 6.w : 0,
           ),
-          padding: EdgeInsets.zero,
+          padding: EdgeInsets.symmetric(horizontal: Insets.sm),
           width: controller.selectedFilter.value == data
-              ? data.length + 90.w
-              : data.length + 70.w,
-          height: 24.h,
-          constraints: BoxConstraints(minHeight: 24.h),
+              ? data.length + 92.w
+              : data.length + 74.w,
+          height: 24.w,
+          radius: 12.w,
+          constraints: BoxConstraints(minHeight: 24.w),
           color: controller.selectedFilter.value == data
               ? AppColor.primaryColor
               : AppColor.grey,
@@ -40,7 +41,7 @@ class OpacFilterItem extends GetView<OpacController> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               if (controller.selectedFilter.value == data)
-                Icon(Icons.check, size: 24.h, color: Colors.white),
+                Icon(Icons.check, size: 18.w, color: Colors.white),
               Text(
                 data,
                 style: TextStyles.desc.copyWith(

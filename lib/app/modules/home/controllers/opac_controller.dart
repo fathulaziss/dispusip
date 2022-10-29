@@ -1,11 +1,14 @@
-import 'package:dispusip/app/data/data_opac_dummy.dart';
-import 'package:dispusip/app/models/book_model.dart';
+import 'package:dispusip/app/models/opac_model.dart';
+import 'package:dispusip/services/api_service.dart';
+import 'package:dispusip/styles/styles.dart';
 import 'package:dispusip/utils/app_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class OpacController extends GetxController {
-  RxList<BookModel> listSearch = <BookModel>[].obs;
+  Rx<OpacModel> listOpac = OpacModel().obs;
+
+  // RxList<BookModel> listSearch = <BookModel>[].obs;
 
   TextEditingController cSearch = TextEditingController();
   RxString search = ''.obs;
@@ -17,21 +20,23 @@ class OpacController extends GetxController {
 
   @override
   void onInit() {
-    selectedFilter('Judul');
-    getListBook();
+    chooseFilter('Judul');
     super.onInit();
   }
 
-  Future<void> getListBook() async {
+  Future<void> getListOpac({String tahunTerbit = '', String judul = ''}) async {
     try {
       isLoading(true);
-      await Future.delayed(const Duration(seconds: 3));
+
+      final url = 'opac?terbit=$tahunTerbit&judul=$judul';
+      final r = await ApiService().request(url: url, method: Method.GET);
+      listOpac.value = OpacModel.fromJson(r);
+
       isLoading(false);
-      final r = listOpac;
-      listSearch(RxList.from(r.map((e) => BookModel.fromJson(e))));
     } catch (e) {
       isLoading(false);
-      logSys(e.toString());
+      // logSys(e.toString());
+      rethrow;
     }
   }
 
@@ -41,7 +46,7 @@ class OpacController extends GetxController {
 
   void searchItem() {
     AppUtils.dismissKeyboard();
-    getListBook();
+    getListOpac(tahunTerbit: search.value, judul: search.value);
     logSys('Hit Request Cari');
   }
 
@@ -57,14 +62,18 @@ class OpacController extends GetxController {
 
       switch (value) {
         case 'Judul':
-          getListBook();
+          getListOpac(judul: search.value);
           break;
-        default:
-          listSearch.clear();
+        case 'Penerbitan':
+          getListOpac(tahunTerbit: search.value);
+          break;
+        case 'No. Panggil':
+          getListOpac();
+          break;
       }
     } else {
       selectedFilter('');
-      listSearch.clear();
+      getListOpac();
     }
   }
 }

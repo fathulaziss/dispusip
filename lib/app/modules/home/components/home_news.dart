@@ -41,7 +41,7 @@ class HomeNews extends GetView<HomeController> {
             if (controller.isLoadingNews.value)
               SizedBox(
                 width: Get.width,
-                height: 230.h,
+                height: 200.w,
                 child: ListView.builder(
                   padding: EdgeInsets.zero,
                   itemCount: 3,
@@ -49,7 +49,7 @@ class HomeNews extends GetView<HomeController> {
                   itemBuilder: (context, index) {
                     return ShimmerIndicator(
                       width: 304.w,
-                      height: 230.h,
+                      height: 200.w,
                       radius: 10.w,
                       padding: EdgeInsets.zero,
                       margin: EdgeInsets.only(
@@ -65,7 +65,7 @@ class HomeNews extends GetView<HomeController> {
             else
               SizedBox(
                 width: Get.width,
-                height: 230.h,
+                height: 200.w,
                 child: controller.listNews.isNotEmpty
                     ? ListView.builder(
                         padding: EdgeInsets.zero,
@@ -91,7 +91,7 @@ class HomeNews extends GetView<HomeController> {
                         child: Text('Tidak Ada Data', style: TextStyles.text),
                       ),
               ),
-            verticalSpace(30.h),
+            verticalSpace(Insets.lg),
           ],
         ),
       ),

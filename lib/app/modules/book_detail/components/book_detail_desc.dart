@@ -1,12 +1,12 @@
-import 'package:dispusip/app/modules/book_detail2/controllers/book_detail2_controller.dart';
+import 'package:dispusip/app/modules/book_detail/controllers/book_detail_controller.dart';
 import 'package:dispusip/styles/colors.dart';
 import 'package:dispusip/styles/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-class BookDetail2Desc extends GetView<BookDetail2Controller> {
-  const BookDetail2Desc({Key? key}) : super(key: key);
+class BookDetailDesc extends GetView<BookDetailController> {
+  const BookDetailDesc({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +62,7 @@ class BookDetail2Desc extends GetView<BookDetail2Controller> {
             style: TextStyles.desc.copyWith(color: AppColor.blue),
           ),
           Text(
-            controller.data.value.codeSource,
+            controller.data.value.collectionID,
             style: TextStyles.text.copyWith(fontSize: 16.w),
           ),
           Text(
@@ -70,7 +70,9 @@ class BookDetail2Desc extends GetView<BookDetail2Controller> {
             style: TextStyles.desc.copyWith(color: AppColor.blue),
           ),
           Text(
-            controller.data.value.languages,
+            controller.data.value.languages.isNotEmpty
+                ? controller.data.value.languages
+                : 'Ind',
             style: TextStyles.text.copyWith(fontSize: 16.w),
           ),
           Text(

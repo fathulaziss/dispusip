@@ -17,13 +17,13 @@ class HomeHeader extends GetView<HomeController> {
       padding: EdgeInsets.symmetric(horizontal: 22.w),
       child: Column(
         children: [
-          verticalSpace(36.h),
+          verticalSpace(35.w),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Image.asset(
                 AppAsset.logo('logo_dispusip_white2.png'),
-                height: 40.h,
+                height: 35.w,
               ),
               InkWell(
                 onTap: () => Get.toNamed(Routes.UNDER_DEVELOPMENT),
@@ -38,8 +38,8 @@ class HomeHeader extends GetView<HomeController> {
                             Image.asset(AppAsset.icon('ic_notification.png')),
                       ),
                       Positioned(
-                        right: 4,
-                        bottom: 24,
+                        right: 5.w,
+                        bottom: 22.w,
                         child: Container(
                           decoration: const BoxDecoration(
                             shape: BoxShape.circle,
@@ -49,7 +49,7 @@ class HomeHeader extends GetView<HomeController> {
                           child: Text(
                             '99+',
                             style: TextStyles.text
-                                .copyWith(color: Colors.white, fontSize: 8.w),
+                                .copyWith(color: Colors.white, fontSize: 7.w),
                             textAlign: TextAlign.center,
                           ),
                         ),
@@ -94,7 +94,7 @@ class HomeHeader extends GetView<HomeController> {
               )
             ],
           ),
-          verticalSpace(20.h),
+          verticalSpace(20.w),
         ],
       ),
     );

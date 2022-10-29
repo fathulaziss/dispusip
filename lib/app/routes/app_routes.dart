@@ -29,7 +29,6 @@ abstract class Routes {
   static const NEWS = _Paths.NEWS;
   static const NEWS_DETAIL = _Paths.NEWS_DETAIL;
   static const MEMBER_DETAIL = _Paths.MEMBER_DETAIL;
-  static const BOOK_DETAIL2 = _Paths.BOOK_DETAIL2;
 }
 
 abstract class _Paths {
@@ -58,5 +57,4 @@ abstract class _Paths {
   static const NEWS = '/news';
   static const NEWS_DETAIL = '/news-detail';
   static const MEMBER_DETAIL = '/member-detail';
-  static const BOOK_DETAIL2 = '/book-detail2';
 }

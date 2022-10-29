@@ -18,7 +18,7 @@ class CustomBottomNavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 77.h,
+      height: 55.w,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(Insets.xxl),
@@ -98,8 +98,8 @@ class ItemNavbar extends StatelessWidget {
           children: [
             AnimatedContainer(
               duration: const Duration(milliseconds: 300),
-              width: isSelected ? 19.w : 17.w,
-              height: isSelected ? 19.w : 17.w,
+              width: isSelected ? 16.w : 15.w,
+              height: isSelected ? 16.w : 15.w,
               child: Image.asset(
                 assetIcon,
                 color: isSelected ? AppColor.primaryColor : AppColor.grey,

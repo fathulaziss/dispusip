@@ -24,17 +24,19 @@ class TabOpac extends GetView<OpacController> {
             Expanded(
               child: controller.isLoading.value
                   ? LoadingIndicatorBounce(size: 25.w)
-                  : controller.listSearch.isNotEmpty
+                  : controller.listOpac.value.result.isNotEmpty
                       ? ListView.builder(
                           padding: EdgeInsets.zero,
-                          itemCount: controller.listSearch.length,
+                          itemCount: controller.listOpac.value.result.length,
                           itemBuilder: (context, index) {
                             return OpacCardItem(
-                              data: controller.listSearch[index],
+                              data: controller.listOpac.value.result[index],
+                              isAssetImage: false,
                               onTap: () => Get.toNamed(
                                 Routes.BOOK_DETAIL,
                                 arguments: {
-                                  'data': controller.listSearch[index]
+                                  'id':
+                                      controller.listOpac.value.result[index].id
                                 },
                               ),
                             );
@@ -42,7 +44,7 @@ class TabOpac extends GetView<OpacController> {
                         )
                       : const OpacSearchEmpty(),
             ),
-            verticalSpace(20.h),
+            verticalSpace(Insets.sm),
           ],
         ),
       ),

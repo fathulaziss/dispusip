@@ -21,10 +21,10 @@ class HomeBookCategory extends GetView<HomeController> {
             'Cari buku dari Kategori',
             style: TextStyles.title.copyWith(fontSize: 14.w),
           ),
-          verticalSpace(10.h),
+          verticalSpace(Insets.sm),
           SizedBox(
             width: Get.width,
-            height: 60.h,
+            height: 45.w,
             child: ListView.builder(
               padding: EdgeInsets.zero,
               itemCount: controller.listBookCategory.length,
@@ -60,7 +60,7 @@ class HomeBookCategory extends GetView<HomeController> {
               },
             ),
           ),
-          verticalSpace(30.h),
+          verticalSpace(Insets.lg),
         ],
       ),
     );

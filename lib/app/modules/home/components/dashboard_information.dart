@@ -27,7 +27,7 @@ class DashboardInformasi extends GetView<DashboardController> {
                   child: Text(
                     'Hai, ${controller.cUserInfo.dataUser.value.namaLengkap}',
                     style: TextStyles.title
-                        .copyWith(fontSize: 16.w, color: Colors.white),
+                        .copyWith(fontSize: 14.w, color: Colors.white),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),

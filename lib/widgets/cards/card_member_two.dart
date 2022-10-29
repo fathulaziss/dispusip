@@ -17,7 +17,7 @@ class CardMemberTwo extends GetView<UserInfoController> {
         margin: EdgeInsets.symmetric(horizontal: 22.w),
         padding: EdgeInsets.zero,
         width: double.infinity,
-        height: 86.h,
+        height: 86.w,
         radius: 15.w,
         color: AppColor.blue,
         child: Stack(
@@ -40,21 +40,22 @@ class CardMemberTwo extends GetView<UserInfoController> {
                         children: [
                           Expanded(
                             child: Padding(
-                              padding:
-                                  EdgeInsets.symmetric(horizontal: Insets.lg),
+                              padding: EdgeInsets.symmetric(
+                                horizontal: Insets.lg,
+                                vertical: Insets.xs,
+                              ),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
                                     controller.dataUser.value.namaLengkap,
                                     style: TextStyles.title.copyWith(
-                                      fontSize: 16.w,
+                                      fontSize: 14.w,
                                       color: Colors.white,
                                     ),
                                     maxLines: 1,
                                     overflow: TextOverflow.ellipsis,
                                   ),
-                                  verticalSpace(Insets.xs),
                                   Text(
                                     controller.dataUser.value.email,
                                     style: TextStyles.desc.copyWith(
@@ -80,7 +81,7 @@ class CardMemberTwo extends GetView<UserInfoController> {
               right: 0,
               child: Container(
                 width: 118.w,
-                height: 38.h,
+                height: 30.w,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(15.w),
@@ -98,7 +99,7 @@ class CardMemberTwo extends GetView<UserInfoController> {
             if (controller.dataUser.value.namaLengkap.isNotEmpty)
               Positioned(
                 right: 10.w,
-                top: 40.w,
+                bottom: 20.w,
                 child: InkWell(
                   onTap: () => Get.toNamed(Routes.MEMBER_DETAIL),
                   child: CardApp(

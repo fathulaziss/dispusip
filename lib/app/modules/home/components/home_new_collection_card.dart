@@ -1,4 +1,4 @@
-import 'package:dispusip/app/models/book_model2.dart';
+import 'package:dispusip/app/models/book_model.dart';
 import 'package:dispusip/app/routes/app_pages.dart';
 import 'package:dispusip/styles/colors.dart';
 import 'package:dispusip/styles/styles.dart';
@@ -15,13 +15,13 @@ class HomeNewCollectionCard extends StatelessWidget {
     required this.margin,
   }) : super(key: key);
 
-  final BookModel2 data;
+  final BookModel data;
   final EdgeInsets margin;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => Get.toNamed(Routes.BOOK_DETAIL2, arguments: {'id': data.id}),
+      onTap: () => Get.toNamed(Routes.BOOK_DETAIL, arguments: {'id': data.id}),
       child: CardApp(
         isShowShadows: true,
         margin: margin,
@@ -50,7 +50,7 @@ class HomeNewCollectionCard extends StatelessWidget {
                 children: [
                   SizedBox(
                     width: Get.width,
-                    height: 18.h,
+                    height: 18.w,
                     child: Text(
                       data.title,
                       style:
@@ -62,7 +62,7 @@ class HomeNewCollectionCard extends StatelessWidget {
                   verticalSpace(Insets.xs),
                   SizedBox(
                     width: Get.width,
-                    height: 15.h,
+                    height: 15.w,
                     child: Text(
                       data.author,
                       style: TextStyles.text
