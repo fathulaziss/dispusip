@@ -43,11 +43,11 @@ class PinjamKolektifDateDropdown extends GetView<PinjamKolektifController> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          controller.selectedDate.value.isNotEmpty
-                              ? controller.selectedDate.value
+                          controller.tanggalPeminjaman.value.isNotEmpty
+                              ? controller.tanggalPeminjaman.value
                               : 'Pilih Tanggal',
                           style: TextStyles.text.copyWith(
-                            color: controller.selectedDate.value.isNotEmpty
+                            color: controller.tanggalPeminjaman.value.isNotEmpty
                                 ? AppColor.textColor
                                 : AppColor.darkGrey,
                           ),
