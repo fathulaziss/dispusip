@@ -1,5 +1,6 @@
 class BookCategoryDataModel {
   BookCategoryDataModel({
+    this.id = 0,
     this.title = '',
     this.author = '',
     this.edition = '',
@@ -36,6 +37,7 @@ class BookCategoryDataModel {
 
   factory BookCategoryDataModel.fromJson(Map<String, dynamic> json) =>
       BookCategoryDataModel(
+        id: json['ID'] != null ? int.parse(json['ID']) : 0,
         title: json['Title'] ?? '',
         author: json['Author'] ?? '',
         edition: json['Edition'] ?? '',
@@ -70,6 +72,7 @@ class BookCategoryDataModel {
         returnCount: json['ReturnCount'] ?? '',
       );
 
+  final int id;
   final String title;
   final String author;
   final String edition;
@@ -104,6 +107,7 @@ class BookCategoryDataModel {
   final String returnCount;
 
   Map<String, dynamic> toJson() => {
+        'ID': id,
         'Title': title,
         'Author': author,
         'Edition': edition,

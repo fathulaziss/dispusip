@@ -1,6 +1,7 @@
 import 'package:dispusip/app/modules/book_category/models/book_category_data_model.dart';
 import 'package:dispusip/services/api_service.dart';
 import 'package:dispusip/styles/styles.dart';
+import 'package:dispusip/utils/app_utils.dart';
 import 'package:get/get.dart';
 
 class BookCategoryController extends GetxController {
@@ -17,15 +18,17 @@ class BookCategoryController extends GetxController {
 
   void initData() {
     final args = Get.arguments;
-    if (args != null) {}
+    if (args != null) {
+      getBookCategory(args['code']);
+    }
   }
 
   Future<void> getBookCategory(String code) async {
     try {
       isLoading(true);
 
-      final r =
-          await ApiService().request(url: 'category/$code', method: Method.GET);
+      final r = await ApiService()
+          .request(url: 'book/category/$code', method: Method.GET);
 
       isLoading(false);
 
@@ -36,7 +39,8 @@ class BookCategoryController extends GetxController {
       );
     } catch (e) {
       isLoading(false);
-      rethrow;
+      logSys(e.toString());
+      // rethrow;
     }
   }
 }

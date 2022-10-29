@@ -37,25 +37,26 @@ class BookDetailHeaderOne extends GetView<BookDetailController> {
                   ),
                 verticalSpace(Insets.xs),
                 Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: Insets.lg,
-                  ),
+                  padding: EdgeInsets.symmetric(horizontal: Insets.med),
                   child: Text(
                     controller.data.value.title,
                     style: TextStyles.title.copyWith(
                       fontSize: 14.w,
                       color: Colors.white,
                     ),
-                    maxLines: 3,
-                    overflow: TextOverflow.ellipsis,
+                    maxLines: 2,
                     textAlign: TextAlign.center,
                   ),
                 ),
                 verticalSpace(Insets.xs),
-                Text(
-                  controller.data.value.author,
-                  style: TextStyles.desc.copyWith(color: Colors.white),
-                  textAlign: TextAlign.center,
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: Insets.med),
+                  child: Text(
+                    controller.data.value.author,
+                    style: TextStyles.desc.copyWith(color: Colors.white),
+                    maxLines: 2,
+                    textAlign: TextAlign.center,
+                  ),
                 ),
                 const BookDetailCard(),
               ],
