@@ -27,6 +27,8 @@ import 'package:dispusip/app/modules/member_detail/views/member_detail_view.dart
 import 'package:dispusip/app/modules/news/bindings/news_binding.dart';
 import 'package:dispusip/app/modules/news/views/news_detail_view.dart';
 import 'package:dispusip/app/modules/news/views/news_view.dart';
+import 'package:dispusip/app/modules/notification/bindings/notification_binding.dart';
+import 'package:dispusip/app/modules/notification/views/notification_view.dart';
 import 'package:dispusip/app/modules/onboarding/bindings/onboarding_binding.dart';
 import 'package:dispusip/app/modules/onboarding/views/onboarding_view.dart';
 import 'package:dispusip/app/modules/pinjam_kolektif/bindings/pinjam_kolektif_binding.dart';
@@ -174,6 +176,11 @@ class AppPages {
       name: _Paths.BOOK_CATEGORY,
       page: () => const BookCategoryView(),
       binding: BookCategoryBinding(),
+    ),
+    GetPage(
+      name: _Paths.NOTIFICATION,
+      page: () => const NotificationView(),
+      binding: NotificationBinding(),
     ),
   ];
 }

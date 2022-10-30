@@ -13,7 +13,7 @@ class DashboardNotification extends GetView<DashboardController> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => Get.toNamed(Routes.UNDER_DEVELOPMENT),
+      onTap: () => Get.toNamed(Routes.NOTIFICATION),
       child: Container(
         width: 40.w,
         height: 40.w,

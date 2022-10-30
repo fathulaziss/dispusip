@@ -26,7 +26,7 @@ class HomeHeader extends GetView<HomeController> {
                 height: 35.w,
               ),
               InkWell(
-                onTap: () => Get.toNamed(Routes.UNDER_DEVELOPMENT),
+                onTap: () => Get.toNamed(Routes.NOTIFICATION),
                 child: SizedBox.square(
                   dimension: 40.w,
                   child: Stack(

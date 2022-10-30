@@ -39,6 +39,7 @@ class FirebaseService {
   Future<void> initializeFirebaseMessaging() async {
     await Firebase.initializeApp();
     await requestNotificationPermission();
+    await FirebaseMessaging.instance.subscribeToTopic('dispusip');
     // Set the background messaging handler early on, as a named top-level function
     FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundHandler);
 
