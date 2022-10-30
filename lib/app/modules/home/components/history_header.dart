@@ -11,11 +11,13 @@ class HistoryHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        verticalSpace(30.w),
         Container(
           width: double.infinity,
-          padding: EdgeInsets.fromLTRB(24.w, 40.w, 24.w, 20.h),
+          padding: EdgeInsets.fromLTRB(24.w, 20.w, 24.w, 20.w),
           decoration:
               BoxDecoration(color: Colors.white, boxShadow: Shadows.universal2),
+          alignment: Alignment.center,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [

@@ -12,7 +12,7 @@ class HistoryTabbar extends GetView<HistoryController> {
   Widget build(BuildContext context) {
     return Obx(
       () => Padding(
-        padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 20.h),
+        padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 20.w),
         child: Row(
           children: [
             Expanded(

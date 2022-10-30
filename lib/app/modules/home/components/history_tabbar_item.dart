@@ -23,7 +23,7 @@ class HistoryTabbarItem extends StatelessWidget {
       child: CardApp(
         width: double.infinity,
         color: isActive ? AppColor.primaryColor : AppColor.grey,
-        constraints: BoxConstraints(minHeight: 24.h),
+        constraints: BoxConstraints(minHeight: 24.w),
         padding:
             EdgeInsets.symmetric(horizontal: Insets.med, vertical: Insets.sm),
         radius: 25.w,
@@ -34,7 +34,7 @@ class HistoryTabbarItem extends StatelessWidget {
               if (isActive)
                 Padding(
                   padding: EdgeInsets.only(right: Insets.xs),
-                  child: Icon(Icons.check, size: 24.h, color: Colors.white),
+                  child: Icon(Icons.check, size: 18.w, color: Colors.white),
                 ),
               Text(
                 label,
