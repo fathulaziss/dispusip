@@ -23,10 +23,10 @@ class BookDetailView extends GetView<BookDetailController> {
             ? const SizedBox()
             : Container(
                 width: double.infinity,
-                height: Get.width / 4,
+                height: Get.width / 6,
                 color: Colors.white.withOpacity(0.5),
                 padding:
-                    EdgeInsets.symmetric(vertical: 30.w, horizontal: 110.w),
+                    EdgeInsets.symmetric(vertical: 13.w, horizontal: 110.w),
                 child: CardApp(
                   padding: EdgeInsets.zero,
                   margin: EdgeInsets.zero,
@@ -56,8 +56,8 @@ class BookDetailView extends GetView<BookDetailController> {
                     backgroundColor: AppColor.primaryColor,
                     shadowColor: Colors.transparent,
                     elevation: 0,
-                    expandedHeight: 480.w,
-                    toolbarHeight: 347.w,
+                    expandedHeight: 485.w,
+                    toolbarHeight: 352.w,
                     pinned: true,
                     floating: true,
                     automaticallyImplyLeading: false,

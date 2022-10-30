@@ -1,4 +1,4 @@
-import 'package:dispusip/app/models/bok_detail_model.dart';
+import 'package:dispusip/app/models/book_detail_model.dart';
 import 'package:dispusip/services/api_service.dart';
 import 'package:dispusip/styles/styles.dart';
 import 'package:dispusip/utils/app_utils.dart';

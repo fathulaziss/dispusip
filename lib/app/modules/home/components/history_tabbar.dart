@@ -17,7 +17,10 @@ class HistoryTabbar extends GetView<HistoryController> {
           children: [
             Expanded(
               child: HistoryTabbarItem(
-                onTap: () => controller.tabbarIndex(0),
+                onTap: () {
+                  controller.tabbarIndex(0);
+                  controller.getHistoryLoan();
+                },
                 label: 'Belum Dikembalikan',
                 isActive: controller.tabbarIndex.value == 0,
               ),
@@ -26,7 +29,10 @@ class HistoryTabbar extends GetView<HistoryController> {
             Expanded(
               child: HistoryTabbarItem(
                 label: 'Sudah Dikembalikan',
-                onTap: () => controller.tabbarIndex(1),
+                onTap: () {
+                  controller.tabbarIndex(1);
+                  controller.getHistoryReturn();
+                },
                 isActive: controller.tabbarIndex.value == 1,
               ),
             ),

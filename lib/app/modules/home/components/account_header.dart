@@ -19,7 +19,7 @@ class AccountHeader extends GetView<DashboardController> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            verticalSpace(35.w),
+            verticalSpace(40.w),
             Image.asset(
               AppAsset.logo('logo_dispusip_white2.png'),
               height: 35.w,

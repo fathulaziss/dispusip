@@ -10,7 +10,7 @@ class DashboardHeaderContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        return constraints.maxHeight < 315.w
+        return constraints.maxHeight < 325.w
             ? const DashboardHeaderTwo()
             : const DashboardHeaderOne();
       },

@@ -10,7 +10,7 @@ class BookDetailHeaderContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        return constraints.maxHeight < 480.w
+        return constraints.maxHeight < 485.w
             ? const BookDetailHeaderTwo()
             : const BookDetailHeaderOne();
       },

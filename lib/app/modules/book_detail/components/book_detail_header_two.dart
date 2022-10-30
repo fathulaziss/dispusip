@@ -19,7 +19,7 @@ class BookDetailHeaderTwo extends GetView<BookDetailController> {
           children: [
             Column(
               children: [
-                verticalSpace(35.w),
+                verticalSpace(40.w),
                 const BookDetailButtonTop(),
                 verticalSpace(Insets.xs),
                 if (controller.data.value.photos.isNotEmpty)

@@ -60,6 +60,8 @@ class LoginController extends GetxController {
 
   Future<void> login() async {
     try {
+      AppUtils.dismissKeyboard();
+
       isLoading(true);
 
       final fcm = await AppStorage.read(key: FCM_TOKEN);

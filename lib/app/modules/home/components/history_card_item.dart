@@ -1,6 +1,7 @@
 import 'package:dispusip/styles/colors.dart';
 import 'package:dispusip/styles/styles.dart';
 import 'package:dispusip/utils/app_asset.dart';
+import 'package:dispusip/utils/format_date_time.dart';
 import 'package:dispusip/widgets/cards/card_app.dart';
 import 'package:dispusip/widgets/cards/card_book.dart';
 import 'package:flutter/material.dart';
@@ -12,11 +13,15 @@ class HistoryCardItem extends StatelessWidget {
     required this.author,
     required this.title,
     required this.isDone,
+    required this.image,
+    required this.date,
   }) : super(key: key);
 
   final String title;
   final String author;
   final bool isDone;
+  final String image;
+  final String date;
 
   @override
   Widget build(BuildContext context) {
@@ -24,13 +29,25 @@ class HistoryCardItem extends StatelessWidget {
       width: double.infinity,
       isOutlined: true,
       outlineColor: AppColor.grey,
-      borderWidth: 1.5,
+      borderWidth: 0.5,
       radius: 15.w,
       isShowShadows: true,
       shadows: Shadows.universal2,
+      margin: EdgeInsets.symmetric(vertical: Insets.sm),
       child: Row(
         children: [
-          const CardBook(),
+          if (image.isNotEmpty)
+            ClipRRect(
+              borderRadius: BorderRadius.circular(10.w),
+              child: Image.network(
+                image,
+                fit: BoxFit.fill,
+                width: 70.w,
+                height: 100.w,
+              ),
+            )
+          else
+            const CardBook(),
           horizontalSpace(Insets.med),
           Expanded(
             child: Column(
@@ -38,27 +55,27 @@ class HistoryCardItem extends StatelessWidget {
               children: [
                 Text(
                   title,
-                  style: TextStyles.text.copyWith(fontWeight: FontWeight.w600),
+                  style: TextStyles.desc.copyWith(fontWeight: FontWeight.w600),
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                 ),
                 verticalSpace(Insets.xs),
                 Text(
                   author,
-                  style: TextStyles.text.copyWith(color: AppColor.darkGrey),
+                  style: TextStyles.desc.copyWith(color: AppColor.darkGrey),
                 ),
                 verticalSpace(Insets.sm),
                 if (isDone)
                   Row(
                     children: [
                       SizedBox.square(
-                        dimension: 18.w,
+                        dimension: 14.w,
                         child:
                             Image.asset(AppAsset.icon('ic_check_circle.png')),
                       ),
-                      horizontalSpace(Insets.sm),
+                      horizontalSpace(Insets.xs),
                       Text(
-                        'Dikembalikan Pada : 21/02/2022',
+                        'Dikembalikan Pada : ${FormatDateTime.history(date)}',
                         style: TextStyles.desc
                             .copyWith(color: const Color(0xFF269200)),
                       ),
@@ -68,12 +85,12 @@ class HistoryCardItem extends StatelessWidget {
                   Row(
                     children: [
                       SizedBox.square(
-                        dimension: 18.w,
+                        dimension: 14.w,
                         child: Image.asset(AppAsset.icon('ic_time_red.png')),
                       ),
                       horizontalSpace(Insets.sm),
                       Text(
-                        'Tenggat : 21/02/2022',
+                        'Tenggat : ${FormatDateTime.history(date)}',
                         style: TextStyles.desc
                             .copyWith(color: const Color(0xFFFF4E4E)),
                       ),

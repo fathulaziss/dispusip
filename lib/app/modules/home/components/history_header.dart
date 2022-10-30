@@ -13,7 +13,7 @@ class HistoryHeader extends StatelessWidget {
       children: [
         Container(
           width: double.infinity,
-          padding: EdgeInsets.fromLTRB(24.w, 49.h, 24.w, 20.h),
+          padding: EdgeInsets.fromLTRB(24.w, 40.w, 24.w, 20.h),
           decoration:
               BoxDecoration(color: Colors.white, boxShadow: Shadows.universal2),
           child: Row(
@@ -21,7 +21,7 @@ class HistoryHeader extends StatelessWidget {
             children: [
               Text(
                 'Riwayat Peminjaman',
-                style: TextStyles.title.copyWith(fontSize: 20.w),
+                style: TextStyles.title.copyWith(fontSize: 16.w),
               ),
               SizedBox.square(
                 dimension: 24.w,
@@ -39,12 +39,8 @@ class HistoryHeader extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                'Filter Riwayat',
-                style: TextStyles.text
-                    .copyWith(fontSize: 16.w, fontWeight: FontWeight.w500),
-              ),
-              Text('X', style: TextStyles.text.copyWith(fontSize: 16.w)),
+              Text('Filter Riwayat', style: TextStyles.text),
+              Text('X', style: TextStyles.text),
             ],
           ),
         )

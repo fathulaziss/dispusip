@@ -23,6 +23,8 @@ class ForgotPasswordController extends GetxController {
 
   Future<void> submit() async {
     try {
+      AppUtils.dismissKeyboard();
+
       isLoading(true);
 
       final parameters = {'email': email.value};
@@ -31,7 +33,9 @@ class ForgotPasswordController extends GetxController {
         method: Method.POST,
         parameters: parameters,
       );
+
       isLoading(false);
+
       showPopUpInfo(
         title: 'Success',
         description: r['message'],

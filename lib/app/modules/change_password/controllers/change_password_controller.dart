@@ -72,6 +72,8 @@ class ChangePasswordController extends GetxController {
 
   Future<void> submit() async {
     try {
+      AppUtils.dismissKeyboard();
+
       isLoading(true);
 
       final parameters = {

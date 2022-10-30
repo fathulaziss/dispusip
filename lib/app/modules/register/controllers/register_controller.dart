@@ -286,7 +286,10 @@ class RegisterController extends GetxController {
 
   Future<void> register() async {
     try {
+      AppUtils.dismissKeyboard();
+
       isLoading(true);
+
       final parameters = {
         'username': fullName.value,
         'email': email.value,
@@ -304,12 +307,15 @@ class RegisterController extends GetxController {
         'kelurahan': kelurahan.value,
         'kabupaten': city.value,
       };
+
       final r = await ApiService().request(
         url: 'auth/signup',
         method: Method.POST,
         parameters: parameters,
       );
+
       isLoading(false);
+
       showPopUpInfo(
         title: 'Success',
         description: r['message'],
