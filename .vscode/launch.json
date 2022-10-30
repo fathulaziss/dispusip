@@ -76,9 +76,9 @@
     ]
 
     // APK
-    // flutter build apk --flavor dev -t lib/main_dev.dart --release
-    // flutter build apk --flavor staging -t lib/main_staging.dart --release
-    // flutter build apk --flavor prod -t lib/main_prod.dart --release
+    // flutter build apk --split-per-abi --flavor dev -t lib/main_dev.dart --release
+    // flutter build apk --split-per-abi --flavor staging -t lib/main_staging.dart --release
+    // flutter build apk --split-per-abi --flavor prod -t lib/main_prod.dart --release
 
     // AppBundle
     // flutter build appbundle --flavor dev -t lib/main_dev.dart

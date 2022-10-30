@@ -4,6 +4,7 @@ import 'package:dispusip/constants/constants.dart';
 import 'package:dispusip/services/api_service.dart';
 import 'package:dispusip/styles/styles.dart';
 import 'package:dispusip/utils/app_storage.dart';
+import 'package:dispusip/utils/app_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -60,20 +61,30 @@ class LoginController extends GetxController {
   Future<void> login() async {
     try {
       isLoading(true);
+
+      final fcm = await AppStorage.read(key: FCM_TOKEN);
+
+      final parameters = {
+        'username': username.value,
+        'password': password.value,
+        'fcm_key': fcm,
+      };
+
       final r = await ApiService().request(
         url: 'auth/login',
         method: Method.POST,
         isToken: false,
-        parameters: {
-          'username': username.value,
-          'password': password.value,
-        },
+        parameters: parameters,
       );
+
       isLoading(false);
+
       await AppStorage.write(key: CACHE_ACCESS_TOKEN, value: r['auth_key']);
+
       await Get.offNamed(Routes.HOME);
     } catch (e) {
       isLoading(false);
+      logSys(e.toString());
     }
   }
 }

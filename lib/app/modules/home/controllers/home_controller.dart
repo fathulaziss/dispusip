@@ -47,7 +47,7 @@ class HomeController extends GetxController {
     getNewCollection();
     getMostCollectionBorrowed();
     getSlider();
-    // getNews();
+    getNews();
     super.onInit();
   }
 
