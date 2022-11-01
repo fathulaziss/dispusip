@@ -1,37 +1,46 @@
-import 'package:dispusip/app/models/notification_model.dart';
+import 'package:dispusip/app/controllers/user_info_controller.dart';
+import 'package:dispusip/services/api_service.dart';
+import 'package:dispusip/styles/styles.dart';
 import 'package:dispusip/utils/app_utils.dart';
 import 'package:get/get.dart';
 
 class NotificationController extends GetxController {
-  RxList<NotificationModel> listNotification = <NotificationModel>[
-    NotificationModel(
-      title: 'Notifikisi 1',
-      desc: 'Kontent notifikasi, belum terbaca',
-      time: '14:32',
-    ),
-    NotificationModel(
-      title: 'Notifikisi 2',
-      desc: 'Kontent notifikasi, sudah terbaca',
-      time: '14:32',
-      isRead: true,
-    ),
-  ].obs;
+  final cUserInfo = Get.find<UserInfoController>();
 
   RxBool isLoading = false.obs;
 
-  @override
-  void onInit() {
-    getNotification();
-    super.onInit();
+  Future<void> updateNotificationItem(String id) async {
+    try {
+      final params = {'id': id};
+
+      await ApiService().request(
+        url: 'notif/updatestatus',
+        parameters: params,
+        method: Method.POST,
+      );
+
+      await cUserInfo.getNotification();
+    } catch (e) {
+      logSys(e.toString());
+    }
   }
 
-  Future<void> getNotification() async {
+  Future<void> updateNotificationAll() async {
     try {
-      isLoading(true);
+      await ApiService()
+          .request(url: 'notif/updateallstatus', method: Method.GET);
 
-      await Future.delayed(const Duration(seconds: 3));
+      await cUserInfo.getNotification();
+    } catch (e) {
+      logSys(e.toString());
+    }
+  }
 
-      isLoading(false);
+  Future<void> deleteNotificationAll() async {
+    try {
+      await ApiService().request(url: 'notif/deletenotif', method: Method.GET);
+
+      await cUserInfo.getNotification();
     } catch (e) {
       logSys(e.toString());
     }

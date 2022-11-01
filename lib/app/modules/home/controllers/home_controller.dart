@@ -42,7 +42,7 @@ class HomeController extends GetxController {
 
   @override
   void onInit() {
-    cUserInfo.getProfile();
+    cUserInfo.getDataUser();
     getBookCategory();
     getNewCollection();
     getMostCollectionBorrowed();

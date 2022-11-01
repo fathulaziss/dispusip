@@ -24,4 +24,10 @@ class FormatDateTime {
     final dateTimeConvert = DateFormat('dd-MM-yyyy').format(dateTime);
     return dateTimeConvert.replaceAll('-', '/');
   }
+
+  static String notification(String value) {
+    final dateTime = DateFormat('yyyy-MM-dd HH:mm:ss').parse(value);
+    final dateTimeConvert = DateFormat('dd-MM-yyyy HH:mm').format(dateTime);
+    return dateTimeConvert.replaceAll(' ', '  ');
+  }
 }

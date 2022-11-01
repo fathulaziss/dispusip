@@ -15,6 +15,7 @@ class PageDefaultTwo extends StatelessWidget {
     this.buttonBottom = const SizedBox(),
     this.isScrollable = true,
     this.padding,
+    this.actions,
   }) : super(key: key);
 
   final String titlePage;
@@ -25,6 +26,7 @@ class PageDefaultTwo extends StatelessWidget {
   final Widget buttonBottom;
   final bool isScrollable;
   final EdgeInsets? padding;
+  final List<Widget>? actions;
 
   @override
   Widget build(BuildContext context) {
@@ -42,6 +44,7 @@ class PageDefaultTwo extends StatelessWidget {
                 TextStyles.title.copyWith(color: Colors.white, fontSize: 16.w),
           ),
         ),
+        actions: actions,
       ),
       bottomNavigationBar: Container(
         width: double.infinity,

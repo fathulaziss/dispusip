@@ -79,11 +79,15 @@ class CardMemberOne extends GetView<UserInfoController> {
                 ),
                 verticalSpace(Insets.sm),
                 Expanded(
-                  child: SfBarcodeGenerator(
-                    value: controller.dataUser.value.nomorAnggota,
-                    textStyle: TextStyles.desc,
-                    textSpacing: 0,
-                    showValue: true,
+                  child: Padding(
+                    padding:
+                        EdgeInsets.symmetric(vertical: 5.w, horizontal: 10.w),
+                    child: SfBarcodeGenerator(
+                      value: controller.dataUser.value.nomorAnggota,
+                      textStyle: TextStyles.desc,
+                      textSpacing: 3,
+                      showValue: true,
+                    ),
                   ),
                 ),
               ],

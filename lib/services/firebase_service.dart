@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:dispusip/app/controllers/user_info_controller.dart';
 import 'package:dispusip/constants/constants.dart';
 import 'package:dispusip/utils/app_storage.dart';
 import 'package:dispusip/utils/app_utils.dart';
@@ -7,6 +8,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:get/get.dart';
 
 class FirebaseService {
   static AndroidNotificationChannel channel = const AndroidNotificationChannel(
@@ -26,6 +28,9 @@ class FirebaseService {
     // If you're going to use other Firebase services in the background, such as Firestore,
     // make sure you call `initializeApp` before using other Firebase services.
     await Firebase.initializeApp();
+
+    Get.find<UserInfoController>().getDataUser();
+
     logSys('Handling a background message ${message.data}');
   }
 
@@ -93,6 +98,7 @@ class FirebaseService {
 
     // Handle When App Open on Click
     FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
+      Get.find<UserInfoController>().getDataUser();
       logSys('onmessageopen');
       // Api1.navigatePage(message.data);
     });
@@ -124,6 +130,7 @@ class FirebaseService {
           ),
         );
       }
+      Get.find<UserInfoController>().getDataUser();
       //navigatePage(message);
     });
   }

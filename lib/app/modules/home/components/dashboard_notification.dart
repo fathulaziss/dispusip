@@ -12,44 +12,58 @@ class DashboardNotification extends GetView<DashboardController> {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () => Get.toNamed(Routes.NOTIFICATION),
-      child: Container(
-        width: 40.w,
-        height: 40.w,
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          border: Border.all(color: Colors.white),
-        ),
-        child: SizedBox.square(
-          dimension: 40.w,
-          child: Stack(
-            alignment: Alignment.center,
-            children: [
-              SizedBox.square(
-                dimension: 20.w,
-                child: Image.asset(AppAsset.icon('ic_notification.png')),
-              ),
-              Positioned(
-                right: 5.w,
-                bottom: 22.w,
-                child: Container(
-                  decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: AppColor.red,
-                  ),
-                  padding: EdgeInsets.all(2.w),
-                  child: Text(
-                    '99+',
-                    style: TextStyles.text.copyWith(
-                      color: Colors.white,
-                      fontSize: 6.w,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
+    return Obx(
+      () => InkWell(
+        onTap: () => Get.toNamed(Routes.NOTIFICATION),
+        child: Container(
+          width: 40.w,
+          height: 40.w,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            border: Border.all(color: Colors.white),
+          ),
+          child: SizedBox.square(
+            dimension: 40.w,
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                SizedBox.square(
+                  dimension: 20.w,
+                  child: Image.asset(AppAsset.icon('ic_notification.png')),
                 ),
-              )
-            ],
+                if (controller.cUserInfo.listNotification.isNotEmpty &&
+                    controller.cUserInfo.totalNotificationUnread.value > 0)
+                  Positioned(
+                    right:
+                        controller.cUserInfo.totalNotificationUnread.value < 9
+                            ? 10.w
+                            : 5.w,
+                    bottom: 22.w,
+                    child: Container(
+                      decoration: const BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: AppColor.red,
+                      ),
+                      padding:
+                          controller.cUserInfo.totalNotificationUnread.value < 9
+                              ? EdgeInsets.all(4.w)
+                              : EdgeInsets.all(2.w),
+                      child: Text(
+                        controller.cUserInfo.totalNotificationUnread.value > 99
+                            ? '99+'
+                            : '${controller.cUserInfo.totalNotificationUnread.value}',
+                        style: TextStyles.text.copyWith(
+                          color: Colors.white,
+                          fontSize: 6.w,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  )
+                else
+                  const SizedBox(),
+              ],
+            ),
           ),
         ),
       ),

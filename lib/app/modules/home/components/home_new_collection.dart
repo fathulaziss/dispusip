@@ -25,7 +25,7 @@ class HomeNewCollection extends GetView<HomeController> {
             if (controller.isLoadingNewCollection.value)
               SizedBox(
                 width: Get.width,
-                height: 240.w,
+                height: 200.w,
                 child: ListView.builder(
                   padding: EdgeInsets.zero,
                   itemCount: 3,
