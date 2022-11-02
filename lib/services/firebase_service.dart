@@ -29,8 +29,6 @@ class FirebaseService {
     // make sure you call `initializeApp` before using other Firebase services.
     await Firebase.initializeApp();
 
-    Get.find<UserInfoController>().getDataUser();
-
     logSys('Handling a background message ${message.data}');
   }
 
@@ -98,8 +96,8 @@ class FirebaseService {
 
     // Handle When App Open on Click
     FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
-      Get.find<UserInfoController>().getDataUser();
       logSys('onmessageopen');
+      Get.find<UserInfoController>().getDataUser();
       // Api1.navigatePage(message.data);
     });
 
@@ -118,6 +116,7 @@ class FirebaseService {
             android: AndroidNotificationDetails(
               channel.id,
               channel.name,
+              icon: '@drawable/logo_banyuwangi',
               styleInformation: const BigTextStyleInformation(''),
               channelDescription: channel.description,
             ),
