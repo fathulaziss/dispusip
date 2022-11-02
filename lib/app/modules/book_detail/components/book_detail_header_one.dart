@@ -1,6 +1,7 @@
 import 'package:dispusip/app/modules/book_detail/components/book_detail_button_top.dart';
 import 'package:dispusip/app/modules/book_detail/components/book_detail_card.dart';
 import 'package:dispusip/app/modules/book_detail/controllers/book_detail_controller.dart';
+import 'package:dispusip/styles/colors.dart';
 import 'package:dispusip/styles/styles.dart';
 import 'package:dispusip/utils/app_asset.dart';
 import 'package:dispusip/widgets/cards/card_app.dart';
@@ -18,6 +19,27 @@ class BookDetailHeaderOne extends GetView<BookDetailController> {
         width: double.infinity,
         child: Stack(
           children: [
+            if (controller.data.value.photos.isNotEmpty)
+              Align(
+                child: Image.network(
+                  controller.data.value.photos,
+                  width: Get.width / 1.2,
+                  fit: BoxFit.fill,
+                ),
+              )
+            else
+              Align(
+                child: Image.asset(
+                  AppAsset.image('img_book_default.png'),
+                  width: Get.width / 1.2,
+                  fit: BoxFit.fill,
+                ),
+              ),
+            Container(
+              width: Get.width,
+              height: Get.height,
+              color: AppColor.primaryColor.withOpacity(0.85),
+            ),
             Column(
               children: [
                 verticalSpace(40.w),
