@@ -40,7 +40,7 @@ class SettingView extends GetView<SettingController> {
                 activeColor: AppColor.blue,
                 inactiveColor: AppColor.darkGrey,
                 onToggle: (value) {
-                  controller.isActiveEmailNotification(value);
+                  controller.updateStatusEmailNotification();
                 },
               ),
             ),
