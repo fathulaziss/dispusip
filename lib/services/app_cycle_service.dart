@@ -2,9 +2,6 @@ import 'dart:async';
 
 import 'package:dispusip/app/routes/app_pages.dart';
 import 'package:dispusip/constants/constants.dart';
-import 'package:dispusip/services/api_service.dart';
-import 'package:dispusip/styles/colors.dart';
-import 'package:dispusip/styles/styles.dart';
 import 'package:dispusip/utils/app_storage.dart';
 import 'package:dispusip/utils/app_utils.dart';
 import 'package:dispusip/widgets/others/show_dialog.dart';
@@ -86,10 +83,10 @@ class AppCycleService {
   }
 
   Future<void> onUserLogout() async {
-    final r =
-        await ApiService().request(url: 'auth/logout', method: Method.GET);
+    // final r =
+    //     await ApiService().request(url: 'auth/logout', method: Method.GET);
 
-    showToast(message: r['status'], color: AppColor.primaryColor);
+    // showToast(message: r['status'], color: AppColor.primaryColor);
 
     await AppStorage.delete(key: CACHE_ACCESS_TOKEN);
 
