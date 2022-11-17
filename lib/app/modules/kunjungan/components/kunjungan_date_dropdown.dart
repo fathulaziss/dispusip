@@ -1,4 +1,4 @@
-import 'package:dispusip/app/modules/kunjungan_kelompok/controllers/kunjungan_kelompok_controller.dart';
+import 'package:dispusip/app/modules/kunjungan/controllers/kunjungan_controller.dart';
 import 'package:dispusip/styles/colors.dart';
 import 'package:dispusip/styles/styles.dart';
 import 'package:dispusip/utils/app_asset.dart';
@@ -6,8 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-class KunjunganKelompokDateDropdown
-    extends GetView<KunjunganKelompokController> {
+class KunjunganKelompokDateDropdown extends GetView<KunjunganController> {
   const KunjunganKelompokDateDropdown({Key? key}) : super(key: key);
 
   @override

@@ -8,7 +8,7 @@ import 'package:get/get.dart';
 class DataMenu {
   List listDashboardMenu = [
     {
-      'name': 'Katalog (OPAC)',
+      'name': 'OPAC',
       'icon': 'ic_katalog_opac.png',
       'route': 'katalog',
       'active': true,
@@ -29,27 +29,6 @@ class DataMenu {
       'link': 'https://ebook.banyuwangikab.go.id/',
     },
     {
-      'name': 'e-Arsip',
-      'icon': 'ic_earsip.png',
-      'route': 'earsip',
-      'active': false,
-      'link': '',
-    },
-    {
-      'name': 'Usulan Buku',
-      'icon': 'ic_usulan_buku.png',
-      'route': 'usulan-buku',
-      'active': true,
-      'link': '',
-    },
-    {
-      'name': 'Pinjam Kolektif',
-      'icon': 'ic_pinjam_kolektif.png',
-      'route': 'pinjam-kolektif',
-      'active': true,
-      'link': '',
-    },
-    {
       'name': 'Lare Osing',
       'icon': 'ic_lare_osing.png',
       'route': 'lare-osing',
@@ -64,10 +43,38 @@ class DataMenu {
       'link': 'https://dispusip.banyuwangikab.go.id/klinik-kepustakawanan/',
     },
     {
-      'name': 'Kritik & saran',
-      'icon': 'ic_kritik_saran.png',
-      'route': 'kritik-saran',
+      'name': 'Pinjam Kolektif',
+      'icon': 'ic_pinjam_kolektif.png',
+      'route': 'pinjam-kolektif',
       'active': true,
+      'link': '',
+    },
+    {
+      'name': 'Usulan Buku',
+      'icon': 'ic_usulan_buku.png',
+      'route': 'usulan-buku',
+      'active': true,
+      'link': '',
+    },
+    {
+      'name': 'e-Arsip',
+      'icon': 'ic_earsip.png',
+      'route': 'earsip',
+      'active': false,
+      'link': '',
+    },
+    {
+      'name': 'Warna Pelangi',
+      'icon': 'ic_warna_pelangi.png',
+      'route': 'warna-pelangi',
+      'active': false,
+      'link': '',
+    },
+    {
+      'name': 'Pusaka BWI',
+      'icon': 'ic_pusaka_bwi.png',
+      'route': 'pusaka-bwi',
+      'active': false,
       'link': '',
     },
     {
@@ -78,19 +85,40 @@ class DataMenu {
       'link': 'https://e-resources.perpusnas.go.id/',
     },
     {
-      'name': 'Data NPP',
-      'icon': 'ic_katalog_opac.png',
-      'route': 'data-npp',
-      'active': true,
-      'link': 'https://data.perpusnas.go.id/',
+      'name': 'Rest Area',
+      'icon': 'ic_rest_area.png',
+      'route': 'rest-area',
+      'active': false,
+      'link': '',
     },
     {
-      'name': 'Kunjungan Kelompok',
-      'icon': 'ic_budiwangi.png',
-      'route': 'kunjungan-kelompok',
+      'name': 'SiPrabuwangi',
+      'icon': 'ic_siprabuwangi.png',
+      'route': 'siprabuwangi',
+      'active': false,
+      'link': '',
+    },
+    {
+      'name': 'Kunjungan',
+      'icon': 'ic_kunjungan.png',
+      'route': 'kunjungan',
       'active': true,
       'link': '',
     },
+    {
+      'name': 'Kritik & saran',
+      'icon': 'ic_kritik_saran.png',
+      'route': 'kritik-saran',
+      'active': true,
+      'link': '',
+    },
+    // {
+    //   'name': 'Data NPP',
+    //   'icon': 'ic_katalog_opac.png',
+    //   'route': 'data-npp',
+    //   'active': true,
+    //   'link': 'https://data.perpusnas.go.id/',
+    // },
   ];
 
   Future<List<Widget>> getListMenu({List? list}) async {

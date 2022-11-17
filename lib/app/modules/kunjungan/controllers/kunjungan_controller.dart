@@ -8,7 +8,7 @@ import 'package:flutter_holo_date_picker/flutter_holo_date_picker.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
-class KunjunganKelompokController extends GetxController {
+class KunjunganController extends GetxController {
   final cNamaKetua = TextEditingController();
   RxString namaKetua = ''.obs;
   RxBool isValidNamaKetua = false.obs;

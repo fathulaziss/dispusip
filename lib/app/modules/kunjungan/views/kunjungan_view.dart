@@ -1,5 +1,5 @@
-import 'package:dispusip/app/modules/kunjungan_kelompok/components/kunjungan_kelompok_date_dropdown.dart';
-import 'package:dispusip/app/modules/kunjungan_kelompok/controllers/kunjungan_kelompok_controller.dart';
+import 'package:dispusip/app/modules/kunjungan/components/kunjungan_date_dropdown.dart';
+import 'package:dispusip/app/modules/kunjungan/controllers/kunjungan_controller.dart';
 import 'package:dispusip/styles/styles.dart';
 import 'package:dispusip/utils/app_asset.dart';
 import 'package:dispusip/widgets/buttons/button_primary.dart';
@@ -10,8 +10,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-class KunjunganKelompokView extends GetView<KunjunganKelompokController> {
-  const KunjunganKelompokView({Key? key}) : super(key: key);
+class KunjunganView extends GetView<KunjunganController> {
+  const KunjunganView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

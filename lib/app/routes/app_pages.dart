@@ -18,8 +18,8 @@ import 'package:dispusip/app/modules/home/bindings/home_binding.dart';
 import 'package:dispusip/app/modules/home/views/home_view.dart';
 import 'package:dispusip/app/modules/kritik_saran/bindings/kritik_saran_binding.dart';
 import 'package:dispusip/app/modules/kritik_saran/views/kritik_saran_view.dart';
-import 'package:dispusip/app/modules/kunjungan_kelompok/bindings/kunjungan_kelompok_binding.dart';
-import 'package:dispusip/app/modules/kunjungan_kelompok/views/kunjungan_kelompok_view.dart';
+import 'package:dispusip/app/modules/kunjungan/bindings/kunjungan_binding.dart';
+import 'package:dispusip/app/modules/kunjungan/views/kunjungan_view.dart';
 import 'package:dispusip/app/modules/login/bindings/login_binding.dart';
 import 'package:dispusip/app/modules/login/views/login_view.dart';
 import 'package:dispusip/app/modules/member_detail/bindings/member_detail_binding.dart';
@@ -113,9 +113,9 @@ class AppPages {
       binding: PinjamKolektifBinding(),
     ),
     GetPage(
-      name: _Paths.KUNJUNGAN_KELOMPOK,
-      page: () => const KunjunganKelompokView(),
-      binding: KunjunganKelompokBinding(),
+      name: _Paths.KUNJUNGAN,
+      page: () => const KunjunganView(),
+      binding: KunjunganBinding(),
     ),
     GetPage(
       name: _Paths.KRITIK_SARAN,
