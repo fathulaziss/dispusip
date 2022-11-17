@@ -23,16 +23,16 @@ class BookDetailHeaderOne extends GetView<BookDetailController> {
               Align(
                 child: Image.network(
                   controller.data.value.photos,
-                  width: Get.width / 1.2,
-                  fit: BoxFit.fill,
+                  width: Get.width,
+                  fit: BoxFit.cover,
                 ),
               )
             else
               Align(
                 child: Image.asset(
                   AppAsset.image('img_book_default.png'),
-                  width: Get.width / 1.2,
-                  fit: BoxFit.fill,
+                  width: Get.width,
+                  fit: BoxFit.cover,
                 ),
               ),
             Container(
@@ -46,10 +46,13 @@ class BookDetailHeaderOne extends GetView<BookDetailController> {
                 const BookDetailButtonTop(),
                 verticalSpace(Insets.xs),
                 if (controller.data.value.photos.isNotEmpty)
-                  Image.network(
-                    controller.data.value.photos,
-                    width: 100.w,
-                    fit: BoxFit.cover,
+                  ClipRRect(
+                    borderRadius: Corners.smBorder,
+                    child: Image.network(
+                      controller.data.value.photos,
+                      width: 100.w,
+                      fit: BoxFit.cover,
+                    ),
                   )
                 else
                   Image.asset(
