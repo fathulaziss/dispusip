@@ -4,6 +4,7 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+
         {
             "name": "PRODUCTION",
             "type": "dart",
@@ -27,12 +28,11 @@
                 "--verbose",
 			]
         },
-
         {
             "name": "STAGING",
             "type": "dart",
             "request": "launch",
-            "program": "lib/main_stagging.dart",
+            "program": "lib/main_staging.dart",
             "args":[
                 "--flavor",
                 "staging",

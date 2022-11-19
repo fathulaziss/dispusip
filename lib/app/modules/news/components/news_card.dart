@@ -12,6 +12,7 @@ import 'package:dispusip/widgets/cards/card_app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:share_plus/share_plus.dart';
 
 class NewsCard extends GetView<NewsController> {
   const NewsCard({
@@ -89,20 +90,17 @@ class NewsCard extends GetView<NewsController> {
                           style: TextStyles.text.copyWith(fontSize: 10.w),
                         ),
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Image.asset(
-                            AppAsset.icon('ic_comment2.png'),
-                            width: 14.h,
-                          ),
-                          horizontalSpace(Insets.sm),
-                          Image.asset(
-                            AppAsset.icon('ic_share.png'),
-                            width: 14.h,
-                          )
-                        ],
-                      )
+                      IconButton(
+                        onPressed: () {
+                          Share.share(data.link);
+                        },
+                        padding: EdgeInsets.zero,
+                        constraints: BoxConstraints(minWidth: 14.w),
+                        iconSize: 12.w,
+                        icon: Image.asset(
+                          AppAsset.icon('ic_share.png'),
+                        ),
+                      ),
                     ],
                   )
                 ],

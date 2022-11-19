@@ -2,11 +2,13 @@ import 'package:dispusip/app/modules/news/controllers/news_controller.dart';
 import 'package:dispusip/styles/colors.dart';
 import 'package:dispusip/styles/styles.dart';
 import 'package:dispusip/utils/format_date_time.dart';
+import 'package:dispusip/widgets/buttons/button_primary.dart';
 import 'package:dispusip/widgets/pages/page_default_three.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:share_plus/share_plus.dart';
 
 class NewsDetailView extends GetView<NewsController> {
   const NewsDetailView({Key? key}) : super(key: key);
@@ -71,6 +73,21 @@ class NewsDetailView extends GetView<NewsController> {
                 ),
               },
             ),
+            verticalSpace(Insets.sm),
+            ButtonPrimary(
+              onTap: () {
+                Share.share(controller.news.value.link);
+              },
+              label: 'Bagikan',
+              width: 150.w,
+              height: 35.w,
+              textStyle: TextStyles.button.copyWith(
+                fontSize: 16.w,
+                color: Colors.white,
+                letterSpacing: 2,
+              ),
+            ),
+            verticalSpace(Insets.xl)
           ],
         ),
       ),
