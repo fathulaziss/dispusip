@@ -74,17 +74,8 @@ class HomeController extends GetxController {
 
   Future<void> getBookCategory() async {
     try {
-      isLoadingBookCategory(true);
-
-      final r =
-          await ApiService().request(url: 'book/category', method: Method.GET);
-
-      isLoadingBookCategory(false);
-
-      final List data = r;
-
       listBookCategory(
-        RxList.from(data.map((e) => BookCategoryModel.fromJson(e))),
+        RxList.from(bookCategoryHome.map((e) => BookCategoryModel.fromJson(e))),
       );
     } catch (e) {
       isLoadingBookCategory(false);

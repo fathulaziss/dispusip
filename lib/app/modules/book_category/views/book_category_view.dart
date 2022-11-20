@@ -47,36 +47,51 @@ class BookCategoryView extends GetView<BookCategoryController> {
                       shadows: Shadows.universal,
                       borderWidth: 0.5,
                       child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          CardApp(
-                            radius: 10.w,
-                            height: 100.w,
-                            color: AppColor.grey,
-                            child: Image.asset(
-                              AppAsset.logo('logo_dispusip_black.png'),
+                          if (controller
+                              .listBookCategoryData[index].photos.isNotEmpty)
+                            ClipRRect(
+                              borderRadius: Corners.smBorder,
+                              child: Image.network(
+                                controller.listBookCategoryData[index].photos,
+                                height: 100.w,
+                                fit: BoxFit.cover,
+                              ),
+                            )
+                          else
+                            Image.asset(
+                              AppAsset.image('img_book_default.png'),
+                              height: 100.w,
+                              fit: BoxFit.cover,
+                            ),
+                          verticalSpace(Insets.xs),
+                          SizedBox(
+                            width: double.infinity,
+                            child: Text(
+                              controller.listBookCategoryData[index].title,
+                              textAlign: TextAlign.left,
+                              style: TextStyles.desc.copyWith(
+                                fontWeight: FontWeight.w600,
+                                fontSize: 10.w,
+                              ),
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
                             ),
                           ),
                           verticalSpace(Insets.xs),
-                          Text(
-                            controller.listBookCategoryData[index].title,
-                            style: TextStyles.desc.copyWith(
-                              fontWeight: FontWeight.w600,
-                              fontSize: 10.w,
+                          SizedBox(
+                            width: double.infinity,
+                            child: Text(
+                              controller.listBookCategoryData[index].author,
+                              textAlign: TextAlign.left,
+                              style: TextStyles.desc.copyWith(
+                                fontWeight: FontWeight.w600,
+                                fontSize: 10.w,
+                                color: AppColor.darkGrey,
+                              ),
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
                             ),
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                          verticalSpace(Insets.xs),
-                          Text(
-                            controller.listBookCategoryData[index].author,
-                            style: TextStyles.desc.copyWith(
-                              fontWeight: FontWeight.w600,
-                              fontSize: 10.w,
-                              color: AppColor.darkGrey,
-                            ),
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
                           ),
                         ],
                       ),

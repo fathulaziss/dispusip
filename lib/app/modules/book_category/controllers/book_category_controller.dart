@@ -19,16 +19,16 @@ class BookCategoryController extends GetxController {
   void initData() {
     final args = Get.arguments;
     if (args != null) {
-      getBookCategory(args['code']);
+      getBookCategory(args['query']);
     }
   }
 
-  Future<void> getBookCategory(String code) async {
+  Future<void> getBookCategory(String query) async {
     try {
       isLoading(true);
 
       final r = await ApiService()
-          .request(url: 'book/category/$code', method: Method.GET);
+          .request(url: 'category?$query', method: Method.GET);
 
       isLoading(false);
 

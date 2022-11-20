@@ -1,6 +1,5 @@
 import 'package:dispusip/app/modules/home/controllers/home_controller.dart';
 import 'package:dispusip/app/routes/app_pages.dart';
-import 'package:dispusip/styles/colors.dart';
 import 'package:dispusip/styles/styles.dart';
 import 'package:dispusip/utils/app_asset.dart';
 import 'package:dispusip/widgets/cards/card_app.dart';
@@ -59,7 +58,8 @@ class HomeBookCategory extends GetView<HomeController> {
                             onTap: () => Get.toNamed(
                               Routes.BOOK_CATEGORY,
                               arguments: {
-                                'code': controller.listBookCategory[index].code
+                                'query':
+                                    controller.listBookCategory[index].query
                               },
                             ),
                             child: CardApp(
@@ -70,13 +70,19 @@ class HomeBookCategory extends GetView<HomeController> {
                                         : 0,
                               ),
                               width: 180.w,
-                              color: checkColor(index),
+                              color: Color(
+                                controller.listBookCategory[index].color,
+                              ),
                               padding: EdgeInsets.all(Insets.sm),
                               child: Row(
                                 children: [
                                   SizedBox.square(
                                     dimension: 50.w,
-                                    child: Image.asset(checkIcon(index)),
+                                    child: Image.asset(
+                                      AppAsset.icon(
+                                        controller.listBookCategory[index].icon,
+                                      ),
+                                    ),
                                   ),
                                   Expanded(
                                     child: Text(
@@ -100,59 +106,5 @@ class HomeBookCategory extends GetView<HomeController> {
         ),
       ),
     );
-  }
-}
-
-Color checkColor(int index) {
-  switch (index) {
-    case 0:
-      return const Color(0xFFE2BDE7);
-    case 1:
-      return const Color(0xFFFFCC80);
-    case 2:
-      return const Color(0xFFB0DCDA);
-    case 3:
-      return const Color(0xFFFABBD0);
-    case 4:
-      return const Color(0xFFC5CAE8);
-    case 5:
-      return const Color(0xFFABD9F0);
-    case 6:
-      return const Color(0xFFFFCC80);
-    case 7:
-      return const Color(0xFFE2BDE7);
-    case 8:
-      return const Color(0xFFC5CAE8);
-    case 9:
-      return const Color(0xFFFFCC80);
-    default:
-      return AppColor.primaryColor;
-  }
-}
-
-String checkIcon(int index) {
-  switch (index) {
-    case 0:
-      return AppAsset.icon('ic_category1.png');
-    case 1:
-      return AppAsset.icon('ic_category2.png');
-    case 2:
-      return AppAsset.icon('ic_category3.png');
-    case 3:
-      return AppAsset.icon('ic_category4.png');
-    case 4:
-      return AppAsset.icon('ic_category5.png');
-    case 5:
-      return AppAsset.icon('ic_category6.png');
-    case 6:
-      return AppAsset.icon('ic_category7.png');
-    case 7:
-      return AppAsset.icon('ic_category8.png');
-    case 8:
-      return AppAsset.icon('ic_category9.png');
-    case 9:
-      return AppAsset.icon('ic_category10.png');
-    default:
-      return AppAsset.icon('ic_category1.png');
   }
 }
