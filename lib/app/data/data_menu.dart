@@ -134,7 +134,7 @@ class DataMenu {
           icon: menu['icon'],
           text: menu['name'],
           onTap: () {
-            if (menu['name'] == 'Katalog (OPAC)') {
+            if (menu['name'] == 'OPAC') {
               Get.find<HomeController>().navigation(1);
               return;
             }
