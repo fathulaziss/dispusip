@@ -17,7 +17,7 @@ class DashboardHeaderOne extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              verticalSpace(40.w),
+              verticalSpace(MediaQuery.of(context).viewPadding.top + 10.w),
               const DashboardInformasi(),
               const DashboardCardOne(),
             ],

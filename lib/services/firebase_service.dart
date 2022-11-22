@@ -48,19 +48,12 @@ class FirebaseService {
 
     const initializationSettingsAndroid =
         AndroidInitializationSettings('@drawable/logo_banyuwangi');
-    const initializationSettingsIOS = IOSInitializationSettings(
-      requestAlertPermission: false,
-      requestBadgePermission: false,
-      requestSoundPermission: false,
-    );
+
     const initializationSettings = InitializationSettings(
       android: initializationSettingsAndroid,
-      iOS: initializationSettingsIOS,
+      iOS: DarwinInitializationSettings(),
     );
-    await flutterLocalNotificationsPlugin.initialize(
-      initializationSettings,
-      onSelectNotification: selectNotification,
-    );
+    await flutterLocalNotificationsPlugin.initialize(initializationSettings);
 
     /// Create an Android Notification Channel.
     ///

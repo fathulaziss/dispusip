@@ -18,7 +18,7 @@ class HomeHeader extends GetView<HomeController> {
         padding: EdgeInsets.symmetric(horizontal: 22.w),
         child: Column(
           children: [
-            verticalSpace(35.w),
+            verticalSpace(MediaQuery.of(context).viewPadding.top + 5.w),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
