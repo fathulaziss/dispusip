@@ -35,6 +35,7 @@ abstract class Routes {
   static const LARE_OSING_FORM = _Paths.LARE_OSING_FORM;
   static const KLIK = _Paths.KLIK;
   static const KLIK_FORM = _Paths.KLIK_FORM;
+  static const WARNA_PELANGI = _Paths.WARNA_PELANGI;
 }
 
 abstract class _Paths {
@@ -69,4 +70,5 @@ abstract class _Paths {
   static const LARE_OSING_FORM = '/lare-osing-form';
   static const KLIK = '/klik';
   static const KLIK_FORM = '/klik-form';
+  static const WARNA_PELANGI = '/warna-pelangi';
 }

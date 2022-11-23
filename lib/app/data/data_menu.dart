@@ -71,7 +71,7 @@ class DataMenu {
       'name': 'Warna Pelangi',
       'icon': 'ic_warna_pelangi.png',
       'route': 'warna-pelangi',
-      'active': false,
+      'active': true,
       'link': '',
     },
     {

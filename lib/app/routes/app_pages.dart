@@ -51,6 +51,8 @@ import 'package:dispusip/app/modules/splash_screen_view.dart';
 import 'package:dispusip/app/modules/under_development_view.dart';
 import 'package:dispusip/app/modules/usulan_buku/bindings/usulan_buku_binding.dart';
 import 'package:dispusip/app/modules/usulan_buku/views/usulan_buku_view.dart';
+import 'package:dispusip/app/modules/warna_pelangi/bindings/warna_pelangi_binding.dart';
+import 'package:dispusip/app/modules/warna_pelangi/views/warna_pelangi_view.dart';
 import 'package:get/get.dart';
 
 part 'app_routes.dart';
@@ -207,6 +209,11 @@ class AppPages {
       name: _Paths.KLIK_FORM,
       page: () => const KlikFormView(),
       binding: KlikBinding(),
+    ),
+    GetPage(
+      name: _Paths.WARNA_PELANGI,
+      page: () => const WarnaPelangiView(),
+      binding: WarnaPelangiBinding(),
     ),
   ];
 }
