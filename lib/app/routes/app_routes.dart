@@ -33,6 +33,7 @@ abstract class Routes {
   static const NOTIFICATION = _Paths.NOTIFICATION;
   static const LARE_OSING = _Paths.LARE_OSING;
   static const LARE_OSING_FORM = _Paths.LARE_OSING_FORM;
+  static const KLIK = _Paths.KLIK;
 }
 
 abstract class _Paths {
@@ -65,4 +66,5 @@ abstract class _Paths {
   static const NOTIFICATION = '/notification';
   static const LARE_OSING = '/lare-osing';
   static const LARE_OSING_FORM = '/lare-osing-form';
+  static const KLIK = '/klik';
 }

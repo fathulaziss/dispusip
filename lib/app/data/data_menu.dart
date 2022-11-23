@@ -41,7 +41,7 @@ class DataMenu {
       'name': 'KliK',
       'icon': 'ic_klik.png',
       'route': 'klik',
-      'active': false,
+      'active': true,
       'link': '',
       // 'active': true,
       // 'link': 'https://dispusip.banyuwangikab.go.id/klinik-kepustakawanan/',

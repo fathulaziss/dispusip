@@ -16,6 +16,8 @@ import 'package:dispusip/app/modules/forgot_password/bindings/forgot_password_bi
 import 'package:dispusip/app/modules/forgot_password/views/forgot_password_view.dart';
 import 'package:dispusip/app/modules/home/bindings/home_binding.dart';
 import 'package:dispusip/app/modules/home/views/home_view.dart';
+import 'package:dispusip/app/modules/klik/bindings/klik_binding.dart';
+import 'package:dispusip/app/modules/klik/views/klik_view.dart';
 import 'package:dispusip/app/modules/kritik_saran/bindings/kritik_saran_binding.dart';
 import 'package:dispusip/app/modules/kritik_saran/views/kritik_saran_view.dart';
 import 'package:dispusip/app/modules/kunjungan/bindings/kunjungan_binding.dart';
@@ -194,6 +196,11 @@ class AppPages {
       name: _Paths.LARE_OSING_FORM,
       page: () => const LareOsingFormView(),
       binding: LareOsingBinding(),
+    ),
+    GetPage(
+      name: _Paths.KLIK,
+      page: () => const KlikView(),
+      binding: KlikBinding(),
     ),
   ];
 }
