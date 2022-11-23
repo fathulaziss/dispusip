@@ -17,6 +17,7 @@ import 'package:dispusip/app/modules/forgot_password/views/forgot_password_view.
 import 'package:dispusip/app/modules/home/bindings/home_binding.dart';
 import 'package:dispusip/app/modules/home/views/home_view.dart';
 import 'package:dispusip/app/modules/klik/bindings/klik_binding.dart';
+import 'package:dispusip/app/modules/klik/views/klik_form_view.dart';
 import 'package:dispusip/app/modules/klik/views/klik_view.dart';
 import 'package:dispusip/app/modules/kritik_saran/bindings/kritik_saran_binding.dart';
 import 'package:dispusip/app/modules/kritik_saran/views/kritik_saran_view.dart';
@@ -200,6 +201,11 @@ class AppPages {
     GetPage(
       name: _Paths.KLIK,
       page: () => const KlikView(),
+      binding: KlikBinding(),
+    ),
+    GetPage(
+      name: _Paths.KLIK_FORM,
+      page: () => const KlikFormView(),
       binding: KlikBinding(),
     ),
   ];

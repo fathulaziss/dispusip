@@ -35,7 +35,7 @@ class KlikView extends GetView<KlikController> {
                   ),
                 ),
                 ButtonPrimary(
-                  onTap: () => Get.toNamed(Routes.LARE_OSING_FORM),
+                  onTap: () => Get.toNamed(Routes.KLIK_FORM),
                   width: 120.w,
                   height: 30.w,
                   label: 'Isi Form',

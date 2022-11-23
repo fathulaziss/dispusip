@@ -1,4 +1,4 @@
-import 'package:dispusip/app/modules/lare_osing/controllers/lare_osing_controller.dart';
+import 'package:dispusip/app/modules/klik/controllers/klik_controller.dart';
 import 'package:dispusip/styles/styles.dart';
 import 'package:dispusip/widgets/buttons/button_primary.dart';
 import 'package:dispusip/widgets/inputs/input_number.dart';
@@ -7,14 +7,14 @@ import 'package:dispusip/widgets/pages/page_default_two.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class LareOsingFormView extends GetView<LareOsingController> {
-  const LareOsingFormView({super.key});
+class KlikFormView extends GetView<KlikController> {
+  const KlikFormView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Obx(
       () => PageDefaultTwo(
-        titlePage: 'Formulir Lare Osing',
+        titlePage: 'Formulir KliK',
         isShowButtonBottom: true,
         buttonBottom: ButtonPrimary(
           onTap: controller.submit,
@@ -38,9 +38,10 @@ class LareOsingFormView extends GetView<LareOsingController> {
             ),
             verticalSpace(Insets.xs),
             InputPrimary(
-              hint: 'Masukkan Pekerjaan',
-              controller: controller.cPekerjaan,
-              onChanged: controller.setPekerjaan,
+              hint: 'Masukkan Email',
+              keyboardType: TextInputType.emailAddress,
+              controller: controller.cEmail,
+              onChanged: controller.setEmail,
               validation: (value) => true,
             ),
             verticalSpace(Insets.xs),
@@ -52,18 +53,23 @@ class LareOsingFormView extends GetView<LareOsingController> {
             ),
             verticalSpace(Insets.xs),
             InputPrimary(
-              hint: 'Masukkan Alamat',
-              controller: controller.cAlamat,
-              onChanged: controller.setAlamat,
+              hint: 'Masukkan Pendidikan',
+              controller: controller.cPendidikan,
+              onChanged: controller.setPendidikan,
               validation: (value) => true,
-              maxLines: null,
             ),
             verticalSpace(Insets.xs),
             InputPrimary(
-              hint: 'Masukkan Email',
-              keyboardType: TextInputType.emailAddress,
-              controller: controller.cEmail,
-              onChanged: controller.setEmail,
+              hint: 'Masukkan Asal Lembaga',
+              controller: controller.cAsalLembaga,
+              onChanged: controller.setAsalLembaga,
+              validation: (value) => true,
+            ),
+            verticalSpace(Insets.xs),
+            InputPrimary(
+              hint: 'Masukkan Pekerjaan',
+              controller: controller.cPekerjaan,
+              onChanged: controller.setPekerjaan,
               validation: (value) => true,
             ),
             verticalSpace(Insets.xs),
