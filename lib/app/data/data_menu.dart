@@ -32,7 +32,7 @@ class DataMenu {
       'name': 'Lare Osing',
       'icon': 'ic_lare_osing.png',
       'route': 'lare-osing',
-      'active': false,
+      'active': true,
       'link': '',
       // 'active': true,
       // 'link': 'https://dispusip.banyuwangikab.go.id/lareosing/',

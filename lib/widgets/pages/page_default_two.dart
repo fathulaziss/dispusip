@@ -15,6 +15,7 @@ class PageDefaultTwo extends StatelessWidget {
     this.buttonBottom = const SizedBox(),
     this.isScrollable = true,
     this.padding,
+    this.paddingButtonBottom,
     this.actions,
   }) : super(key: key);
 
@@ -26,6 +27,7 @@ class PageDefaultTwo extends StatelessWidget {
   final Widget buttonBottom;
   final bool isScrollable;
   final EdgeInsets? padding;
+  final EdgeInsets? paddingButtonBottom;
   final List<Widget>? actions;
 
   @override
@@ -50,13 +52,16 @@ class PageDefaultTwo extends StatelessWidget {
         width: double.infinity,
         color: Colors.white,
         child: Padding(
-          padding: EdgeInsets.fromLTRB(24.w, 0, 24.w, 24.h),
+          padding:
+              paddingButtonBottom ?? EdgeInsets.fromLTRB(24.w, 0, 24.w, 24.w),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               if (isShowButtonBottom)
                 Padding(
-                  padding: EdgeInsets.only(bottom: Insets.med),
+                  padding: isShowFooter
+                      ? EdgeInsets.only(bottom: Insets.med)
+                      : EdgeInsets.zero,
                   child: buttonBottom,
                 ),
               if (isShowFooter)

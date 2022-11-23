@@ -20,6 +20,8 @@ import 'package:dispusip/app/modules/kritik_saran/bindings/kritik_saran_binding.
 import 'package:dispusip/app/modules/kritik_saran/views/kritik_saran_view.dart';
 import 'package:dispusip/app/modules/kunjungan/bindings/kunjungan_binding.dart';
 import 'package:dispusip/app/modules/kunjungan/views/kunjungan_view.dart';
+import 'package:dispusip/app/modules/lare_osing/bindings/lare_osing_binding.dart';
+import 'package:dispusip/app/modules/lare_osing/views/lare_osing_view.dart';
 import 'package:dispusip/app/modules/login/bindings/login_binding.dart';
 import 'package:dispusip/app/modules/login/views/login_view.dart';
 import 'package:dispusip/app/modules/member_detail/bindings/member_detail_binding.dart';
@@ -181,6 +183,11 @@ class AppPages {
       name: _Paths.NOTIFICATION,
       page: () => const NotificationView(),
       binding: NotificationBinding(),
+    ),
+    GetPage(
+      name: _Paths.LARE_OSING,
+      page: () => const LareOsingView(),
+      binding: LareOsingBinding(),
     ),
   ];
 }
