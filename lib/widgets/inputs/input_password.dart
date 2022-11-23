@@ -146,7 +146,6 @@ class _InputPasswordState extends State<InputPassword> {
       outlineColor: widget.outlineColor,
       borderRadius: widget.borderRadius,
       hintColor: widget.hintColor,
-      maxLines: 1,
     );
   }
 }

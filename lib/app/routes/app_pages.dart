@@ -21,6 +21,7 @@ import 'package:dispusip/app/modules/kritik_saran/views/kritik_saran_view.dart';
 import 'package:dispusip/app/modules/kunjungan/bindings/kunjungan_binding.dart';
 import 'package:dispusip/app/modules/kunjungan/views/kunjungan_view.dart';
 import 'package:dispusip/app/modules/lare_osing/bindings/lare_osing_binding.dart';
+import 'package:dispusip/app/modules/lare_osing/views/lare_osing_form_view.dart';
 import 'package:dispusip/app/modules/lare_osing/views/lare_osing_view.dart';
 import 'package:dispusip/app/modules/login/bindings/login_binding.dart';
 import 'package:dispusip/app/modules/login/views/login_view.dart';
@@ -187,6 +188,11 @@ class AppPages {
     GetPage(
       name: _Paths.LARE_OSING,
       page: () => const LareOsingView(),
+      binding: LareOsingBinding(),
+    ),
+    GetPage(
+      name: _Paths.LARE_OSING_FORM,
+      page: () => const LareOsingFormView(),
       binding: LareOsingBinding(),
     ),
   ];

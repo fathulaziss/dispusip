@@ -39,7 +39,7 @@ class InputPrimary extends StatefulWidget {
     this.onTap,
     this.textInputAction,
     this.onSubmitted,
-    this.maxLines,
+    this.maxLines = 1,
     this.minLines,
   }) : super(key: key);
 

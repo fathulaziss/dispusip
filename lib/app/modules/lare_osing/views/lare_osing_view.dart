@@ -1,4 +1,5 @@
 import 'package:dispusip/app/modules/lare_osing/controllers/lare_osing_controller.dart';
+import 'package:dispusip/app/routes/app_pages.dart';
 import 'package:dispusip/styles/colors.dart';
 import 'package:dispusip/styles/styles.dart';
 import 'package:dispusip/utils/app_asset.dart';
@@ -34,6 +35,7 @@ class LareOsingView extends GetView<LareOsingController> {
                   ),
                 ),
                 ButtonPrimary(
+                  onTap: () => Get.toNamed(Routes.LARE_OSING_FORM),
                   width: 120.w,
                   height: 30.w,
                   label: 'Isi Form',

@@ -32,6 +32,7 @@ abstract class Routes {
   static const BOOK_CATEGORY = _Paths.BOOK_CATEGORY;
   static const NOTIFICATION = _Paths.NOTIFICATION;
   static const LARE_OSING = _Paths.LARE_OSING;
+  static const LARE_OSING_FORM = _Paths.LARE_OSING_FORM;
 }
 
 abstract class _Paths {
@@ -63,4 +64,5 @@ abstract class _Paths {
   static const BOOK_CATEGORY = '/book-category';
   static const NOTIFICATION = '/notification';
   static const LARE_OSING = '/lare-osing';
+  static const LARE_OSING_FORM = '/lare-osing-form';
 }
