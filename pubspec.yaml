@@ -12,6 +12,7 @@ dependencies:
   dio: ^4.0.6
   dropdown_button2: ^1.8.5
   easy_mask: ^2.0.1
+  file_picker: ^5.2.2
   firebase_core: ^2.3.0
   firebase_messaging: ^14.1.1
   flutter:

@@ -52,6 +52,7 @@ import 'package:dispusip/app/modules/under_development_view.dart';
 import 'package:dispusip/app/modules/usulan_buku/bindings/usulan_buku_binding.dart';
 import 'package:dispusip/app/modules/usulan_buku/views/usulan_buku_view.dart';
 import 'package:dispusip/app/modules/warna_pelangi/bindings/warna_pelangi_binding.dart';
+import 'package:dispusip/app/modules/warna_pelangi/views/warna_pelangi_form_view.dart';
 import 'package:dispusip/app/modules/warna_pelangi/views/warna_pelangi_view.dart';
 import 'package:get/get.dart';
 
@@ -213,6 +214,11 @@ class AppPages {
     GetPage(
       name: _Paths.WARNA_PELANGI,
       page: () => const WarnaPelangiView(),
+      binding: WarnaPelangiBinding(),
+    ),
+    GetPage(
+      name: _Paths.WARNA_PELANGI_FORM,
+      page: () => const WarnaPelangiFormView(),
       binding: WarnaPelangiBinding(),
     ),
   ];

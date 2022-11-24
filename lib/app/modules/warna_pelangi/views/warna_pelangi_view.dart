@@ -35,7 +35,7 @@ class WarnaPelangiView extends GetView<WarnaPelangiController> {
                   ),
                 ),
                 ButtonPrimary(
-                  onTap: () => Get.toNamed(Routes.KLIK_FORM),
+                  onTap: () => Get.toNamed(Routes.WARNA_PELANGI_FORM),
                   width: 120.w,
                   height: 30.w,
                   label: 'Isi Form',
