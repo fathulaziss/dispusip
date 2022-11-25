@@ -43,6 +43,8 @@ import 'package:dispusip/app/modules/profile/bindings/profile_binding.dart';
 import 'package:dispusip/app/modules/profile/views/profile_view.dart';
 import 'package:dispusip/app/modules/register/bindings/register_binding.dart';
 import 'package:dispusip/app/modules/register/views/register_view.dart';
+import 'package:dispusip/app/modules/rest_area/bindings/rest_area_binding.dart';
+import 'package:dispusip/app/modules/rest_area/views/rest_area_view.dart';
 import 'package:dispusip/app/modules/service_policy/bindings/service_policy_binding.dart';
 import 'package:dispusip/app/modules/service_policy/views/service_policy_view.dart';
 import 'package:dispusip/app/modules/setting/bindings/setting_binding.dart';
@@ -220,6 +222,11 @@ class AppPages {
       name: _Paths.WARNA_PELANGI_FORM,
       page: () => const WarnaPelangiFormView(),
       binding: WarnaPelangiBinding(),
+    ),
+    GetPage(
+      name: _Paths.REST_AREA,
+      page: () => const RestAreaView(),
+      binding: RestAreaBinding(),
     ),
   ];
 }

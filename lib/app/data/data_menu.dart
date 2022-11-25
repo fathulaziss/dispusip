@@ -92,7 +92,7 @@ class DataMenu {
       'name': 'Rest Area',
       'icon': 'ic_rest_area.png',
       'route': 'rest-area',
-      'active': false,
+      'active': true,
       'link': '',
     },
     {
