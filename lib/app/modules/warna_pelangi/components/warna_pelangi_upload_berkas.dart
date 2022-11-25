@@ -23,16 +23,21 @@ class WarnaPelangiUploadBerkas extends GetView<WarnaPelangiController> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                controller.berkasPath.isNotEmpty
-                    ? 'Berkas.pdf'
-                    : 'Upload Berkas / Surat Permohonan',
-                style: TextStyles.text.copyWith(
-                  color: controller.tanggalKunjungan.isNotEmpty
-                      ? AppColor.textColor
-                      : AppColor.darkGrey,
+              Expanded(
+                child: Text(
+                  controller.berkasPath.isNotEmpty
+                      ? controller.berkas.value.name
+                      : 'Upload Berkas / Surat Permohonan',
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyles.text.copyWith(
+                    color: controller.berkasPath.isNotEmpty
+                        ? AppColor.textColor
+                        : AppColor.darkGrey,
+                  ),
                 ),
               ),
+              horizontalSpace(Insets.xs),
               SizedBox.square(
                 dimension: 18.w,
                 child: Image.asset(AppAsset.icon('ic_judul_buku.png')),

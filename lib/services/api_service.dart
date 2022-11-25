@@ -67,7 +67,7 @@ class ApiService {
     required String url,
     required Method method,
     Map<String, String>? headers,
-    Map<String, dynamic>? parameters,
+    dynamic parameters,
     bool isToken = true,
   }) async {
     Response response;

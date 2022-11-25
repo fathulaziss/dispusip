@@ -1,10 +1,13 @@
+import 'package:dio/dio.dart';
+import 'package:dispusip/services/api_service.dart';
 import 'package:dispusip/styles/colors.dart';
 import 'package:dispusip/styles/styles.dart';
 import 'package:dispusip/utils/app_utils.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_holo_date_picker/flutter_holo_date_picker.dart';
-import 'package:get/get.dart';
+import 'package:get/get_rx/src/rx_types/rx_types.dart';
+import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:intl/intl.dart';
 
 class WarnaPelangiController extends GetxController {
@@ -125,6 +128,8 @@ class WarnaPelangiController extends GetxController {
     if (result != null) {
       berkas.value = result.files[0];
       berkasPath(berkas.value.path);
+      logSys('cek path : ${berkasPath.value}');
+      logSys('cek name : ${berkas.value.name}');
     }
 
     if (berkasPath.value.isNotEmpty) {
@@ -154,23 +159,20 @@ class WarnaPelangiController extends GetxController {
 
       isLoading(true);
 
-      // final parameters = {
-      //   'namapenanggungjawab': namaPenanggungJawab.value,
-      //   'nomortelepon': nomorTelepon.value,
-      //   'namalembaga': namaLembaga.value,
-      //   'alamatlembaga': alamatLembaga.value,
-      //   'nomorteleponlembaga': nomorTeleponLembaga.value,
-      //   'jabatan': jabatan.value,
-      //   'nip': nip.value,
-      //   'jumlah_eksemplar': jumlahEksemplar.value,
-      //   'tgl_pinjam': tanggalPeminjaman.value,
-      // };
+      final parameters = FormData.fromMap({
+        'name': 'wendux',
+        'age': 25,
+        'file': await MultipartFile.fromFile(
+          berkasPath.value,
+          filename: berkas.value.name,
+        ),
+      });
 
-      // final r = await ApiService().request(
-      //   url: 'book/pinjam',
-      //   method: Method.POST,
-      //   parameters: parameters,
-      // );
+      await ApiService().request(
+        url: 'book/pinjam',
+        method: Method.POST,
+        parameters: parameters,
+      );
 
       isLoading(false);
 
