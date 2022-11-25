@@ -36,7 +36,7 @@ class RestAreaView extends GetView<RestAreaController> {
                   ),
                 ),
                 ButtonPrimary(
-                  onTap: () => Get.toNamed(Routes.WARNA_PELANGI_FORM),
+                  onTap: () => Get.toNamed(Routes.REST_AREA_FORM),
                   width: 120.w,
                   height: 30.w,
                   label: 'Isi Form',

@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:dispusip/services/api_service.dart';
 import 'package:dispusip/styles/colors.dart';
 import 'package:dispusip/styles/styles.dart';
 import 'package:dispusip/utils/app_utils.dart';
@@ -168,11 +167,13 @@ class WarnaPelangiController extends GetxController {
         ),
       });
 
-      await ApiService().request(
-        url: 'book/pinjam',
-        method: Method.POST,
-        parameters: parameters,
-      );
+      logSys(parameters.toString());
+
+      // await ApiService().request(
+      //   url: 'book/pinjam',
+      //   method: Method.POST,
+      //   parameters: parameters,
+      // );
 
       isLoading(false);
 

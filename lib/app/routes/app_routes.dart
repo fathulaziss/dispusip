@@ -38,6 +38,7 @@ abstract class Routes {
   static const WARNA_PELANGI = _Paths.WARNA_PELANGI;
   static const WARNA_PELANGI_FORM = _Paths.WARNA_PELANGI_FORM;
   static const REST_AREA = _Paths.REST_AREA;
+  static const REST_AREA_FORM = _Paths.REST_AREA_FORM;
 }
 
 abstract class _Paths {
@@ -75,4 +76,5 @@ abstract class _Paths {
   static const WARNA_PELANGI = '/warna-pelangi';
   static const WARNA_PELANGI_FORM = '/warna-pelangi-form';
   static const REST_AREA = '/rest-area';
+  static const REST_AREA_FORM = '/rest-area-form';
 }

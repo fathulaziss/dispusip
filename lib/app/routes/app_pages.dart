@@ -44,6 +44,7 @@ import 'package:dispusip/app/modules/profile/views/profile_view.dart';
 import 'package:dispusip/app/modules/register/bindings/register_binding.dart';
 import 'package:dispusip/app/modules/register/views/register_view.dart';
 import 'package:dispusip/app/modules/rest_area/bindings/rest_area_binding.dart';
+import 'package:dispusip/app/modules/rest_area/views/rest_area_form_view.dart';
 import 'package:dispusip/app/modules/rest_area/views/rest_area_view.dart';
 import 'package:dispusip/app/modules/service_policy/bindings/service_policy_binding.dart';
 import 'package:dispusip/app/modules/service_policy/views/service_policy_view.dart';
@@ -226,6 +227,11 @@ class AppPages {
     GetPage(
       name: _Paths.REST_AREA,
       page: () => const RestAreaView(),
+      binding: RestAreaBinding(),
+    ),
+    GetPage(
+      name: _Paths.REST_AREA_FORM,
+      page: () => const RestAreaFormView(),
       binding: RestAreaBinding(),
     ),
   ];
