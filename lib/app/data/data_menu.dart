@@ -33,18 +33,14 @@ class DataMenu {
       'icon': 'ic_lare_osing.png',
       'route': 'lare-osing',
       'active': true,
-      'link': '',
-      // 'active': true,
-      // 'link': 'https://dispusip.banyuwangikab.go.id/lareosing/',
+      'link': 'https://dispusip.banyuwangikab.go.id/lareosing/',
     },
     {
       'name': 'KliK',
       'icon': 'ic_klik.png',
       'route': 'klik',
       'active': true,
-      'link': '',
-      // 'active': true,
-      // 'link': 'https://dispusip.banyuwangikab.go.id/klinik-kepustakawanan/',
+      'link': 'https://dispusip.banyuwangikab.go.id/klinik-kepustakawanan/',
     },
     {
       'name': 'Pinjam Kolektif',
@@ -71,7 +67,7 @@ class DataMenu {
       'name': 'Warna Pelangi',
       'icon': 'ic_warna_pelangi.png',
       'route': 'warna-pelangi',
-      'active': true,
+      'active': false,
       'link': '',
     },
     {
@@ -92,7 +88,7 @@ class DataMenu {
       'name': 'Rest Area',
       'icon': 'ic_rest_area.png',
       'route': 'rest-area',
-      'active': true,
+      'active': false,
       'link': '',
     },
     {

@@ -16,16 +16,10 @@ import 'package:dispusip/app/modules/forgot_password/bindings/forgot_password_bi
 import 'package:dispusip/app/modules/forgot_password/views/forgot_password_view.dart';
 import 'package:dispusip/app/modules/home/bindings/home_binding.dart';
 import 'package:dispusip/app/modules/home/views/home_view.dart';
-import 'package:dispusip/app/modules/klik/bindings/klik_binding.dart';
-import 'package:dispusip/app/modules/klik/views/klik_form_view.dart';
-import 'package:dispusip/app/modules/klik/views/klik_view.dart';
 import 'package:dispusip/app/modules/kritik_saran/bindings/kritik_saran_binding.dart';
 import 'package:dispusip/app/modules/kritik_saran/views/kritik_saran_view.dart';
 import 'package:dispusip/app/modules/kunjungan/bindings/kunjungan_binding.dart';
 import 'package:dispusip/app/modules/kunjungan/views/kunjungan_view.dart';
-import 'package:dispusip/app/modules/lare_osing/bindings/lare_osing_binding.dart';
-import 'package:dispusip/app/modules/lare_osing/views/lare_osing_form_view.dart';
-import 'package:dispusip/app/modules/lare_osing/views/lare_osing_view.dart';
 import 'package:dispusip/app/modules/login/bindings/login_binding.dart';
 import 'package:dispusip/app/modules/login/views/login_view.dart';
 import 'package:dispusip/app/modules/member_detail/bindings/member_detail_binding.dart';
@@ -43,9 +37,6 @@ import 'package:dispusip/app/modules/profile/bindings/profile_binding.dart';
 import 'package:dispusip/app/modules/profile/views/profile_view.dart';
 import 'package:dispusip/app/modules/register/bindings/register_binding.dart';
 import 'package:dispusip/app/modules/register/views/register_view.dart';
-import 'package:dispusip/app/modules/rest_area/bindings/rest_area_binding.dart';
-import 'package:dispusip/app/modules/rest_area/views/rest_area_form_view.dart';
-import 'package:dispusip/app/modules/rest_area/views/rest_area_view.dart';
 import 'package:dispusip/app/modules/service_policy/bindings/service_policy_binding.dart';
 import 'package:dispusip/app/modules/service_policy/views/service_policy_view.dart';
 import 'package:dispusip/app/modules/setting/bindings/setting_binding.dart';
@@ -54,9 +45,6 @@ import 'package:dispusip/app/modules/splash_screen_view.dart';
 import 'package:dispusip/app/modules/under_development_view.dart';
 import 'package:dispusip/app/modules/usulan_buku/bindings/usulan_buku_binding.dart';
 import 'package:dispusip/app/modules/usulan_buku/views/usulan_buku_view.dart';
-import 'package:dispusip/app/modules/warna_pelangi/bindings/warna_pelangi_binding.dart';
-import 'package:dispusip/app/modules/warna_pelangi/views/warna_pelangi_form_view.dart';
-import 'package:dispusip/app/modules/warna_pelangi/views/warna_pelangi_view.dart';
 import 'package:get/get.dart';
 
 part 'app_routes.dart';
@@ -193,46 +181,6 @@ class AppPages {
       name: _Paths.NOTIFICATION,
       page: () => const NotificationView(),
       binding: NotificationBinding(),
-    ),
-    GetPage(
-      name: _Paths.LARE_OSING,
-      page: () => const LareOsingView(),
-      binding: LareOsingBinding(),
-    ),
-    GetPage(
-      name: _Paths.LARE_OSING_FORM,
-      page: () => const LareOsingFormView(),
-      binding: LareOsingBinding(),
-    ),
-    GetPage(
-      name: _Paths.KLIK,
-      page: () => const KlikView(),
-      binding: KlikBinding(),
-    ),
-    GetPage(
-      name: _Paths.KLIK_FORM,
-      page: () => const KlikFormView(),
-      binding: KlikBinding(),
-    ),
-    GetPage(
-      name: _Paths.WARNA_PELANGI,
-      page: () => const WarnaPelangiView(),
-      binding: WarnaPelangiBinding(),
-    ),
-    GetPage(
-      name: _Paths.WARNA_PELANGI_FORM,
-      page: () => const WarnaPelangiFormView(),
-      binding: WarnaPelangiBinding(),
-    ),
-    GetPage(
-      name: _Paths.REST_AREA,
-      page: () => const RestAreaView(),
-      binding: RestAreaBinding(),
-    ),
-    GetPage(
-      name: _Paths.REST_AREA_FORM,
-      page: () => const RestAreaFormView(),
-      binding: RestAreaBinding(),
     ),
   ];
 }
