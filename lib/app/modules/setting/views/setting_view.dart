@@ -51,13 +51,6 @@ class SettingView extends GetView<SettingController> {
             ),
             SettingMenuItem(
               onTap: () {
-                AppUtils.launchInBrowser(controller.listSettingWebview[0].link);
-              },
-              label: 'Panduan',
-              isUsePrefixIcon: false,
-            ),
-            SettingMenuItem(
-              onTap: () {
                 AppUtils.launchInBrowser(controller.listSettingWebview[1].link);
               },
               label: 'Kebijakan Layanan',

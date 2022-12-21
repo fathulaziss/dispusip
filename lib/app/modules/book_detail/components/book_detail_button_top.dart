@@ -21,12 +21,12 @@ class BookDetailButtonTop extends StatelessWidget {
               child: Image.asset(AppAsset.icon('ic_back.png')),
             ),
           ),
-          SizedBox.square(
-            dimension: 40.w,
-            child: Image.asset(
-              AppAsset.icon('ic_cart_circle.png'),
-            ),
-          )
+          // SizedBox.square(
+          //   dimension: 40.w,
+          //   child: Image.asset(
+          //     AppAsset.icon('ic_cart_circle.png'),
+          //   ),
+          // )
         ],
       ),
     );
