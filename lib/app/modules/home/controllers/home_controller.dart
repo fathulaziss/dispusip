@@ -80,6 +80,7 @@ class HomeController extends GetxController {
     } catch (e) {
       isLoadingBookCategory(false);
       logSys(e.toString());
+      rethrow;
     }
   }
 
@@ -101,6 +102,7 @@ class HomeController extends GetxController {
     } catch (e) {
       isLoadingNewCollection(false);
       logSys(e.toString());
+      rethrow;
     }
   }
 
@@ -122,6 +124,7 @@ class HomeController extends GetxController {
     } catch (e) {
       isLoadingMostCollectionBorrowed(false);
       logSys(e.toString());
+      rethrow;
     }
   }
 
@@ -143,6 +146,7 @@ class HomeController extends GetxController {
     } catch (e) {
       isLoadingSlider(false);
       logSys(e.toString());
+      rethrow;
     }
   }
 

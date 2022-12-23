@@ -1,3 +1,4 @@
+import 'package:dispusip/app/controllers/user_info_controller.dart';
 import 'package:dispusip/app/controllers/utility_controller.dart';
 import 'package:dispusip/app/routes/app_pages.dart';
 import 'package:dispusip/constants/constants.dart';
@@ -10,6 +11,7 @@ import 'package:get/get.dart';
 
 class LoginController extends GetxController {
   final cUtil = Get.find<UtilityController>();
+  final cUserInfo = Get.find<UserInfoController>();
 
   final cUsername = TextEditingController();
   RxString username = ''.obs;
@@ -80,6 +82,8 @@ class LoginController extends GetxController {
       );
 
       isLoading(false);
+
+      cUserInfo.statusUser(r['status'] ?? '');
 
       await AppStorage.write(key: CACHE_ACCESS_TOKEN, value: r['auth_key']);
 

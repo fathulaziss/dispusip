@@ -106,7 +106,7 @@ class CardMemberOne extends GetView<UserInfoController> {
                 ),
                 alignment: Alignment.center,
                 child: Text(
-                  'Mahasiswa',
+                  controller.statusUser.value,
                   style: TextStyles.desc.copyWith(fontWeight: FontWeight.w500),
                 ),
               ),

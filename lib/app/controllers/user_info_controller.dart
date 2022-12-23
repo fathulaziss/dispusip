@@ -11,6 +11,8 @@ import 'package:intl/intl.dart';
 class UserInfoController extends GetxController {
   Rx<UserInfoModel> dataUser = UserInfoModel().obs;
 
+  RxString statusUser = ''.obs;
+
   RxList<NotificationModel> listNotification = <NotificationModel>[].obs;
   RxInt totalNotificationUnread = 0.obs;
 
