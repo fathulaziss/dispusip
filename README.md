@@ -1,16 +1,48 @@
 # dispusip
 
-A new Flutter project.
+Dispusip Mobile App.
 
-## Getting Started
+## How To Run
 
-This project is a starting point for a Flutter application.
+Flavor is currently only work with Android build. For iOS, there is no need to call --flavor as argument in every command.
 
-A few resources to get you started if this is your first Flutter project:
+- development:
+  ```
+  flutter run --flavor dev -t lib/main_dev.dart
+  ```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- staging:
+  ```
+  flutter run --flavor staging -t lib/main_staging.dart
+  ```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- production:
+  ```
+  flutter run --flavor prod -t lib/main_prod.dart
+  ```
+
+## How To Build APK
+
+- development:
+  ```
+  flutter build apk --split-per-abi --flavor dev -t lib/main_dev.dart --release
+  ```
+
+- staging:
+  ```
+  flutter build apk --split-per-abi --flavor staging -t lib/main_staging.dart --release
+  ```
+
+- production:
+  ```
+  flutter build apk --split-per-abi --flavor prod -t lib/main_prod.dart --release
+  ```
+
+## How To Create New Feature
+
+Make sure you have already install get_cli on your device. Please check docs on this link : https://pub.dev/packages/get_cli.
+
+Replace feature_name :
+  ```
+  get create page:feature_name
+  ```

@@ -4,18 +4,6 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-
-        {
-            "name": "PRODUCTION",
-            "type": "dart",
-            "request": "launch",
-            "program": "lib/main_prod.dart",
-            "args":[		
-                "--flavor",
-                "prod",
-                "--debug",
-			]
-        },
         {
             "name": "DEVELOPMENT",
             "type": "dart",
@@ -37,9 +25,21 @@
                 "--flavor",
                 "staging",
                 "--debug",
+                "--verbose",
 			]
         },
-
+        {
+            "name": "PRODUCTION",
+            "type": "dart",
+            "request": "launch",
+            "program": "lib/main_prod.dart",
+            "args":[		
+                "--flavor",
+                "prod",
+                "--debug",
+                "--verbose",
+			]
+        },
         {
             "name": "PRODUCTION IOS",
             "type": "dart",
@@ -60,7 +60,6 @@
                 "lib/main_dev.dart"
 			]
         },
-
         {
             "name": "STAGING IOS",
             "type": "dart",
