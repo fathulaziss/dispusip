@@ -4,7 +4,8 @@ Dispusip Mobile App.
 
 ## How To Run
 
-Flavor is currently only work with Android build. For iOS, there is no need to call --flavor as argument in every command.
+Flavor is currently only work with Android build. For iOS, there is no need to call --flavor as argument in every command or you can run with copy launch.json on this link :
+https://drive.google.com/file/d/1p22HD9Aoxhy_lUw-LFnRKe45A90ErY-x/view
 
 - development:
   ```
