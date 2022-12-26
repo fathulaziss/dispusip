@@ -45,7 +45,7 @@ class _AppState extends State<App> {
     return ScreenUtilInit(
       designSize: const Size(375, 812),
       builder: (BuildContext context, Widget? widget) => GetMaterialApp(
-        title: 'Dispusip',
+        title: 'Dispusipbwi Mobile',
         theme: AppStyle.appTheme(
           0xFF00B34D,
           Colors.white,

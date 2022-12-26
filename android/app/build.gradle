@@ -40,20 +40,20 @@ android {
         prod {
             dimension "flavor-dimension"
             applicationId "com.dispusip"
-            resValue "string", "app_name", "Dispusip"
+            resValue "string", "app_name", "Dispusipbwi Mobile"
             proguardFile 'proguard-rules.pro'
         }
         dev {
             dimension "flavor-dimension"
             applicationId "com.dispusip"
-            resValue "string", "app_name", "Dispusip"
+            resValue "string", "app_name", "Dispusipbwi Mobile"
             proguardFile 'proguard-rules.pro'
         }
 
         staging {
             dimension "flavor-dimension"
             applicationId "com.dispusip"
-            resValue "string", "app_name", "Dispusip"
+            resValue "string", "app_name", "Dispusipbwi Mobile"
             proguardFile 'proguard-rules.pro'
         }
     }
