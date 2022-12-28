@@ -20,15 +20,12 @@ class TabHome extends GetView<HomeController> {
       child: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
-              color: const Color(0xFFFFFFFF),
-            ),
             SizedBox(
               width: Get.width,
-              height: 315.w,
+              height: 302.w,
               child: Stack(
                 children: [
-                  HomeBackground(height: Get.width / 1.6.w),
+                  HomeBackground(height: 200.w),
                   Column(
                     children: const [
                       HomeHeader(),

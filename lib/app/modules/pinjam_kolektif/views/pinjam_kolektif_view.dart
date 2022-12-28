@@ -171,6 +171,7 @@ class PinjamKolektifView extends GetView<PinjamKolektifController> {
             verticalSpace(Insets.lg),
             const PinjamKolektifDateDropdown(),
             verticalSpace(Insets.lg),
+            verticalSpace(MediaQuery.of(context).viewInsets.bottom / 1.5),
           ],
         ),
       ),

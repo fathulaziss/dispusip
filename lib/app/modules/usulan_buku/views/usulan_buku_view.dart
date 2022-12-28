@@ -137,6 +137,7 @@ class UsulanBukuView extends GetView<UsulanBukuController> {
               ),
             ),
             verticalSpace(Insets.lg),
+            verticalSpace(MediaQuery.of(context).viewInsets.bottom / 1.5),
           ],
         ),
       ),

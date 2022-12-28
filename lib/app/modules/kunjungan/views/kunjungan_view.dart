@@ -202,6 +202,7 @@ class KunjunganView extends GetView<KunjunganController> {
             verticalSpace(Insets.lg),
             const KunjunganKelompokDateDropdown(),
             verticalSpace(Insets.lg),
+            verticalSpace(MediaQuery.of(context).viewInsets.bottom / 1.5),
           ],
         ),
       ),

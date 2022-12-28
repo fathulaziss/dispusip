@@ -31,46 +31,48 @@ class ForgotPasswordView extends GetView<ForgotPasswordController> {
       body: Obx(
         () => Padding(
           padding: EdgeInsets.symmetric(horizontal: 24.w),
-          child: Column(
-            children: [
-              verticalSpace(Insets.xxl),
-              Padding(
-                padding: EdgeInsets.symmetric(vertical: Insets.xxl),
-                child: Image.asset(
-                  AppAsset.logo('logo_dispusip_black.png'),
-                  height: 50.h,
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                verticalSpace(Insets.xxl),
+                Padding(
+                  padding: EdgeInsets.symmetric(vertical: Insets.xxl),
+                  child: Image.asset(
+                    AppAsset.logo('logo_dispusip_black.png'),
+                    height: 50.h,
+                  ),
                 ),
-              ),
-              Image.asset(
-                AppAsset.image('img_forgot_password.png'),
-                height: 170.h,
-              ),
-              verticalSpace(40.h),
-              Text(
-                'Lupa Password ?',
-                style: TextStyles.title,
-              ),
-              verticalSpace(40.h),
-              Text(
-                'Silakan Masukkan Alamat Email Anda\nUntuk Menerima Kode Verifikasi',
-                style: TextStyles.text,
-                textAlign: TextAlign.center,
-              ),
-              verticalSpace(40.h),
-              InputEmail(
-                hint: 'Enter Email',
-                controller: controller.cEmail,
-                value: controller.setEmail,
-                validation: (value) => true,
-                margin: EdgeInsets.only(bottom: Insets.lg),
-              ),
-              ButtonPrimary(
-                onTap: controller.submit,
-                label: 'KIRIM KODE VERIFIKASI',
-                enabled: controller.isValidEmail.value,
-                isLoading: controller.isLoading.value,
-              )
-            ],
+                Image.asset(
+                  AppAsset.image('img_forgot_password.png'),
+                  height: 170.h,
+                ),
+                verticalSpace(40.h),
+                Text(
+                  'Lupa Password ?',
+                  style: TextStyles.title,
+                ),
+                verticalSpace(40.h),
+                Text(
+                  'Silakan Masukkan Alamat Email Anda\nUntuk Menerima Kode Verifikasi',
+                  style: TextStyles.text,
+                  textAlign: TextAlign.center,
+                ),
+                verticalSpace(40.h),
+                InputEmail(
+                  hint: 'Enter Email',
+                  controller: controller.cEmail,
+                  value: controller.setEmail,
+                  validation: (value) => true,
+                  margin: EdgeInsets.only(bottom: Insets.lg),
+                ),
+                ButtonPrimary(
+                  onTap: controller.submit,
+                  label: 'KIRIM KODE VERIFIKASI',
+                  enabled: controller.isValidEmail.value,
+                  isLoading: controller.isLoading.value,
+                )
+              ],
+            ),
           ),
         ),
       ),

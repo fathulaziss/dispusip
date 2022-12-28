@@ -17,7 +17,7 @@ class OpacHeader extends GetView<OpacController> {
     return Obx(
       () => Container(
         width: double.infinity,
-        height: Get.width / 1.8.w,
+        height: 200.w,
         margin: EdgeInsets.only(bottom: Insets.med),
         padding: EdgeInsets.symmetric(horizontal: 22.w),
         decoration:
