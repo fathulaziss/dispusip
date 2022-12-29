@@ -31,6 +31,10 @@ abstract class Routes {
   static const MEMBER_DETAIL = _Paths.MEMBER_DETAIL;
   static const BOOK_CATEGORY = _Paths.BOOK_CATEGORY;
   static const NOTIFICATION = _Paths.NOTIFICATION;
+  static const LARE_OSING = _Paths.LARE_OSING;
+  static const KLIK = _Paths.KLIK;
+  static const WARNA_PELANGI = _Paths.WARNA_PELANGI;
+  static const REST_AREA = _Paths.REST_AREA;
 }
 
 abstract class _Paths {
@@ -61,4 +65,8 @@ abstract class _Paths {
   static const MEMBER_DETAIL = '/member-detail';
   static const BOOK_CATEGORY = '/book-category';
   static const NOTIFICATION = '/notification';
+  static const LARE_OSING = '/lare-osing';
+  static const KLIK = '/klik';
+  static const WARNA_PELANGI = '/warna-pelangi';
+  static const REST_AREA = '/rest-area';
 }

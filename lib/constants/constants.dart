@@ -7,3 +7,4 @@ const String CLOSE_LOG = 'closelog';
 const String FIRST_TIME_OPEN_APP = 'first_time_open_app';
 const String FCM_TOKEN = 'fcm_token';
 const String CHACHE_EMAIL_NOTIFICATION = 'email_notification';
+const String CHACHE_STATUS_USER = 'status_user';

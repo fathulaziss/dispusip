@@ -21,7 +21,7 @@ class HomeSlider extends GetView<HomeController> {
         child: controller.isLoadingSlider.value
             ? SizedBox(
                 width: Get.width,
-                height: 140.w,
+                height: 128.w,
                 child: Stack(
                   children: [
                     CarouselSlider.builder(
@@ -64,7 +64,7 @@ class HomeSlider extends GetView<HomeController> {
               )
             : SizedBox(
                 width: Get.width,
-                height: 140.w,
+                height: 128.w,
                 child: controller.listSlider.isNotEmpty
                     ? Stack(
                         children: [

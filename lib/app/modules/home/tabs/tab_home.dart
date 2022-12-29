@@ -22,7 +22,7 @@ class TabHome extends GetView<HomeController> {
           children: [
             SizedBox(
               width: Get.width,
-              height: 302.w,
+              height: 314.w,
               child: Stack(
                 children: [
                   HomeBackground(height: 200.w),

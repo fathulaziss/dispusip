@@ -81,11 +81,13 @@ class LoginController extends GetxController {
         parameters: parameters,
       );
 
-      isLoading(false);
-
-      cUserInfo.statusUser(r['status'] ?? '');
+      await cUserInfo.setStatusUser(r['status'] ?? '');
 
       await AppStorage.write(key: CACHE_ACCESS_TOKEN, value: r['auth_key']);
+
+      isLoading(false);
+
+      await Future.delayed(const Duration(milliseconds: 220));
 
       await Get.offNamed(Routes.HOME);
     } catch (e) {

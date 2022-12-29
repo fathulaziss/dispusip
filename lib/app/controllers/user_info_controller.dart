@@ -17,6 +17,7 @@ class UserInfoController extends GetxController {
   RxInt totalNotificationUnread = 0.obs;
 
   void getDataUser() {
+    getStatusUser();
     getProfile();
     getNotification();
   }
@@ -64,6 +65,25 @@ class UserInfoController extends GetxController {
           }
         }
       }
+    } catch (e) {
+      logSys(e.toString());
+    }
+  }
+
+  Future<void> getStatusUser() async {
+    try {
+      final data = await AppStorage.read(key: CHACHE_STATUS_USER);
+      if (data.isNotEmpty) {
+        statusUser(data);
+      }
+    } catch (e) {
+      logSys(e.toString());
+    }
+  }
+
+  Future<void> setStatusUser(String value) async {
+    try {
+      await AppStorage.write(key: CHACHE_STATUS_USER, value: value);
     } catch (e) {
       logSys(e.toString());
     }
