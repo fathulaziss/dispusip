@@ -25,7 +25,7 @@ class NewsDetailView extends GetView<NewsController> {
             verticalSpace(Insets.lg),
             Text(
               controller.news.value.title['rendered'],
-              style: TextStyles.title.copyWith(fontSize: 16.w),
+              style: TextStyles.title.copyWith(fontSize: 22.w),
             ),
             verticalSpace(Insets.lg),
             Row(
@@ -67,8 +67,8 @@ class NewsDetailView extends GetView<NewsController> {
             Html(
               data: controller.news.value.content['rendered'],
               style: {
-                '': Style(
-                  fontSize: FontSize.medium,
+                'body': Style(
+                  fontSize: FontSize(16.w),
                   color: AppColor.textColor,
                 ),
               },
