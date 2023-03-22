@@ -41,9 +41,6 @@ class RegisterGenderDropdown extends GetView<RegisterController> {
               const Icon(Icons.arrow_drop_down, color: Color(0xFFC4C4C4))
             ],
           ),
-          scrollbarAlwaysShow: true,
-          itemHeight: 55.w,
-          dropdownMaxHeight: 55.w * controller.listGender.length,
           items: controller.listGender
               .map(
                 (item) => DropdownMenuItem<RegisterGenderModel>(

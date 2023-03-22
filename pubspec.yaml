@@ -3,15 +3,15 @@ version: 1.0.0+2
 publish_to: none
 description: A new Flutter project.
 environment:
-  sdk: ">=2.17.6 <3.0.0"
+  sdk: ">=2.19.4 <=3.3.8"
 
 dependencies:
   carousel_slider: ^4.1.1
   change_app_package_name: ^1.1.0
   colored_json: ^1.1.0
   cupertino_icons: ^1.0.2
-  dio: ^4.0.6
-  dropdown_button2: ^1.8.5
+  dio: ^5.0.3
+  dropdown_button2: ^2.0.0
   easy_mask: ^2.0.1
   file_picker: ^5.2.2
   firebase_core: ^2.3.0
@@ -21,17 +21,17 @@ dependencies:
   flutter_holo_date_picker: ^1.1.0
   flutter_html: ^3.0.0-alpha.3
   flutter_jailbreak_detection: ^1.8.0
-  flutter_launcher_icons: ^0.11.0
-  flutter_local_notifications: ^12.0.4
+  flutter_launcher_icons: ^0.12.0
+  flutter_local_notifications: ^13.0.0
   flutter_screenutil: ^5.5.4
   flutter_spinkit: ^5.1.0
   flutter_switch: ^0.3.2
   fluttertoast: ^8.1.1
   get: 4.6.5
   get_storage: ^2.0.3
-  google_fonts: ^3.0.1
+  google_fonts: ^4.0.3
   html: ^0.15.1
-  intl: ^0.17.0
+  intl: ^0.18.0
   jwt_decoder: ^2.0.1
   package_info_plus: ^3.0.2
   qr_flutter: ^4.0.0

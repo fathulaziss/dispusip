@@ -41,9 +41,6 @@ class RegisterTypeIdDropdown extends GetView<RegisterController> {
               const Icon(Icons.arrow_drop_down, color: Color(0xFFC4C4C4))
             ],
           ),
-          scrollbarAlwaysShow: true,
-          itemHeight: 55.w,
-          dropdownMaxHeight: 55.w * controller.listTypeId.length,
           items: controller.listTypeId
               .map(
                 (item) => DropdownMenuItem<RegisterTypeIdModel>(
