@@ -63,7 +63,7 @@ class RegisterGenderDropdown extends GetView<RegisterController> {
               .toList(),
           onChanged: (value) {
             if (value != null) {
-              final data = value as RegisterGenderModel;
+              final data = value;
               controller.setGender(data);
             }
           },

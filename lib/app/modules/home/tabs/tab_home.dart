@@ -26,8 +26,8 @@ class TabHome extends GetView<HomeController> {
               child: Stack(
                 children: [
                   HomeBackground(height: 200.w),
-                  Column(
-                    children: const [
+                  const Column(
+                    children: [
                       HomeHeader(),
                       HomeSlider(),
                     ],

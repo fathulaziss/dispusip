@@ -13,7 +13,7 @@ class MemberDetailTabbarViewOne extends GetView<MemberDetailController> {
       () => Padding(
         padding: EdgeInsets.all(30.w),
         child: Center(
-          child: QrImage(
+          child: QrImageView(
             data: controller.cUserInfo.dataUser.value.nomorAnggota,
             gapless: false,
             embeddedImage: const AssetImage('assets/logos/logo_banyuwangi.png'),

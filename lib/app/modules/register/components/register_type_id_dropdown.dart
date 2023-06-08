@@ -63,7 +63,7 @@ class RegisterTypeIdDropdown extends GetView<RegisterController> {
               .toList(),
           onChanged: (value) {
             if (value != null) {
-              final data = value as RegisterTypeIdModel;
+              final data = value;
               controller.setTypeId(data);
             }
           },
